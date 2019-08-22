@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Laracasts\Flash\Flash;
 
 class NewsController extends Controller
 {
@@ -13,7 +17,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.admin.news.index');
     }
 
     /**
@@ -34,7 +38,26 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title_news' => ['required','unique:news,title_news'],
+            'detail_news' => [ 'required', 'max:250'],
+        ],[
+            'title_news.required' => 'El titulo es obligatorio.',
+            'title_news.unique' => 'Ya existe una noticia con ese Titular.',
+            'detail_news.required' => 'Escriba una breve descripción de la notitica',
+            'detail_news.max' => 'La descripcion no debe tener más de 250  caracteres.',
+        ]);
+
+
+        $news = News::create($request->all());
+        //image
+        if($request->file('avatar_news')){
+            $path = Storage::disk('public')->put('temp/avatar_news', $request->file('avatar_news'));
+            $news->fill(['avatar_news' => asset($path)])->save();
+        }
+
+        Flash::success('NOTICIA: '.$news->title_news." publicada con exito!");
+        return back();
     }
 
     /**
