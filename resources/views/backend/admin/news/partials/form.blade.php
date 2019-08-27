@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12 col-lg-1"></div>
-    <div class="col-sm-12 col-lg-5">
+    <div class="col-sm-12 col-lg-4">
         <div class="form-group row container-fluid">
             <center>
                 {{Form::label('avatar_news', 'Imagen:',['class' => 'my-label'])}}
@@ -21,7 +21,7 @@
 
         </div>
     </div>
-    <div class="col-sm-12 col-lg-5">
+    <div class="col-sm-12 col-lg-6">
         <br>
        <!--  <div class="row">
             <div class="col-sm-12 col-lg-12">
@@ -33,7 +33,7 @@
         </div> -->
         <div class="row">
             <div class="col-sm-12 col-lg-12">
-                <div class="form-group row">
+                <div class="form-group">
                     {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
                     {{Form::text('title_news', null , ['class' => 'form-control my-border']) }}
                 </div>
@@ -41,9 +41,9 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-lg-12">
-                <div class="form-group row">
+                <div class="form-group">
                     {{Form::label('detail_news', 'Detalle:',['class' => 'my-label'])}}
-                    {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border', 'rows' => '9' ]) }}
+                    {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border']) }}
                 </div>
             </div>
         </div>
@@ -70,5 +70,7 @@
     </div>
     <div class="col-sm-12 col-lg-4"></div>
 </div>
+
+
 
 

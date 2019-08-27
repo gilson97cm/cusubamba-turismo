@@ -20,8 +20,11 @@ class CreateActivitiesTable extends Migration
             $table->string('avatar_activity');
 
             $table->bigInteger('category_activity_id')->unsigned();
-            $table->foreign('category_activity_id')->references('id_category_activity')->on('category_activities');
             $table->timestamps();
+
+            //relation
+            $table->foreign('category_activity_id')->references('id_category_activity')->on('category_activities');
+
         });
     }
 

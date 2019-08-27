@@ -58,6 +58,7 @@
 
 @endsection
 @section('scripts')
+
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
@@ -90,5 +91,11 @@
         }
     </script>
 
+    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.config.height = 300;
+        CKEDITOR.config.width = 'auto';
+        CKEDITOR.replace('detail_news');
+    </script>
 
 @endsection

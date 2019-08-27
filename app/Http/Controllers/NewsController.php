@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsStoreRequest;
+use App\Http\Requests\NewsUpdateRequest;
 use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +19,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('backend.admin.news.index');
+        $news = News::paginate(10);
+        return view('backend.admin.news.index', compact('news'));
     }
 
     /**
@@ -36,19 +39,8 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsStoreRequest $request)
     {
-        $request->validate([
-            'title_news' => ['required','unique:news,title_news'],
-            'detail_news' => [ 'required', 'max:250'],
-        ],[
-            'title_news.required' => 'El titulo es obligatorio.',
-            'title_news.unique' => 'Ya existe una noticia con ese Titular.',
-            'detail_news.required' => 'Escriba una breve descripción de la notitica',
-            'detail_news.max' => 'La descripcion no debe tener más de 250  caracteres.',
-        ]);
-
-
         $news = News::create($request->all());
         //image
         if($request->file('avatar_news')){
@@ -68,7 +60,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $news = News::find($id);
+        return view('backend.admin.news.show', compact('news'));
     }
 
     /**
@@ -89,7 +82,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsUpdateRequest $request, $id)
     {
         //
     }

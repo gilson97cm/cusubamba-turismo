@@ -36,6 +36,7 @@
 <script type="text/javascript" src="{{asset('backend/js/plugins.js')}}"></script>
 <script type="text/javascript" src="{{asset('backend/js/actions.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('assets/my-libs/js/jquery-2.2.4.min.js')}}"></script>
+
+{{--<script type="text/javascript" src="{{asset('assets/my-libs/js/jquery-2.2.4.min.js')}}"></script>--}}
 <script type="text/javascript" src="{{asset('assets/my-libs/js/isotope.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/my-libs/js/isotope-triger.js')}}"></script>

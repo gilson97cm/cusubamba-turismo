@@ -18,8 +18,10 @@ class CreateCantonTable extends Migration
             $table->string('name_canton');
             $table->primary('name_canton');
             $table->string('name_province');
-            $table->foreign('name_province')->references('name_province')->on('province');
             $table->timestamps();
+
+            //relation
+            $table->foreign('name_province')->references('name_province')->on('province');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlacesActivitiesTable extends Migration
+class CreateActivityPlaceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreatePlacesActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('places_activities', function (Blueprint $table) {
-            $table->bigIncrements('id_place_activity');
+        Schema::create('activity_place', function (Blueprint $table) {
+            $table->bigIncrements('id_activity_place');
 
             $table->bigInteger('place_id')->unsigned();
-            $table->foreign('place_id')->references('id_place')->on('places');
-
             $table->bigInteger('activity_id')->unsigned();
-            $table->foreign('activity_id')->references('id_activity')->on('activities');
 
             $table->timestamps();
+
+            //relation
+            $table->foreign('place_id')->references('id_place')->on('places');
+            $table->foreign('activity_id')->references('id_activity')->on('activities');
         });
     }
 
@@ -33,6 +34,6 @@ class CreatePlacesActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('places_activities');
+        Schema::dropIfExists('activity_place');
     }
 }

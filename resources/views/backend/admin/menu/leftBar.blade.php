@@ -31,7 +31,7 @@
 
             {{--NOTICIAS--}}
             @can('news.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Noticias</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Noticias</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('news.create')
                             <li class="sidebar-item"><a href="{{route('news.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Noticia</span></a></li>
@@ -46,7 +46,7 @@
 
             {{--ACTIVIDADES--}}
             @can('activities.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Actividades</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Actividades</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesA.index')
                             <li class="sidebar-item"><a href="{{route('categoriesA.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Actividades</span></a></li>
@@ -64,7 +64,7 @@
 
             {{--LUGARES--}}
             @can('places.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Lugares</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Lugares</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesP.index')
                             <li class="sidebar-item"><a href="{{route('categoriesP.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Lugares</span></a></li>
@@ -80,9 +80,27 @@
             @endcan
             {{--END LUGARES--}}
 
+            {{--EVENTOS--}}
+            @can('events.index')
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Eventos</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        @can('categoriesE.index')
+                            <li class="sidebar-item"><a href="{{route('events.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Evento</span></a></li>
+                        @endcan
+                        @can('events.create')
+                            <li class="sidebar-item"><a href="{{route('events.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Calendario</span></a></li>
+                        @endcan
+                        @can('events.index')
+                            <li class="sidebar-item"><a href="{{route('events.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Lista de Eventos</span></a></li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+            {{--END EVENTOS--}}
+
             {{--LEYENDAS--}}
             @can('legends.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Leyendas</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Leyendas</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('legends.create')
                             <li class="sidebar-item"><a href="{{route('legends.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Leyenda</span></a></li>
@@ -95,9 +113,29 @@
             @endcan
             {{--END LEYENDAS--}}
 
+            <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Personal</span></li>
+
+            {{--EMPLEADOS--}}
+            @can('employees.index')
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Empleados </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        @can('employees.create')
+                            <li class="sidebar-item"><a href="{{route('employees.create')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Agregar Empleado </span></a></li>
+                        @endcan
+                        @can('employees.index')
+                            <li class="sidebar-item"><a href="{{route('employees.index')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Lista de Empleados </span></a></li>
+                        @endcan
+                        @can('employees.inactive')
+                            <li class="sidebar-item"><a href="{{route('employees.inactive')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Empleados Inactivos </span></a></li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+            {{--END EMPLEADOS--}}
+
             {{--ROLES--}}
             @can('roles.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Roles </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Roles </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('roles.create')
                             <li class="sidebar-item"><a href="{{route('roles.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Rol</span></a></li>
@@ -111,23 +149,7 @@
             {{--END ROLES--}}
 
 
-            {{--EMPLEADOS--}}
-            @can('employees.index')
-            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Gestionar Empleados </span></a>
-                <ul aria-expanded="false" class="collapse  first-level">
-                    @can('employees.create')
-                    <li class="sidebar-item"><a href="{{route('employees.create')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Agregar Empleado </span></a></li>
-                    @endcan
-                        @can('employees.index')
-                    <li class="sidebar-item"><a href="{{route('employees.index')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Lista de Empleados </span></a></li>
-                        @endcan
-                        @can('employees.inactive')
-                    <li class="sidebar-item"><a href="{{route('employees.inactive')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Empleados Inactivos </span></a></li>
-                        @endcan
-                </ul>
-            </li>
-            @endcan
-            {{--END EMPLEADOS--}}
+
 
 
 

@@ -18,8 +18,10 @@ class CreateParishTable extends Migration
             $table->string('name_parish');
             $table->primary('name_parish');
             $table->string('name_canton');
-            $table->foreign('name_canton')->references('name_canton')->on('canton');
             $table->timestamps();
+
+            //relation
+             $table->foreign('name_canton')->references('name_canton')->on('canton');
         });
     }
 

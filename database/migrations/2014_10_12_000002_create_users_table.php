@@ -24,13 +24,15 @@ class CreateUsersTable extends Migration
         });*/
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('person_id_card');
-            $table->foreign('person_id_card')->references('id_card_person')->on('people')->onUpdate('cascade');
-            $table->string('email')->unique();
+            $table->string('person_id_card', 10);
+           $table->string('email')->unique();
             $table->string('password');
-            $table->enum('state_user',['Activo','Inactivo']);
+            $table->enum('state_user',['ACTIVO','INACTIVO'])->default('ACTIVO');
             $table->rememberToken();
             $table->timestamps();
+
+            //Relation
+            $table->foreign('person_id_card')->references('id_card_person')->on('people')->onUpdate('cascade');
         });
     }
 

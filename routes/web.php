@@ -80,6 +80,32 @@ Route::middleware(['auth'])->group(function (){
     ->middleware('permission:categoriesA.edit');
     #endregion
 
+    #region CATEGORY EVENTS
+    Route::post('categoriesE/store/', 'CategoryEventController@store')->name('categoriesE.store')//
+    ->middleware('permission:categoriesE.create');
+
+    Route::get('categoriesE/all', 'CategoryEventController@index')->name('categoriesE.index') //
+    ->middleware('permission:categoriesE.index');
+
+    Route::get('categoriesA/inactive', 'CategoryEventController@inactive')->name('categoriesE.inactive') //
+    ->middleware('permission:categoriesA.inactive');
+
+    Route::get('categoriesE/create', 'CategoryEventController@create')->name('categoriesE.create')//
+    ->middleware('permission:categoriesA.create');
+
+    Route::put('categoriesE/{event}/update', 'CategoryEventController@update')->name('categoriesE.update') //
+    ->middleware('permission:categoriesA.edit');
+
+    Route::get('categoriesE/{event}/show', 'CategoryEventController@show')->name('categoriesE.show')//
+    ->middleware('permission:categoriesE.show');
+
+    Route::delete('categoriesE/{event}', 'CategoryEventController@destroy')->name('categoriesE.destroy')//
+    ->middleware('permission:categoriesE.destroy');
+
+    Route::get('categoriesE/{event}/edit', 'CategoryEventController@edit')->name('categoriesE.edit')//
+    ->middleware('permission:categoriesE.edit');
+    #endregion
+
     #region CATEGORY PLACE
     Route::post('categoriesP/store/', 'CategoryPlaceController@store')->name('categoriesP.store')//
     ->middleware('permission:categoriesP.create');
@@ -130,6 +156,32 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('activities/{activity}/edit', 'ActivityController@edit')->name('activities.edit')//
     ->middleware('permission:activities.edit');
+    #endregion
+
+    #region EVENT
+    Route::post('events/store/', 'EventController@store')->name('events.store')//
+    ->middleware('permission:events.create');
+
+    Route::get('events/all', 'EventController@index')->name('events.index') //
+    ->middleware('permission:events.index');
+
+    Route::get('events/inactive', 'EventController@inactive')->name('events.inactive') //
+    ->middleware('permission:events.inactive');
+
+    Route::get('events/create', 'EventController@create')->name('events.create')//
+    ->middleware('permission:events.create');
+
+    Route::put('events/{event}/update', 'EventController@update')->name('events.update') //
+    ->middleware('permission:events.edit');
+
+    Route::get('events/{event}/show', 'EventController@show')->name('events.show')//
+    ->middleware('permission:events.show');
+
+    Route::delete('events/{event}', 'EventController@destroy')->name('events.destroy')//
+    ->middleware('permission:events.destroy');
+
+    Route::get('events/{event}/edit', 'EventController@edit')->name('events.edit')//
+    ->middleware('permission:events.edit');
     #endregion
 
     #region PLACE

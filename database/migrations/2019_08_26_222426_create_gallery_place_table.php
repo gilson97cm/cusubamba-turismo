@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGalleryPlacesTable extends Migration
+class CreateGalleryPlaceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateGalleryPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallery_places', function (Blueprint $table) {
+        Schema::create('gallery_place', function (Blueprint $table) {
             $table->bigIncrements('id_gallery_place');
 
             $table->bigInteger('place_id')->unsigned();
-            $table->foreign('place_id')->references('id_place')->on('places')->onUpdate('cascade')->onDelete('cascade');
-
             $table->bigInteger('picture_id')->unsigned();
+            $table->timestamps();
+
+            //relation
+            $table->foreign('place_id')->references('id_place')->on('places')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('picture_id')->references('id_picture')->on('pictures')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->timestamps();
         });
     }
 
@@ -33,6 +34,6 @@ class CreateGalleryPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery_places');
+        Schema::dropIfExists('gallery_place');
     }
 }

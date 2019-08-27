@@ -20,8 +20,11 @@ class CreatePlacesTable extends Migration
             $table->string('avatar_place');
 
             $table->bigInteger('category_place_id')->unsigned();
-            $table->foreign('category_place_id')->references('id_category_place')->on('category_places');
             $table->timestamps();
+
+            //relation
+            $table->foreign('category_place_id')->references('id_category_place')->on('category_places');
+
         });
     }
 
