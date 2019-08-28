@@ -64,10 +64,11 @@
                         <div class="col-lg-1"></div>
                         <div class=" form-group col-lg-10 align-my-paragraph" >
                             {!! $news->detail_news !!}
-                            <a class="float-right" href="{{route('news.index')}}">Volver a la Lista de Noticias</a>
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
+                    <hr>
+                    <a class="float-right" href="{{route('news.index')}}">Volver a la Lista de Noticias</a>
 
                 </div>
             </div>

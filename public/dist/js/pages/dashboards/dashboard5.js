@@ -257,7 +257,7 @@ $(window).on("load", function() {
         , point: {
             r: 0
         , }
-        , legend: {
+        , legends: {
             hide: true
                 //or hide: 'data1'
                 //or hide: ['data1', 'data2']

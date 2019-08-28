@@ -213,7 +213,7 @@ $(function() {
             tooltip: {
                 trigger: 'axis'
             },
-            // Add legend
+            // Add legends
                 legend: {
                     data: ['Elite admin', 'Monster admin', 'Ample admin', 'Material admin', 'Angular admin']
                 },
@@ -291,7 +291,7 @@ $(function() {
             tooltip: {
                 trigger: 'axis'
             },
-            // Add legend
+            // Add legends
                 legend: {
                     data: ['Elite admin', 'Monster admin', 'Ample admin', 'Material admin', 'Angular admin']
                 },

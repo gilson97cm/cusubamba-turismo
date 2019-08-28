@@ -25,7 +25,7 @@ class NewsUpdateRequest extends FormRequest
     {
       //  dd($this->news_id);
         $rules = [
-            'title_news' => 'required|max:1000|unique:news,title_news,' . $this->news_id, //news_id es el parametro que se envia por la ruta
+            'title_news' => 'required|max:1000|unique:news,title_news,' . $this->news, //news_id es el parametro que se envia por la ruta
             'detail_news' => [ 'required','max:250000'],
         ];
 
@@ -47,7 +47,6 @@ class NewsUpdateRequest extends FormRequest
 
         if($this->get('avatar_news'))
             $messages = array_merge($messages, ['avatar_news.mimes' => 'La imagen debe ser de formato: pg,jpeg ó png']);
-
         return $messages;
     }
 }

@@ -109,7 +109,7 @@ $(function() {
                     }
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     data: ['Direct access', 'Email marketing', 'Advertising alliance', 'Video ads', 'Search Engine']
                 },
@@ -198,7 +198,7 @@ $(function() {
                     }
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     data: [  'Video', 'Search engine', 'Google', 'Safari', 'Opera', 'Firefox']
                 },
@@ -298,7 +298,7 @@ $(function() {
                     trigger: 'axis'
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     data: ['2017', '2018']
                 },

@@ -45,15 +45,15 @@ Licensed under the MIT license.
                 colors: ["#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#9440ed"],
                 legend: {
                     show: true,
-                    noColumns: 1, // number of colums in legend table
+                    noColumns: 1, // number of colums in legends table
                     labelFormatter: null, // fn: string -> string
                     labelBoxBorderColor: "#ccc", // border color for the little label boxes
-                    container: null, // container (as jQuery object) to put legend in, null means default on top of graph
-                    position: "ne", // position of default legend container within plot
-                    margin: 5, // distance from grid edge to default legend container within plot
+                    container: null, // container (as jQuery object) to put legends in, null means default on top of graph
+                    position: "ne", // position of default legends container within plot
+                    margin: 5, // distance from grid edge to default legends container within plot
                     backgroundColor: null, // null means auto-detect
                     backgroundOpacity: 0.85, // set to 0 to avoid background
-                    sorted: null    // default to no legend sorting
+                    sorted: null    // default to no legends sorting
                 },
                 xaxis: {
                     show: null, // null = auto-detect, true = always, false = never
@@ -2295,7 +2295,7 @@ Licensed under the MIT license.
             var fragments = [], entries = [], rowStarted = false,
                 lf = options.legend.labelFormatter, s, label;
 
-            // Build a list of legend entries, with each having a label and a color
+            // Build a list of legends entries, with each having a label and a color
 
             for (var i = 0; i < series.length; ++i) {
                 s = series[i];
@@ -2310,7 +2310,7 @@ Licensed under the MIT license.
                 }
             }
 
-            // Sort the legend using either the default or a custom comparator
+            // Sort the legends using either the default or a custom comparator
 
             if (options.legend.sorted) {
                 if ($.isFunction(options.legend.sorted)) {
@@ -2369,7 +2369,7 @@ Licensed under the MIT license.
                     pos += 'right:' + (m[0] + plotOffset.right) + 'px;';
                 else if (p.charAt(1) == "w")
                     pos += 'left:' + (m[0] + plotOffset.left) + 'px;';
-                var legend = $('<div class="legend">' + table.replace('style="', 'style="position:absolute;' + pos +';') + '</div>').appendTo(placeholder);
+                var legend = $('<div class="legends">' + table.replace('style="', 'style="position:absolute;' + pos +';') + '</div>').appendTo(placeholder);
                 if (options.legend.backgroundOpacity != 0.0) {
                     // put in the transparent background
                     // separately to avoid blended labels and

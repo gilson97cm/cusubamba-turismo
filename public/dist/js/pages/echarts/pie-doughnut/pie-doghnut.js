@@ -19,7 +19,7 @@ $(function() {
                     formatter: "{a} <br/>{b}: {c} ({d}%)"
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     orient: 'vertical',
                     x: 'left',
@@ -111,7 +111,7 @@ $(function() {
                     x: 'center'
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     orient: 'vertical',
                     x: 'left',
@@ -307,7 +307,7 @@ $(function() {
                     formatter: "{a} <br/>{b}: {c} ({d}%)"
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     orient: 'vertical',
                     x: 'left',
@@ -474,7 +474,7 @@ $(function() {
                     formatter: "{a} <br/>{b}: {c} ({d}%)"
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     orient: 'vertical',
                     x: document.getElementById('pole-chart').offsetWidth / 2,
@@ -566,7 +566,7 @@ $(function() {
                     formatter: "{a} <br/>{b}: +{c}$ ({d}%)"
                 },
 
-                // Add legend
+                // Add legends
                 legend: {
                     x: 'left',
                     y: 'top',

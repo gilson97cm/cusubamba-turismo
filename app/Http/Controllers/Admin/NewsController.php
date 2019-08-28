@@ -44,7 +44,7 @@ class NewsController extends Controller
     {
         $news = News::create($request->all());
         //image
-       if ($request->file('avatar_news')) {
+        if ($request->file('avatar_news')) {
             $path = Storage::disk('public')->put('temp/avatar_news', $request->file('avatar_news'));
             $news->fill(['avatar_news' => $path])->save();
         } else {
@@ -63,7 +63,10 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-        return view('backend.admin.news.show', compact('news'));
+        if ($news)
+            return view('backend.admin.news.show', compact('news'));
+        else
+            return redirect()->route('home');
     }
 
     /**
@@ -75,7 +78,11 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news_ = News::find($id);
-        return view('backend.admin.news.edit', compact('news_'));
+        if ($news_)
+            return view('backend.admin.news.edit', compact('news_'));
+        else
+            return redirect()->route('home');
+
     }
 
     /**
@@ -110,7 +117,6 @@ class NewsController extends Controller
     public function destroy(Request $request, News $news)
     {
         if ($request->ajax()) {
-
             $news->delete();
             return response()->json([
                 'message' => 'Noticia eliminada con exito.',

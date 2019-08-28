@@ -7,12 +7,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Editar Noticia</h4>
+                <h4 class="page-title">Crear Leyenda</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Noticia</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Editar</li>
+                            <li class="breadcrumb-item"><a href="#">Leyenda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Crear</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,25 +43,18 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">Noticia:</label>
-                        @can('news.index')
-                            <a href="{{route('news.index')}}"
+                        <label class="my-label">Leyenda:</label>
+                        @can('legends.index')
+                            <a href="{{route('legends.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
-                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Noticias
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Leyendass
                             </a>
                         @endcan
-                        <span></span>
-                        @can('news.create')
-                            <a href="{{route('news.create')}}"
-                               class="btn btn-sm btn-default my-button-create pull-right ">
-                                <i class="mdi mdi-plus"></i>Noticia Nueva
-                            </a>
-                        @endcan
-
                     </div>
                     <div class="card-body">
-                        {!! Form::model($news_, ['route' => ['news.update', $news_->id], 'method' => 'PUT', 'files' => 'true']) !!}
-                        @include('backend.admin.news.partials.form')
+                        {!! Form::open(['route' => ['legends.store'], 'files' => 'true']) !!}
+                        @include('backend.admin.legends.partials.form')
+
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -78,9 +71,9 @@
 
     <script>
         function changeProfile() {
-            $('#avatar_news').click();
+            $('#avatar_legend').click();
         }
-        $('#avatar_news').change(function () {
+        $('#avatar_legend').change(function () {
             var imgPath = this.value;
             var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
             if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
@@ -108,7 +101,7 @@
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
-        CKEDITOR.replace('detail_news');
+        CKEDITOR.replace('description_legend');
     </script>
 
 @endsection

@@ -116,9 +116,9 @@ $(function(){
         }
 
         var graph = new Rickshaw.Graph( {
-                element: document.getElementById("charts-legend"),
+                element: document.getElementById("charts-legends"),
                 renderer: 'area',
-                width: $("#charts-legend").width(),
+                width: $("#charts-legends").width(),
                 series: [{color: "#33414E",data: seriesData[0],name: 'Total'}, 
                          {color: "#3FBAE4",data: seriesData[1],name: 'New'}, 
                          {color: "#B64645",data: seriesData[2],name: 'Returned'}]
@@ -126,15 +126,15 @@ $(function(){
 
         graph.render();
 
-        var legend = new Rickshaw.Graph.Legend({graph: graph, element: document.getElementById('legend')});
+        var legend = new Rickshaw.Graph.Legend({graph: graph, element: document.getElementById('legends')});
         var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({graph: graph,legend: legend});
         var order = new Rickshaw.Graph.Behavior.Series.Order({graph: graph,legend: legend});
         var highlight = new Rickshaw.Graph.Behavior.Series.Highlight( {graph: graph,legend: legend} );        
         
         var resize = function() {                
                 graph.configure({
-                        width: $("#charts-legend").width(),
-                        height: $("#charts-legend").height()
+                        width: $("#charts-legends").width(),
+                        height: $("#charts-legends").height()
                 });
                 graph.render();
         };

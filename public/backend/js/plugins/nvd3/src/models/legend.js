@@ -11,8 +11,8 @@ nv.models.legend = function() {
     , color = nv.utils.defaultColor()
     , align = true
     , rightAlign = true
-    , updateState = true   //If true, legend will update data.disabled and trigger a 'stateChange' dispatch.
-    , radioButtonMode = false   //If true, clicking legend items will cause it to behave like a radio button. (only one can be selected at a time)
+    , updateState = true   //If true, legends will update data.disabled and trigger a 'stateChange' dispatch.
+    , radioButtonMode = false   //If true, clicking legends items will cause it to behave like a radio button. (only one can be selected at a time)
     , dispatch = d3.dispatch('legendClick', 'legendDblclick', 'legendMouseover', 'legendMouseout', 'stateChange')
     ;
 
@@ -28,8 +28,8 @@ nv.models.legend = function() {
       //------------------------------------------------------------
       // Setup containers and skeleton of chart
 
-      var wrap = container.selectAll('g.nv-legend').data([data]);
-      var gEnter = wrap.enter().append('g').attr('class', 'nvd3 nv-legend').append('g');
+      var wrap = container.selectAll('g.nv-legends').data([data]);
+      var gEnter = wrap.enter().append('g').attr('class', 'nvd3 nv-legends').append('g');
       var g = wrap.select('g');
 
       wrap.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
@@ -84,11 +84,11 @@ nv.models.legend = function() {
           });
       seriesEnter.append('circle')
           .style('stroke-width', 2)
-          .attr('class','nv-legend-symbol')
+          .attr('class','nv-legends-symbol')
           .attr('r', 5);
       seriesEnter.append('text')
           .attr('text-anchor', 'start')
-          .attr('class','nv-legend-text')
+          .attr('class','nv-legends-text')
           .attr('dy', '.32em')
           .attr('dx', '8');
       series.classed('disabled', function(d) { return d.disabled });
@@ -156,7 +156,7 @@ nv.models.legend = function() {
               return 'translate(' + xPositions[i % seriesPerRow] + ',' + (5 + Math.floor(i / seriesPerRow) * 20) + ')';
             });
 
-        //position legend as far right as possible within the total width
+        //position legends as far right as possible within the total width
         if (rightAlign) {
            g.attr('transform', 'translate(' + (width - margin.right - legendWidth) + ',' + margin.top + ')');
         }
@@ -188,7 +188,7 @@ nv.models.legend = function() {
               return 'translate(' + xpos + ',' + ypos + ')';
             });
 
-        //position legend as far right as possible within the total width
+        //position legends as far right as possible within the total width
         g.attr('transform', 'translate(' + (width - margin.right - maxwidth) + ',' + margin.top + ')');
 
         height = margin.top + margin.bottom + ypos + 15;

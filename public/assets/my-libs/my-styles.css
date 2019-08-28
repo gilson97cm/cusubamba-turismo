@@ -7,6 +7,16 @@
 	border-color: transparent;
 }
 
+.my-button-create{
+   // background: #14b19b;
+    border-color: transparent;
+    margin-right: 3px;
+}
+.my-button-create:hover{
+    background: #35ACE8;
+    border-color: transparent;
+}
+
 
 .my_text, .my_text >b{
 	color:#14b19b;

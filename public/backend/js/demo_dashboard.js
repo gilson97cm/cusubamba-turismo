@@ -45,7 +45,7 @@ $(function(){
 
     rdc.render();
 
-    var legend = new Rickshaw.Graph.Legend({graph: rdc, element: document.getElementById('dashboard-legend')});
+    var legend = new Rickshaw.Graph.Legend({graph: rdc, element: document.getElementById('dashboard-legends')});
     var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({graph: rdc,legend: legend});
     var order = new Rickshaw.Graph.Behavior.Series.Order({graph: rdc,legend: legend});
     var highlight = new Rickshaw.Graph.Behavior.Series.Highlight( {graph: rdc,legend: legend} );        

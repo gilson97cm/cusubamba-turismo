@@ -75,7 +75,7 @@ nv.interactiveGuideline = function() {
                          if(d3.event.target.tagName !== "svg")
                             subtractMargin = false;
 
-                         if (d3.event.target.className.baseVal.match("nv-legend"))
+                         if (d3.event.target.className.baseVal.match("nv-legends"))
                          	mouseOutAnyReason = true;
                           
                       }

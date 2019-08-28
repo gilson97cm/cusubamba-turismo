@@ -93,7 +93,7 @@ window.nv.tooltip.* also has various helper methods.
                 ;
 
             trowEnter.append("td")
-                .classed("legend-color-guide",true)
+                .classed("legends-color-guide",true)
                 .append("div")
                     .style("background-color", function(p) { return p.color});
             trowEnter.append("td")

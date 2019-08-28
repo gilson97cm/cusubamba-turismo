@@ -29,29 +29,65 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function (){
 
     #region NEWS
-    Route::post('news/store/', 'Admin\NewsController@store')->name('news.store')//
-    ->middleware('permission:news.create');
-
-    Route::get('news/all', 'Admin\NewsController@index')->name('news.index') //
+    Route::get('lista-de-noticias/', 'Admin\NewsController@index')->name('news.index') //
     ->middleware('permission:news.index');
 
-    Route::get('news/inactive', 'Admin\NewsController@inactive')->name('news.inactive') //
+    Route::get('noticias-inactivas/', 'Admin\NewsController@inactive')->name('news.inactive') //
     ->middleware('permission:news.inactive');
 
-    Route::get('news/create', 'Admin\NewsController@create')->name('news.create')//
+    Route::get('publicar-noticia/', 'Admin\NewsController@create')->name('news.create')// vista del formulario crear
     ->middleware('permission:news.create');
 
-    Route::put('news/{news_id}/update', 'Admin\NewsController@update')->name('news.update') //
+    Route::post('grabar-noticia/', 'Admin\NewsController@store')->name('news.store')//
+    ->middleware('permission:news.create');
+
+    Route::get('editar-noticia/{news}/', 'Admin\NewsController@edit')->name('news.edit')// vista del formulario editar
     ->middleware('permission:news.edit');
 
-    Route::get('news/{news_id}/show', 'Admin\NewsController@show')->name('news.show')//
+    Route::put('actualizar-noticia/{news}/', 'Admin\NewsController@update')->name('news.update') //
+    ->middleware('permission:news.edit');
+
+    Route::get('ver-noticia/{news}/', 'Admin\NewsController@show')->name('news.show')// vista del detalle de la noticia
     ->middleware('permission:news.show');
 
-    Route::delete('noticias/{news}', 'Admin\NewsController@destroy')->name('news.destroy')//
+    Route::delete('eliminar-noticia/{news}', 'Admin\NewsController@destroy')->name('news.destroy')//
     ->middleware('permission:news.destroy');
 
-    Route::get('news/{news_id}/edit', 'Admin\NewsController@edit')->name('news.edit')//
-    ->middleware('permission:news.edit');
+    Route::get('eliminar-noticia/{news}', function () { //evita el conflicto de rutas destroy
+        return redirect()->route('home');
+    });
+
+    #endregion
+
+    #region LEGENDS
+    Route::get('lista-de-leyendas/', 'Admin\LegendController@index')->name('legends.index') //
+    ->middleware('permission:legends.index');
+
+    Route::get('leyendas-inactivas/', 'Admin\LegendController@inactive')->name('legends.inactive') //
+    ->middleware('permission:legends.inactive');
+
+    Route::get('publicar-leyenda/', 'Admin\LegendController@create')->name('legends.create')//vista del formulario crear
+    ->middleware('permission:legends.create');
+
+    Route::post('grabar-leyenda/', 'Admin\LegendController@store')->name('legends.store')//
+    ->middleware('permission:legends.create');
+
+    Route::get('editar-leyenda/{legends}/', 'Admin\LegendController@edit')->name('legends.edit')// vista del formulario editar leyenda
+    ->middleware('permission:legends.edit');
+
+    Route::put('actualizar-leyenda/{legends}/', 'Admin\LegendController@update')->name('legends.update') //
+    ->middleware('permission:legends.edit');
+
+    Route::get('ver-leyenda/{legends}/', 'Admin\LegendController@show')->name('legends.show')//
+    ->middleware('permission:legends.show');
+
+    Route::delete('eliminar-leyenda/{legends}', 'Admin\LegendController@destroy')->name('legends.destroy')//
+    ->middleware('permission:legends.destroy');
+
+    Route::get('eliminar-leyenda/{legends}', function () { //evita el conflicto de rutas destroy
+        return redirect()->route('home');
+    });
+
     #endregion
 
     #region CATEGORY ACTIVITY
@@ -210,31 +246,7 @@ Route::middleware(['auth'])->group(function (){
     ->middleware('permission:places.edit');
     #endregion
 
-    #region LEGENDS
-    Route::post('legends/store/', 'LegendController@store')->name('legends.store')//
-    ->middleware('permission:legends.create');
 
-    Route::get('legends/all', 'LegendController@index')->name('legends.index') //
-    ->middleware('permission:legends.index');
-
-    Route::get('legends/inactive', 'LegendController@inactive')->name('legends.inactive') //
-    ->middleware('permission:legends.inactive');
-
-    Route::get('legends/create', 'LegendController@create')->name('legends.create')//
-    ->middleware('permission:legends.create');
-
-    Route::put('legends/{legend}/update', 'LegendController@update')->name('legends.update') //
-    ->middleware('permission:legends.edit');
-
-    Route::get('legends/{legend}/show', 'LegendController@show')->name('legends.show')//
-    ->middleware('permission:legends.show');
-
-    Route::delete('legends/{legend}', 'LegendController@destroy')->name('legends.destroy')//
-    ->middleware('permission:legends.destroy');
-
-    Route::get('legends/{legend}/edit', 'LegendController@edit')->name('legends.edit')//
-    ->middleware('permission:legends.edit');
-    #endregion
 
     #region EMPLOYEE
     Route::post('employees/store/', 'EmployeeController@store')->name('employees.store')//
