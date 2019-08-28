@@ -14,7 +14,7 @@ class CreateLegendsTable extends Migration
     public function up()
     {
         Schema::create('legends', function (Blueprint $table) {
-            $table->bigIncrements('id_legend');
+            $table->bigIncrements('id');
             $table->string('title_legend');
             $table->longText('description_legend');
             $table->string('avatar_legend');

@@ -6,13 +6,14 @@
                 {{Form::label('avatar_news', 'Imagen:',['class' => 'my-label'])}}
                 <br>
 
-                @if(isset($news))
-                    <img id="preview" src="{{$news->avatar_news}}" width="300px" height="290px" class="my-border"/><br/>
+                @if(isset($news_))
+                    <img id="preview" src="{{asset($news_->avatar_news)}}" width="300px" height="290px" class="my-border"/><br/>
                 @else
                     <img id="preview" src="{{asset('assets/images/sin_img.jpg')}}" width="300px" height="290px" class="my-border"/><br/>
                 @endif
 
                 {{Form::file('avatar_news',['class'=>'img_none', 'id' => 'avatar_news'])}}
+
                 <br>
                 <!--<input type="hidden" style="display: none" value="0" name="remove" id="remove">-->
                 <a href="javascript:changeProfile()" class="btn btn-info btn-sm">Cambiar</a> |

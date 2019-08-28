@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/my-libs/tb_products.css')}}">
+    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
 @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
@@ -22,15 +22,22 @@
 @endsection
 @section('dashboard')
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-auto col-md-12">
+                <div  id="alert">
+                </div>
+                @include('flash::message')
+            </div>
+        </div>
     <div class="row ">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <label class="my-label">Noticia</label>
-                    @can('news.create')
-                        <a href="{{route('news.create')}}"
+                    <label class="my-label">Noticia:</label>
+                    @can('news.edit')
+                        <a href="{{route('news.edit', $news->id)}}"
                            class="btn btn-sm btn-primary my_button pull-right ">
-                            Crear
+                           <i class="fa fa-pencil"></i> Editar Noticia
                         </a>
                     @endcan
                 </div>
@@ -38,24 +45,26 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-1"></div>
-                        <div class=" form-group col-lg-10">
-                            <h2>{{$news->title_news}}</h2>
+                        <div class=" form-group col-lg-10 ">
+                            <h2  class="align-my-text">{{$news->title_news}}</h2>
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-1"></div>
-                        <div class="form-group col-lg-10">
-                            <img src="{{$news->avatar_news}}" class="img-responsive">
+                        <div class="form-group col-lg-10 content-my-img" >
+                                <img src="{{asset($news->avatar_news)}}" class="my-img">
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
+                    <hr>
 
                     <div class="row">
                         <div class="col-lg-1"></div>
-                        <div class=" form-group col-lg-10">
-                            <p>{!! $news->detail_news !!}</p>
+                        <div class=" form-group col-lg-10 align-my-paragraph" >
+                            {!! $news->detail_news !!}
+                            <a class="float-right" href="{{route('news.index')}}">Volver a la Lista de Noticias</a>
                         </div>
                         <div class="col-lg-1"></div>
                     </div>

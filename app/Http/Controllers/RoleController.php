@@ -161,6 +161,7 @@ class RoleController extends Controller
      */
     public function destroy(Request $request,Role $role)
     {
+        //dd($role);
         if ($request->ajax()){
             //dd($role->id);
             $us = RoleUser::query()

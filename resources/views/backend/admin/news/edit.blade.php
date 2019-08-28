@@ -7,12 +7,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Crear Noticia</h4>
+                <h4 class="page-title">Editar Noticia</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Noticia</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar</li>
                         </ol>
                     </nav>
                 </div>
@@ -52,9 +52,8 @@
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['news.store'], 'files' => 'true']) !!}
+                        {!! Form::model($news_, ['route' => ['news.update', $news_->id], 'method' => 'PUT', 'files' => 'true']) !!}
                         @include('backend.admin.news.partials.form')
-
                         {!! Form::close() !!}
                     </div>
                 </div>

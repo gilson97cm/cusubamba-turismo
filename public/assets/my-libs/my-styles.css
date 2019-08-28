@@ -134,3 +134,33 @@ textarea{
 .img_none{
     display: none;
 }
+.v-center {
+    align-content: center;
+    vertical-align: middle;
+}
+
+.my-img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
+    width: 100%;
+    max-height: 450px;
+}
+.content-my-img{
+    width: 100%;
+    height: auto;
+    max-height: 450px
+}
+
+.align-my-text{
+    margin: auto;
+    text-align: center;
+    color: black;
+}
+
+.align-my-paragraph{
+    text-align: justify;
+    font-size: large;
+}
+

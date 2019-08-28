@@ -25,13 +25,8 @@ class NewsStoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'title_news' => ['required','unique:news,title_news'],
-            'detail_news' => [ 'required'],
-        ];
-        $messages = [
-            'title_news.required' => 'El titulo es obligatorio.',
-            'title_news.unique' => 'Ya existe una noticia con ese Titular.',
-            'detail_news.required' => 'Escriba una breve descripción de la notitica',
+            'title_news' => ['required','max:1000','unique:news,title_news'],
+            'detail_news' => [ 'required','max:250000'],
         ];
         if($this->get('avatar_news'))
             $rules = array_merge($rules, ['avatar_news' => 'mimes:jpg,jpeg,png']);
@@ -44,7 +39,9 @@ class NewsStoreRequest extends FormRequest
         $messages = [
             'title_news.required' => 'El titulo es obligatorio.',
             'title_news.unique' => 'Ya existe una noticia con ese Titular.',
-            'detail_news.required' => 'Escriba una breve descripción de la notitica',
+            'title_news.max' => 'El titulo es demasiado extenso.',
+            'detail_news.required' => 'Escriba una breve descripción de la notitica.',
+            'detail_news.max' => 'El detalle de la noticia supera el tamaño permitido.'
         ];
 
         if($this->get('avatar_news'))

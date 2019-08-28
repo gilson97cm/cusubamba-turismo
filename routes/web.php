@@ -29,28 +29,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function (){
 
     #region NEWS
-    Route::post('news/store/', 'NewsController@store')->name('news.store')//
+    Route::post('news/store/', 'Admin\NewsController@store')->name('news.store')//
     ->middleware('permission:news.create');
 
-    Route::get('news/all', 'NewsController@index')->name('news.index') //
+    Route::get('news/all', 'Admin\NewsController@index')->name('news.index') //
     ->middleware('permission:news.index');
 
-    Route::get('news/inactive', 'NewsController@inactive')->name('news.inactive') //
+    Route::get('news/inactive', 'Admin\NewsController@inactive')->name('news.inactive') //
     ->middleware('permission:news.inactive');
 
-    Route::get('news/create', 'NewsController@create')->name('news.create')//
+    Route::get('news/create', 'Admin\NewsController@create')->name('news.create')//
     ->middleware('permission:news.create');
 
-    Route::put('news/{news_id}/update', 'NewsController@update')->name('news.update') //
+    Route::put('news/{news_id}/update', 'Admin\NewsController@update')->name('news.update') //
     ->middleware('permission:news.edit');
 
-    Route::get('news/{news_id}/show', 'NewsController@show')->name('news.show')//
+    Route::get('news/{news_id}/show', 'Admin\NewsController@show')->name('news.show')//
     ->middleware('permission:news.show');
 
-    Route::delete('news/{news_id}', 'NewsController@destroy')->name('news.destroy')//
+    Route::delete('noticias/{news}', 'Admin\NewsController@destroy')->name('news.destroy')//
     ->middleware('permission:news.destroy');
 
-    Route::get('news/{news_id}/edit', 'NewsController@edit')->name('news.edit')//
+    Route::get('news/{news_id}/edit', 'Admin\NewsController@edit')->name('news.edit')//
     ->middleware('permission:news.edit');
     #endregion
 
