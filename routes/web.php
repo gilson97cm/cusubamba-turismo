@@ -22,7 +22,7 @@ Route::get('parishes/{name}','Address\ProvinceController@getParish')->name('pari
 
 ///
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cusubamba-administrador', 'HomeController@index')->name('home');
 
 //Routes
 
@@ -91,29 +91,23 @@ Route::middleware(['auth'])->group(function (){
     #endregion
 
     #region CATEGORY ACTIVITY
-    Route::post('categoriesA/store/', 'CategoryActivityController@store')->name('categoriesA.store')//
-    ->middleware('permission:categoriesA.create');
 
-    Route::get('categoriesA/all', 'CategoryActivityController@index')->name('categoriesA.index') //
+    Route::get('lista-de-categoria-de-actividades/', 'Admin\CategoryActivityController@index')->name('categoriesA.index') //
     ->middleware('permission:categoriesA.index');
 
-    Route::get('categoriesA/inactive', 'CategoryActivityController@inactive')->name('categoriesA.inactive') //
-    ->middleware('permission:categoriesA.inactive');
-
-    Route::get('categoriesA/create', 'CategoryActivityController@create')->name('categoriesA.create')//
+    Route::post('grabar-categoria/', 'Admin\CategoryActivityController@store')->name('categoriesA.store') //
     ->middleware('permission:categoriesA.create');
 
-    Route::put('categoriesA/{activity}/update', 'CategoryActivityController@update')->name('categoriesA.update') //
+    Route::put('editar-categoria/{category}/', 'Admin\CategoryActivityController@update')->name('categoriesA.update')//
     ->middleware('permission:categoriesA.edit');
 
-    Route::get('categoriesA/{activity}/show', 'CategoryActivityController@show')->name('categoriesA.show')//
-    ->middleware('permission:categoriesA.show');
-
-    Route::delete('categoriesA/{activity}', 'CategoryActivityController@destroy')->name('categoriesA.destroy')//
+    Route::delete('eliminar-categoria/{category}', 'Admin\CategoryActivityController@destroy')->name('categoriesA.destroy') //
     ->middleware('permission:categoriesA.destroy');
 
-    Route::get('categoriesA/{activity}/edit', 'CategoryActivityController@edit')->name('categoriesA.edit')//
-    ->middleware('permission:categoriesA.edit');
+
+    Route::get('categoriesA/inactive', 'Admin\CategoryActivityController@inactive')->name('categoriesA.inactive')
+        ->middleware('permission:categoriesA.inactive');
+
     #endregion
 
     #region CATEGORY EVENTS

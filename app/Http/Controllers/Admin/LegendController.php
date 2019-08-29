@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\LegendStoreRequest;
+use App\Http\Requests\LegendUpdateRequest;
 use App\Legend;
 use foo\bar;
 use Illuminate\Http\Request;
@@ -38,7 +40,7 @@ class LegendController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LegendStoreRequest $request)
     {
         $legend = Legend::create($request->all());
         //image
@@ -49,7 +51,8 @@ class LegendController extends Controller
             $legend->fill(['avatar_legend' => 'assets/images/sin_img.jpg'])->save();
         }
         Flash::success('LEYENDA: ' . $legend->title_news . " publicada con exito!");
-        return redirect()->route('legends.edit', $legend->id);
+       // return redirect()->route('legends.edit', $legend->id);
+        return back();
     }
 
     /**
@@ -89,7 +92,7 @@ class LegendController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LegendUpdateRequest $request, $id)
     {
         $legend = Legend::find($id);
         $legend->fill($request->all())->save();
@@ -102,7 +105,7 @@ class LegendController extends Controller
 
         Flash::success('Leyenda actualizada con exito!');
         //$activities = Activity::paginate(10);
-        return redirect()->route('legends.edit', $legend->id);
+        return redirect()->route('legends.show', $legend->id);
     }
 
     /**

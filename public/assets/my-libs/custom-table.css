@@ -5,7 +5,7 @@
     background-color: #eb4e64;
     border: none;
     color: white;
-    font-size: 16px;
+    /*font-size: 16px;*/
     cursor: pointer;
 }
 .btn-delete:hover{
@@ -15,7 +15,7 @@
     background-color: #0CADC7;
     border: none;
     color: white;
-    font-size: 16px;
+   /* font-size: 16px;*/
     cursor: pointer;
 }
 .btn-add:hover{
@@ -25,7 +25,7 @@
     background-color: #14b19b;
     border: none;
     color: white;
-    font-size: 16px;
+   /* font-size: 16px;*/
     cursor: pointer;
 }
 .btn-edit:hover{
@@ -35,7 +35,7 @@
     background-color: #D44C3B;
     border: none;
     color: white;
-    font-size: 16px;
+   /* font-size: 16px;*/
     cursor: pointer;
 }
 .btn-search:hover{

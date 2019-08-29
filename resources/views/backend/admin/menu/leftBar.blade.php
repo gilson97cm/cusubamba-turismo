@@ -26,7 +26,7 @@
             </li>
             <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Contenido</span></li>
             {{--TABLERO--}}
-            <li class="sidebar-item"><a href="{{route('home')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Inicio</span></a></li>
+            <li class="sidebar-item"><a href="{{route('home')}}" class="sidebar-link"><i class="mdi mdi-home"></i> <span class="hide-menu">Inicio</span></a></li>
             {{--END TABLERO--}}
 
             {{--NOTICIAS--}}
@@ -100,13 +100,13 @@
 
             {{--LEYENDAS--}}
             @can('legends.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Leyendas</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Leyendas</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('legends.create')
-                            <li class="sidebar-item"><a href="{{route('legends.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Leyenda</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('legends.create')}}" class="sidebar-link"><i class="mdi mdi-plus"></i> <span class="hide-menu">Agregar Leyenda</span></a></li>
                         @endcan
                         @can('legends.index')
-                            <li class="sidebar-item"><a href="{{route('legends.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Lista de Leyendas</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('legends.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i> <span class="hide-menu">Lista de Leyendas</span></a></li>
                         @endcan
                     </ul>
                 </li>

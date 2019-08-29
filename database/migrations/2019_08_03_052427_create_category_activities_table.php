@@ -14,7 +14,7 @@ class CreateCategoryActivitiesTable extends Migration
     public function up()
     {
         Schema::create('category_activities', function (Blueprint $table) {
-            $table->bigIncrements('id_category_activity');
+            $table->bigIncrements('id');
             $table->string('name_category_activity')->unique();
             $table->text('description_category_activity');
             $table->timestamps();

@@ -51,7 +51,8 @@ class NewsController extends Controller
             $news->fill(['avatar_news' => 'assets/images/sin_img.jpg'])->save();
         }
         Flash::success('NOTICIA: ' . $news->title_news . " publicada con exito!");
-        return redirect()->route('news.edit', $news->id);
+        //return redirect()->route('news.index', $news->id);
+        return back();
     }
 
     /**
@@ -105,7 +106,7 @@ class NewsController extends Controller
 
         Flash::success('Noticia actualizada con exito!');
         //$activities = Activity::paginate(10);
-        return redirect()->route('news.edit', $news_->id);
+        return redirect()->route('news.show', $news_->id);
     }
 
     /**

@@ -4,7 +4,7 @@ function validar_caracteres(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 
     //Tecla de retroceso para borrar, siempre la permite
-    if (tecla == 8 || tecla == 32) {
+    if (tecla == 8 || tecla == 32 || tecla == 46 || tecla == 44 ||tecla == 59) { //los valores a los que se iguala la variable tecla son del codigo ascii
         return true;
     }
 

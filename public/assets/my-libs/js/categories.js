@@ -2,7 +2,7 @@
 $(document).ready(function(){
     $('#alert').hide();
     //ELIMINAR//
-    $('.btn-delete').click(function(){
+    $('.destroy-category-activity').click(function(){
         swal.fire({
             title: "¿Está seguro?",
             text: "La categoría será eliminado",
