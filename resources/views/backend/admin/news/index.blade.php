@@ -101,24 +101,9 @@
     <script src="{{asset('assets/my-libs/js/destroy.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
+    <script src="{{asset('vendor/jquery.expander/expand.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
-    </script>
-
-
-    <!-- READ MORE -->
-    <script>
-        $(document).ready(function() {
-
-            $('td.expandDiv').expander({
-                slicePoint: 125, //It is the number of characters at which the contents will be sliced into two parts.
-                widow: 2,
-            expandSpeed: 0, // It is the time in second to show and hide the content.
-            //userCollapseText: '' // Specify your desired word default is Less.
-        });
-
-            //$('div.expandDiv').expander();
-        });
     </script>
 
 @endsection

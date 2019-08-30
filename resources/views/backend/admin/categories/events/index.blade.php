@@ -6,11 +6,11 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Categorías</h4>
+                <h4 class="page-title">Categorias</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Categoría de Lugares</a></li>
+                            <li class="breadcrumb-item"><a href="#">Categoría de Eventos</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Nueva</li>
                         </ol>
                     </nav>
@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Tabla de Categorías de Lugares</h4>
+                        <h4 class="card-title">Tabla de Categorías de Eventos</h4>
                     </div>
                     <div class="card-body">
                         <div id="alert">
@@ -49,7 +49,7 @@
                                 <th width="40%">Nombre</th>
                                 <th width="50%">Descripcion</th>
                                 <th width="10%" colspan="2" style="vertical-align: center">
-                                    @can('categoriesP.search')
+                                    @can('categoriesE.search')
                                     <Button id="btn_search_add" class="btn btn-sm btn-add"
                                             style="border: white solid 1px;"><i class="mdi mdi-plus"></i> Agregar
                                     </Button>
@@ -59,11 +59,11 @@
 
                             {{-- formulario para agregar --}}
                             <tr id="tr_add" class="thead-add" style="background: rgb(227,255,229)">
-                                {!! Form::open(['route' => ['categoriesP.store'], 'method' => 'POST']) !!}
+                                {!! Form::open(['route' => ['categoriesE.store'], 'method' => 'POST']) !!}
                                 @csrf
-                                @include('backend.admin.categories.places.partials.form')
+                                @include('backend.admin.categories.events.partials.form')
                                 <th width="10px" colspan="2" style="vertical-align: middle;">
-                                    @can('categoriesP.create')
+                                    @can('categoriesE.create')
                                         <button type="submit" class="btn btn-success btn-sm btn-add " id="btn-add"
                                                 name="btn-add"><i class="mdi mdi-plus"></i> Agregar
                                         </button>
@@ -74,11 +74,11 @@
 
                             {{--formulario para buscar --}}
                             <tr id="tr_search" class="thead-add">
-                                {!! Form::open(['route' => ['categoriesP.search'], 'method' => 'GET']) !!}
+                                {!! Form::open(['route' => ['categoriesE.search'], 'method' => 'GET']) !!}
                                 @csrf
-                                @include('backend.admin.categories.places.partials.form')
+                                @include('backend.admin.categories.events.partials.form')
                                 <th width="10px" style="vertical-align: middle">
-                                    @can('categoriesP.search')
+                                    @can('categoriesE.search')
                                         <button type="submit"
                                                 class="btn btn-success btn-sm btn-search " id="btn-search"
                                                 name="btn-search"><i class="fa fa-search"></i> buscar
@@ -86,8 +86,8 @@
                                     @endcan
                                 </th>
                                 <th width="10px" style="vertical-align: middle">
-                                    @can('categoriesP.search')
-                                        <a href="{{route('categoriesP.index')}}" class="btn btn-success btn-sm btn-add "
+                                    @can('categoriesE.search')
+                                        <a href="{{route('categoriesE.index')}}" class="btn btn-success btn-sm btn-add "
                                            id="btn-add"
                                            name="btn-add"><i class="mdi mdi-filter"></i> Todo
                                         </a>
@@ -100,10 +100,10 @@
                             <tbody id="">
                             @foreach($categories as $category)
                                 <tr>
-                                    <td class="expandDiv" align="center"> <strong>{{$category->name_place_category}}</strong> </td>
-                                    <td class="expandDiv" align="justify">{{$category->description_place_category}}</td>
+                                    <td class="expandDiv" align="center"> <strong>{{$category->name_event_category}}</strong> </td>
+                                    <td class="expandDiv" align="justify">{{$category->description_event_category}}</td>
                                     <td width="10px" style="vertical-align: middle">
-                                        @can('categoriesP.edit')
+                                        @can('categoriesE.edit')
                                             <a class="btn btn-info btn-sm btn-edit " data-toggle="modal"
                                                href="#responsive-modal{{$category->id}}">
                                                 <li class="fa fa-pencil"></li>
@@ -112,8 +112,8 @@
                                         @endcan
                                     </td>
                                     <td width="10px" style="vertical-align: middle">
-                                        {!! Form::open(['route' => ['categoriesP.destroy', $category->id], 'method' => 'DELETE']) !!}
-                                        @can('categoriesP.destroy')
+                                        {!! Form::open(['route' => ['categoriesE.destroy', $category->id], 'method' => 'DELETE']) !!}
+                                        @can('categoriesE.destroy')
                                             <a href="#"
                                                class="btn btn-danger btn-sm btn-delete destroy-category-activity">
                                                 <li class="fa fa-trash-o"></li>
@@ -137,23 +137,23 @@
                                                     ×
                                                 </button>
                                             </div>
-                                            {!! Form::model($category, ['route' => ['categoriesP.update',$category->id], 'method' => 'PUT']) !!}
+                                            {!! Form::model($category, ['route' => ['categoriesE.update',$category->id], 'method' => 'PUT']) !!}
                                             @csrf
                                             <div class="modal-body">
                                                 <div class="form-group">
 
                                                 </div>
                                                 <div class="form-group">
-                                                    {{Form::label('name_place_category', 'Nombre:',['class' => 'my-label'])}}
-                                                    {{Form::text('name_place_category', null , [
+                                                    {{Form::label('name_event_category', 'Nombre:',['class' => 'my-label'])}}
+                                                    {{Form::text('name_event_category', null , [
                                                             'id' => 'edit_category',
                                                             'onkeypress' => 'return validar_letras(event)',
                                                             'onblur' => 'aMayusculas(this.value,this.id)',
                                                             'class' => 'form-control upletter']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{Form::label('description_place_category', 'Descripción:',['class' => 'my-label'])}}
-                                                    {{Form::text('description_place_category', null , [
+                                                    {{Form::label('description_event_category', 'Descripción:',['class' => 'my-label'])}}
+                                                    {{Form::text('description_event_category', null , [
                                                             'onkeypress' => 'return validar_caracteres(event)',
                                                             'class' => 'form-control']) }}
                                                 </div>

@@ -1,40 +1,46 @@
-.my_button{
-	background: #14b19b;
-	border-color: transparent;
-}
-.my_button:hover{
-	background: #eb4e64;
-	border-color: transparent;
+.my_button {
+    background: #14b19b;
+    border-color: transparent;
 }
 
-.my-button-create{
-   // background: #14b19b;
+.my_button:hover {
+    background: #eb4e64;
+    border-color: transparent;
+}
+
+.my-button-create {
+/ / background: #14b19b;
     border-color: transparent;
     margin-right: 3px;
 }
-.my-button-create:hover{
+
+.my-button-create:hover {
     background: #35ACE8;
     border-color: transparent;
 }
 
 
-.my_text, .my_text >b{
-	color:#14b19b;
+.my_text, .my_text > b {
+    color: #14b19b;
 }
-.my_text:hover, .my_text >b:hover{
-	color: #eb4e64;
+
+.my_text:hover, .my_text > b:hover {
+    color: #eb4e64;
 }
 
 .page-content-wrap {
     float: left;
     width: 100%;
 }
-textarea{
+
+textarea {
     resize: none;
 }
-.my-border{
+
+.my-border {
     border: #14b19b solid 0.9px;
 }
+
 /* Customize the label (the container) */
 .container {
     display: block;
@@ -103,7 +109,7 @@ textarea{
     transform: rotate(45deg);
 }
 
-.my-label{
+.my-label {
     font-size: 16px;
     font-weight: 900;
 }
@@ -115,41 +121,43 @@ textarea{
     content: "\f068";
     float: right;
 }
+
 .accordion .card-header.collapsed:after {
     cursor: pointer;
     /* symbol for "collapsed" panels */
     content: "\f067";
 }
 
-.my-profile{
+.my-profile {
     border-style: dashed;
-    border-color: rgba(131,129,126,0.4);
+    border-color: rgba(131, 129, 126, 0.4);
     border-top: transparent;
     border-right: transparent;
     border-bottom: transparent;
 }
 
 .my-color {
-   font-size: 18px;
+    font-size: 18px;
     color: #ffffff;
 }
 
-.my-text-span{
+.my-text-span {
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-.img_none{
+.img_none {
     display: none;
 }
+
 .v-center {
     align-content: center;
     vertical-align: middle;
 }
 
-.my-img{
+.my-img {
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -157,19 +165,20 @@ textarea{
     width: 100%;
     max-height: 450px;
 }
-.content-my-img{
+
+.content-my-img {
     width: 100%;
     height: auto;
     max-height: 450px
 }
 
-.align-my-text{
+.align-my-text {
     margin: auto;
     text-align: center;
     color: black;
 }
 
-.align-my-paragraph{
+.align-my-paragraph {
     text-align: justify;
     font-size: large;
 }

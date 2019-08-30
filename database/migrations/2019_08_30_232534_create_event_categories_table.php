@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryPlacesTable extends Migration
+class CreateEventCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCategoryPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_places', function (Blueprint $table) {
-            $table->bigIncrements('id_category_place');
-            $table->string('name_category_place')->unique();
-            $table->text('description_category_place');
+        Schema::create('event_categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name_event_category')->unique();
+            $table->string('description_event_category');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCategoryPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_places');
+        Schema::dropIfExists('event_categories');
     }
 }

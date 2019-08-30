@@ -85,7 +85,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Eventos</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesE.index')
-                            <li class="sidebar-item"><a href="{{route('events.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Evento</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('categoriesE.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Evento</span></a></li>
                         @endcan
                         @can('events.create')
                             <li class="sidebar-item"><a href="{{route('events.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Calendario</span></a></li>

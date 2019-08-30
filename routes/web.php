@@ -92,74 +92,56 @@ Route::middleware(['auth'])->group(function (){
 
     #region CATEGORY ACTIVITY
 
-    Route::get('lista-de-categoria-de-actividades/', 'Admin\CategoryActivityController@index')->name('categoriesA.index') //
+    Route::get('lista-de-categoria-de-actividades/', 'Admin\ActivityCategoriesController@index')->name('categoriesA.index') //
     ->middleware('permission:categoriesA.index');
 
-    Route::post('grabar-categoria/', 'Admin\CategoryActivityController@store')->name('categoriesA.store') //
+    Route::post('grabar-categoria-de-actividades/', 'Admin\ActivityCategoriesController@store')->name('categoriesA.store') //
     ->middleware('permission:categoriesA.create');
 
-    Route::put('editar-categoria/{category}/', 'Admin\CategoryActivityController@update')->name('categoriesA.update')//
+    Route::put('editar-categoria-de-actividades/{category}/', 'Admin\ActivityCategoriesController@update')->name('categoriesA.update')//
     ->middleware('permission:categoriesA.edit');
 
-    Route::delete('eliminar-categoria/{category}', 'Admin\CategoryActivityController@destroy')->name('categoriesA.destroy') //
+    Route::delete('eliminar-categoria-de-actividades/{category}', 'Admin\ActivityCategoriesController@destroy')->name('categoriesA.destroy') //
     ->middleware('permission:categoriesA.destroy');
 
+    Route::get('buscar-categoria-de-actividades/', 'Admin\ActivityCategoriesController@search')->name('categoriesA.search')//
+        ->middleware('permission:categoriesA.search');
 
-    Route::get('categoriesA/inactive', 'Admin\CategoryActivityController@inactive')->name('categoriesA.inactive')
-        ->middleware('permission:categoriesA.inactive');
+    #endregion
+
+    #region CATEGORY PLACE
+    Route::get('lista-de-categoria-de-lugares/', 'Admin\PlaceCategoriesController@index')->name('categoriesP.index') //
+    ->middleware('permission:categoriesP.index');
+
+    Route::post('grabar-categoria-de-lugares/', 'Admin\PlaceCategoriesController@store')->name('categoriesP.store') //
+    ->middleware('permission:categoriesP.create');
+
+    Route::put('editar-categoria-de-lugares/{category}/', 'Admin\PlaceCategoriesController@update')->name('categoriesP.update')//
+    ->middleware('permission:categoriesP.edit');
+
+    Route::delete('eliminar-categoria-de-lugares/{category}', 'Admin\PlaceCategoriesController@destroy')->name('categoriesP.destroy') //
+    ->middleware('permission:categoriesP.destroy');
+
+    Route::get('buscar-categoria-de-lugares/', 'Admin\PlaceCategoriesController@search')->name('categoriesP.search')//
+    ->middleware('permission:categoriesP.search');
 
     #endregion
 
     #region CATEGORY EVENTS
-    Route::post('categoriesE/store/', 'CategoryEventController@store')->name('categoriesE.store')//
-    ->middleware('permission:categoriesE.create');
-
-    Route::get('categoriesE/all', 'CategoryEventController@index')->name('categoriesE.index') //
+    Route::get('lista-de-categoria-de-eventos/', 'Admin\EventCategoriesController@index')->name('categoriesE.index') //
     ->middleware('permission:categoriesE.index');
 
-    Route::get('categoriesA/inactive', 'CategoryEventController@inactive')->name('categoriesE.inactive') //
-    ->middleware('permission:categoriesA.inactive');
+    Route::post('grabar-categoria-de-eventos/', 'Admin\EventCategoriesController@store')->name('categoriesE.store') //
+    ->middleware('permission:categoriesE.create');
 
-    Route::get('categoriesE/create', 'CategoryEventController@create')->name('categoriesE.create')//
-    ->middleware('permission:categoriesA.create');
+    Route::put('editar-categoria-de-eventos/{category}/', 'Admin\EventCategoriesController@update')->name('categoriesE.update')//
+    ->middleware('permission:categoriesE.edit');
 
-    Route::put('categoriesE/{event}/update', 'CategoryEventController@update')->name('categoriesE.update') //
-    ->middleware('permission:categoriesA.edit');
-
-    Route::get('categoriesE/{event}/show', 'CategoryEventController@show')->name('categoriesE.show')//
-    ->middleware('permission:categoriesE.show');
-
-    Route::delete('categoriesE/{event}', 'CategoryEventController@destroy')->name('categoriesE.destroy')//
+    Route::delete('eliminar-categoria-de-eventos/{category}', 'Admin\EventCategoriesController@destroy')->name('categoriesE.destroy') //
     ->middleware('permission:categoriesE.destroy');
 
-    Route::get('categoriesE/{event}/edit', 'CategoryEventController@edit')->name('categoriesE.edit')//
-    ->middleware('permission:categoriesE.edit');
-    #endregion
-
-    #region CATEGORY PLACE
-    Route::post('categoriesP/store/', 'CategoryPlaceController@store')->name('categoriesP.store')//
-    ->middleware('permission:categoriesP.create');
-
-    Route::get('categoriesP/all', 'CategoryPlaceController@index')->name('categoriesP.index') //
-    ->middleware('permission:categoriesP.index');
-
-    Route::get('categoriesP/inactive', 'CategoryPlaceController@inactive')->name('categoriesP.inactive') //
-    ->middleware('permission:categoriesP.inactive');
-
-    Route::get('categoriesP/create', 'CategoryPlaceController@create')->name('categoriesP.create')//
-    ->middleware('permission:categoriesP.create');
-
-    Route::put('categoriesP/{place}/update', 'CategoryPlaceController@update')->name('categoriesP.update') //
-    ->middleware('permission:categoriesP.edit');
-
-    Route::get('categoriesP/{place}/show', 'CategoryPlaceController@show')->name('categoriesP.show')//
-    ->middleware('permission:categoriesP.show');
-
-    Route::delete('categoriesP/{place}', 'CategoryPlaceController@destroy')->name('categoriesP.destroy')//
-    ->middleware('permission:categoriesP.destroy');
-
-    Route::get('categoriesP/{place}/edit', 'CategoryPlaceController@edit')->name('categoriesP.edit')//
-    ->middleware('permission:categoriesP.edit');
+    Route::get('buscar-categoria-de-eventos/', 'Admin\EventCategoriesController@search')->name('categoriesE.search')//
+    ->middleware('permission:categoriesE.search');
     #endregion
 
     #region ACTIVITY
@@ -239,8 +221,6 @@ Route::middleware(['auth'])->group(function (){
     Route::get('places/{place}/edit', 'PlaceController@edit')->name('places.edit')//
     ->middleware('permission:places.edit');
     #endregion
-
-
 
     #region EMPLOYEE
     Route::post('employees/store/', 'EmployeeController@store')->name('employees.store')//

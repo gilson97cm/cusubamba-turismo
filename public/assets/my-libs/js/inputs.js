@@ -1,10 +1,9 @@
-
 ///VALIDACIONES
 function validar_caracteres(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 
     //Tecla de retroceso para borrar, siempre la permite
-    if (tecla == 8 || tecla == 32 || tecla == 46 || tecla == 44 ||tecla == 59) { //los valores a los que se iguala la variable tecla son del codigo ascii
+    if (tecla == 8 || tecla == 32 || tecla == 46 || tecla == 44 || tecla == 59) { //los valores a los que se iguala la variable tecla son del codigo ascii
         return true;
     }
 
@@ -13,6 +12,7 @@ function validar_caracteres(e) {
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
+
 function validar_letras(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 
@@ -26,6 +26,7 @@ function validar_letras(e) {
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
+
 function validar_numeros(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 
@@ -39,5 +40,28 @@ function validar_numeros(e) {
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
+
+/// BUSCAR AGREGAR
+$(document).ready(function () {
+    search = $('#tr_search');
+    add = $('#tr_add');
+    search_add = $('#btn_search_add');
+    add.addClass("my-hide");
+    $(search_add).click(function () {
+        if (add.hasClass("my-hide")) {
+            search_add.html("<i class='mdi mdi-magnify'></i> Buscar")
+                .removeClass('btn-add')
+                .addClass('btn-search');
+            search.addClass("my-hide");
+            add.removeClass("my-hide");
+        } else {
+            search_add.html("<i class='mdi mdi-plus'></i> Agregar")
+                .removeClass('btn-search')
+                .addClass('btn-add');
+            add.addClass("my-hide");
+            search.removeClass("my-hide");
+        }
+    });
+});
 
 

@@ -66,6 +66,12 @@ tbody{
 table{
     border: #14b19b solid 0.9px;
 }
+.my-hide {
+    display: none;
+}
+.in-middle{
+    vertical-align: middle;
+}
 
 
 
