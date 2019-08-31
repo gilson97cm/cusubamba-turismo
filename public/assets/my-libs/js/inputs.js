@@ -8,7 +8,7 @@ function validar_caracteres(e) {
     }
 
     // Patron de entrada, en este caso solo acepta numeros y letras
-    patron = /[A-Za-z0-9]/;
+    patron = /[A-Za-z0-9á-úÁ-Ü]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
@@ -22,7 +22,7 @@ function validar_letras(e) {
     }
 
     // Patron de entrada, en este caso solo acepta numeros y letras
-    patron = /[A-Za-z]/;
+    patron = /[A-Za-zá-úÁ-Ü]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }

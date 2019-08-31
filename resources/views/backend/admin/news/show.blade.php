@@ -33,16 +33,26 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <label class="my-label">Noticia:</label>
                     @can('news.edit')
-                        <a href="{{route('news.edit', $news->id)}}"
+                        <a href="{{route('news.edit',$news->id)}}"
                            class="btn btn-sm btn-primary my_button pull-right ">
-                           <i class="fa fa-pencil"></i> Editar Noticia
+                            <i class="mdi mdi-pencil"></i>Editar Noticia
+                        </a>
+                    @endcan
+                    <span></span>
+                    @can('news.create')
+                        <a href="{{route('news.create')}}"
+                           class="btn btn-sm btn-default my-button-create pull-right ">
+                            <i class="mdi mdi-plus"></i>Publicar Noticia
                         </a>
                     @endcan
                 </div>
 
                 <div class="card-body">
+                    <span><strong>Fecha: </strong>{{$news->created_at}}</span>
+                    <br>
+                    <span><strong>Última Actualización: </strong>{{$news->updated_at}}</span>
+                    <hr>
                     <div class="row">
                         <div class="col-lg-1"></div>
                         <div class=" form-group col-lg-10 ">
@@ -50,7 +60,6 @@
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
-
                     <div class="row">
                         <div class="col-lg-1"></div>
                         <div class="form-group col-lg-10 content-my-img" >
@@ -64,12 +73,12 @@
                         <div class="col-lg-1"></div>
                         <div class=" form-group col-lg-10 align-my-paragraph" >
                             {!! $news->detail_news !!}
+                            <footer class="pull-right"><strong>Fuente:</strong> <cite title= "{{$news->source_news}}">{{$news->source_news}}</cite></footer>
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
                     <hr>
                     <a class="float-right" href="{{route('news.index')}}">Volver a la Lista de Noticias</a>
-
                 </div>
             </div>
         </div>

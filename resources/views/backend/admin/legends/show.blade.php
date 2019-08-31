@@ -33,16 +33,26 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">Leyenda:</label>
                         @can('legends.edit')
-                            <a href="{{route('legends.edit', $legend->id)}}"
+                            <a href="{{route('legends.edit',$legend->id)}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
-                                <i class="fa fa-pencil"></i> Editar Leyenda
+                                <i class="mdi mdi-pencil"></i>Editar Leyenda
+                            </a>
+                        @endcan
+                        <span></span>
+                        @can('legends.create')
+                            <a href="{{route('legends.create')}}"
+                               class="btn btn-sm btn-default my-button-create pull-right ">
+                                <i class="mdi mdi-plus"></i>Publicar Leyenda
                             </a>
                         @endcan
                     </div>
 
                     <div class="card-body">
+                        <span><strong>Fecha: </strong>{{$legend->created_at}}</span>
+                        <br>
+                        <span><strong>Última Actualización: </strong>{{$legend->updated_at}}</span>
+                        <hr>
                         <div class="row">
                             <div class="col-lg-1"></div>
                             <div class=" form-group col-lg-10 ">

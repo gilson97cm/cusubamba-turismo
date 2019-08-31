@@ -43,7 +43,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">Leyenda:</label>
                         @can('legends.index')
                             <a href="{{route('legends.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">

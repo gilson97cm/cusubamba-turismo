@@ -6,12 +6,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Categorias</h4>
+                <h4 class="page-title">Tabla de Categorías de Eventos</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Categoría de Eventos</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Nueva</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tabla</li>
                         </ol>
                     </nav>
                 </div>
@@ -36,9 +36,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Tabla de Categorías de Eventos</h4>
-                    </div>
                     <div class="card-body">
                         <div id="alert">
                         </div>
@@ -81,7 +78,7 @@
                                     @can('categoriesE.search')
                                         <button type="submit"
                                                 class="btn btn-success btn-sm btn-search " id="btn-search"
-                                                name="btn-search"><i class="fa fa-search"></i> buscar
+                                                name="btn-search"><i class="mdi mdi-magnify"></i> Buscar
                                         </button>
                                     @endcan
                                 </th>
@@ -89,7 +86,7 @@
                                     @can('categoriesE.search')
                                         <a href="{{route('categoriesE.index')}}" class="btn btn-success btn-sm btn-add "
                                            id="btn-add"
-                                           name="btn-add"><i class="mdi mdi-filter"></i> Todo
+                                           name="btn-add"><i class="mdi mdi-filter"></i> Ver Todo
                                         </a>
                                     @endcan
                                 </th>

@@ -14,4 +14,14 @@ class Legend extends Model
         'description_legend',
         'avatar_legend',
     ];
+
+    //scope
+    public function scopeTitle($query, $title){
+        if($title)
+            return $query->where('title_legend','LIKE', "%$title%");
+    }
+    public function scopeDescription($query, $description){
+        if($description)
+            return $query->where('description_legend','LIKE', "%$description%");
+    }
 }

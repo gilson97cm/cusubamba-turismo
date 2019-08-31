@@ -18,9 +18,17 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::orderBy('created_at', 'DESC')->paginate(10);
+        $date = $request->get('created_at');
+        $title = $request->get('title_news');
+        $detail = $request->get('detail_news');
+
+        $news = News::orderBy('created_at', 'DESC')
+            ->created_at($date)
+            ->title($title)
+            ->detail($detail)
+            ->paginate(10);
         return view('backend.admin.news.index', compact('news'));
     }
 
@@ -123,6 +131,22 @@ class NewsController extends Controller
                 'message' => 'Noticia eliminada con exito.',
             ]);
         }
+    }
+    public function search(Request $request){
+
+        //  dd($request->name_category_activity);
+
+        $date = $request->get('date_news');
+        $title = $request->get('title_news');
+        $detail = $request->get('detail_news');
+
+        $news = News::orderBy('created_at', 'DESC')
+            ->date($date)
+            ->title($title)
+            ->detail($detail)
+            ->paginate(10);
+        return view('backend.admin.news.index', compact('news'));
+
     }
 }
 

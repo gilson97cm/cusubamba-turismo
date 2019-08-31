@@ -24,8 +24,8 @@ class PlaceCategoriesStoreRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name_place_category' => ['required','max:100','unique:place_categories,name_place_category'],
-            'description_place_category' => [ 'required','max:120'],
+            'name_place_category'           => ['required','max:100','unique:place_categories,name_place_category'],
+            'description_place_category'    => [ 'required','max:120'],
         ];
         return  $rules;
     }
@@ -33,11 +33,11 @@ class PlaceCategoriesStoreRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'name_place_category.required' => 'El nombre es obligatorio.',
-            'name_place_category.unique' => 'Ya existe una categoria con ese nombre.',
-            'name_place_category.max' => 'El nombre es demasiado extenso.',
-            'description_place_category.required' => 'Escriba una breve descripción de la categoria.',
-            'description_place_category.max' => 'La descripcion de la categoria supera el tamaño permitido.'
+            'name_place_category.required'          => 'El nombre es obligatorio.',
+            'name_place_category.unique'            => 'Ya existe una categoria con ese nombre.',
+            'name_place_category.max'               => 'El nombre es demasiado extenso.',
+            'description_place_category.required'   => 'Escriba una breve descripción de la categoria.',
+            'description_place_category.max'        => 'La descripcion de la categoria supera el tamaño permitido.'
         ];
         return $messages;
     }

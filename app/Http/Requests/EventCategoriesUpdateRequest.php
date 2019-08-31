@@ -24,8 +24,8 @@ class EventCategoriesUpdateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name_event_category' => ['required','max:100','unique:event_categories,name_event_category,'.$this->category],
-            'description_event_category' => [ 'required','max:120'],
+            'name_event_category'           => ['required','max:100','unique:event_categories,name_event_category,'.$this->category],
+            'description_event_category'    => [ 'required','max:120'],
         ];
         return  $rules;
     }
@@ -33,11 +33,11 @@ class EventCategoriesUpdateRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'name_event_category.required' => 'El nombre es obligatorio.',
-            'name_event_category.unique' => 'Ya existe una categoria con ese nombre.',
-            'name_event_category.max' => 'El nombre es demasiado extenso.',
-            'description_event_category.required' => 'Escriba una breve descripción de la categoria.',
-            'description_event_category.max' => 'La descripcion de la categoria supera el tamaño permitido.'
+            'name_event_category.required'          => 'El nombre es obligatorio.',
+            'name_event_category.unique'            => 'Ya existe una categoria con ese nombre.',
+            'name_event_category.max'               => 'El nombre es demasiado extenso.',
+            'description_event_category.required'   => 'Escriba una breve descripción de la categoria.',
+            'description_event_category.max'        => 'La descripcion de la categoria supera el tamaño permitido.'
         ];
         return $messages;
     }

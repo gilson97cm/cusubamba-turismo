@@ -1,7 +1,6 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
 @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
@@ -43,7 +42,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">Noticia:</label>
                         @can('news.index')
                             <a href="{{route('news.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
@@ -71,7 +69,8 @@
 
 @endsection
 @section('scripts')
-
+    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
+    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
@@ -104,11 +103,18 @@
         }
     </script>
 
-    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
+
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
         CKEDITOR.replace('detail_news');
+    </script>
+
+    <script>
+        function aMayusculas(obj, id) {
+            obj = obj.toUpperCase();
+            document.getElementById(id).value = obj;
+        }
     </script>
 
 @endsection

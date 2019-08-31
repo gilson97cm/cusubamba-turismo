@@ -24,7 +24,7 @@ class ActivityCategoriesUpdateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name_activity_category' => ['required','max:100','unique:activity_categories,name_activity_category,'.$this->category],
+            'name_activity_category'        => ['required','max:100','unique:activity_categories,name_activity_category,'.$this->category],
             'description_activity_category' => [ 'required','max:120'],
         ];
         return  $rules;
@@ -33,11 +33,11 @@ class ActivityCategoriesUpdateRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'name_activity_category.required' => 'El nombre es obligatorio.',
-            'name_activity_category.unique' => 'Ya existe una categoria con ese nombre.',
-            'name_activity_category.max' => 'El nombre es demasiado extenso.',
-            'description_activity_category.required' => 'Escriba una breve descripción de la categoria.',
-            'description_activity_category.max' => 'La descripcion de la categoria supera el tamaño permitido.'
+            'name_activity_category.required'           => 'El nombre es obligatorio.',
+            'name_activity_category.unique'             => 'Ya existe una categoria con ese nombre.',
+            'name_activity_category.max'                => 'El nombre es demasiado extenso.',
+            'description_activity_category.required'    => 'Escriba una breve descripción de la categoria.',
+            'description_activity_category.max'         => 'La descripcion de la categoria supera el tamaño permitido.'
         ];
         return $messages;
     }

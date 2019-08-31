@@ -43,7 +43,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">Leyenda:</label>
                         @can('legends.index')
                             <a href="{{route('legends.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
@@ -54,7 +53,7 @@
                         @can('legends.create')
                             <a href="{{route('legends.create')}}"
                                class="btn btn-sm btn-default my-button-create pull-right ">
-                                <i class="mdi mdi-plus"></i>Leyenda Nueva
+                                <i class="mdi mdi-plus"></i>Publicar Leyenda
                             </a>
                         @endcan
 

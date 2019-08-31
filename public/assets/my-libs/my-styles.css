@@ -182,4 +182,11 @@ textarea {
     text-align: justify;
     font-size: large;
 }
+.upletter{
+    text-transform: uppercase;
+}
+
+.margin-search{
+    margin-right: 3px;
+}
 

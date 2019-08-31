@@ -7,9 +7,11 @@
                 <br>
 
                 @if(isset($news_))
-                    <img id="preview" src="{{asset($news_->avatar_news)}}" width="300px" height="290px" class="my-border"/><br/>
+                    <img id="preview" src="{{asset($news_->avatar_news)}}" width="300px" height="290px"
+                         class="my-border"/><br/>
                 @else
-                    <img id="preview" src="{{asset('assets/images/sin_img.jpg')}}" width="300px" height="290px" class="my-border"/><br/>
+                    <img id="preview" src="{{asset('assets/images/sin_img.jpg')}}" width="300px" height="290px"
+                         class="my-border"/><br/>
                 @endif
 
                 {{Form::file('avatar_news',['class'=>'img_none', 'id' => 'avatar_news'])}}
@@ -24,50 +26,61 @@
     </div>
     <div class="col-sm-12 col-lg-6">
         <br>
-       <!--  <div class="row">
+    <!--<div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group row">
-                    {{--Form::label('date_news', 'Fecha:',['class' => ' my-label'])}}
-                    {{ Form::date('date_news', new \DateTime(), ['class' => 'form-control my-border']) --}}
-                </div>
-            </div>
-        </div> -->
+                   {{--Form::label('date_news', 'Fecha:',['class' => ' my-label'])}}
+                    {{ Form::date('date_news', new \DateTime(), ['class' => 'form-control my-border' , 'readonly'])--}}
+        </div>
+    </div>
+</div> -->
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
-                    {{Form::text('title_news', null , ['class' => 'form-control my-border']) }}
+                    {{Form::label('source_news', 'Fuente:',['class' => 'my-label'])}}
+                    {{Form::text('source_news', null , ['class' => 'form-control my-border']) }}
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('detail_news', 'Detalle:',['class' => 'my-label'])}}
-                    {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border']) }}
+                    {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
+                    {{Form::textarea('title_news', null , ['class' => 'form-control upletter my-border',
+                            'rows' => '5','id'=> 'add_news',
+                            'onkeypress' => 'return validar_caracteres(event)',
+                            'onblur' => 'aMayusculas(this.value,this.id)']) }}
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <div class="form-group">
+            {{Form::label('detail_news', 'Detalle:',['class' => 'my-label'])}}
+            {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border']) }}
         </div>
     </div>
 </div>
 <hr>
 
 <div class="row">
-    <div class="col-sm-12 col-lg-4" ></div>
-    <div class="col-sm-12 col-lg-4" >
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-3 col-lg-3"></div>
-                    <div class="col-sm-3 col-lg-3">
-                        {{Form::submit('Guardar' , ['class' => 'btn btn-primary my_button']) }}
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <a href="{{route('news.index')}}" class="btn btn-secondary">Cancelar</a>
-                    </div>
-                    <div class="col-sm-3 col-lg-3"></div>
-
+    <div class="col-sm-12 col-lg-4"></div>
+    <div class="col-sm-12 col-lg-4">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-3 col-lg-3"></div>
+                <div class="col-sm-3 col-lg-3">
+                    {{Form::submit('Guardar' , ['class' => 'btn btn-primary my_button']) }}
                 </div>
+                <div class="col-sm-3 col-lg-3">
+                    <a href="{{route('news.index')}}" class="btn btn-secondary">Cancelar</a>
+                </div>
+                <div class="col-sm-3 col-lg-3"></div>
+
             </div>
+        </div>
     </div>
     <div class="col-sm-12 col-lg-4"></div>
 </div>

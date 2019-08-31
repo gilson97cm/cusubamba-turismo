@@ -18,9 +18,15 @@ class LegendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $legends = Legend::orderBy('title_legend', 'ASC')->paginate(10);
+        $title = $request->get('title_legend');
+        $description = $request->get('description_legend');
+
+        $legends = Legend::orderBy('title_legend', 'ASC')
+            ->title($title)
+            ->description($description)
+            ->paginate(10);
         return view('backend.admin.legends.index', compact('legends'));
     }
 
