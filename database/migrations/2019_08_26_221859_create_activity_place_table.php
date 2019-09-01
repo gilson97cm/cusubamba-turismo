@@ -23,7 +23,7 @@ class CreateActivityPlaceTable extends Migration
 
             //relation
             $table->foreign('place_id')->references('id_place')->on('places');
-            $table->foreign('activity_id')->references('id_activity')->on('activities');
+            $table->foreign('activity_id')->references('id')->on('activities');
         });
     }
 

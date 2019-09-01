@@ -70,7 +70,8 @@
 
 @endsection
 @section('scripts')
-
+    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
+    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
@@ -103,11 +104,17 @@
         }
     </script>
 
-    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
+
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
         CKEDITOR.replace('description_legend');
+    </script>
+    <script>
+        function aMayusculas(obj, id) {
+            obj = obj.toUpperCase();
+            document.getElementById(id).value = obj;
+        }
     </script>
 
 @endsection

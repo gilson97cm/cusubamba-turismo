@@ -124,14 +124,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($activities as $key => $activity)
+                    @foreach($activities as $key => $activities)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$activity->emp_name}}</td>
-                            <td>{{$activity->emp_info}}</td>
-                            <td>{!! $activity->operation !!}</td>
-                            <td>{{$activity->created_at->diffForHumans()}}</td>
-                            <td><a class="btn btn-danger" href="{{url('admin/emp/activity/delete/'.$activity->id)}}">Delete</a>
+                            <td>{{$activities->emp_name}}</td>
+                            <td>{{$activities->emp_info}}</td>
+                            <td>{!! $activities->operation !!}</td>
+                            <td>{{$activities->created_at->diffForHumans()}}</td>
+                            <td><a class="btn btn-danger" href="{{url('admin/emp/activities/delete/'.$activities->id)}}">Delete</a>
                             </td>
                         </tr>
                     @endforeach

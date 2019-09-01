@@ -3,16 +3,18 @@
     <div class="col-sm-12 col-lg-4">
         <div class="form-group row container-fluid">
             <center>
-                {{Form::label('avatar_legend', 'Imagen:',['class' => 'my-label'])}}
+                {{Form::label('avatar_activity', 'Imagen:',['class' => 'my-label'])}}
                 <br>
 
-                @if(isset($legend))
-                    <img id="preview" src="{{asset($legend->avatar_legend)}}" width="300px" height="290px" class="my-border"/><br/>
+                @if(isset($activity))
+                    <img id="preview" src="{{asset($activity->avatar_activity)}}" width="300px" height="290px"
+                         class="my-border"/><br/>
                 @else
-                    <img id="preview" src="{{asset('assets/images/sin_img.jpg')}}" width="300px" height="290px" class="my-border"/><br/>
+                    <img id="preview" src="{{asset('assets/images/sin_img.jpg')}}" width="300px" height="290px"
+                         class="my-border"/><br/>
                 @endif
 
-                {{Form::file('avatar_legend',['class'=>'img_none', 'id' => 'avatar_legend'])}}
+                {{Form::file('avatar_activity',['class'=>'img_none', 'id' => 'avatar_activity'])}}
 
                 <br>
                 <!--<input type="hidden" style="display: none" value="0" name="remove" id="remove">-->
@@ -24,20 +26,20 @@
     </div>
     <div class="col-sm-12 col-lg-6">
         <br>
-    <!--  <div class="row">
+        <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group row">
-                    {{--Form::label('date_legends', 'Fecha:',['class' => ' my-label'])}}
-                    {{ Form::date('date_legends', new \DateTime(), ['class' => 'form-control my-border']) --}}
+                    {{Form::label('activity_category_id', 'Categoría::',['class' => ' my-label'])}}
+                    {{ Form::select('activity_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => '-']) }}
+                </div>
+            </div>
         </div>
-    </div>
-</div> -->
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('title_legend', 'Titulo:',['class' => 'my-label'])}}
-                    {{Form::text('title_legend', null , ['class' => 'form-control my-border',
-                            'id'=> 'add_legend',
+                    {{Form::label('name_activity', 'Titulo:',['class' => 'my-label'])}}
+                    {{Form::text('name_activity', null , ['class' => 'form-control my-border upletter',
+                            'id'=> 'add_activity',
                             'onkeypress' => 'return validar_caracteres(event)',
                             'onblur' => 'aMayusculas(this.value,this.id)']) }}
                 </div>
@@ -46,8 +48,8 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('description_legend', 'Detalle:',['class' => 'my-label'])}}
-                    {{Form::textarea('description_legend', null , ['class' => ' md-textarea form-control my-border']) }}
+                    {{Form::label('description_activity', 'Detalle:',['class' => 'my-label'])}}
+                    {{Form::textarea('description_activity', null , ['class' => ' md-textarea form-control my-border']) }}
                 </div>
             </div>
         </div>
@@ -56,8 +58,8 @@
 <hr>
 
 <div class="row">
-    <div class="col-sm-12 col-lg-4" ></div>
-    <div class="col-sm-12 col-lg-4" >
+    <div class="col-sm-12 col-lg-4"></div>
+    <div class="col-sm-12 col-lg-4">
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-3 col-lg-3"></div>
@@ -65,7 +67,7 @@
                     {{Form::submit('Guardar' , ['class' => 'btn btn-primary my_button']) }}
                 </div>
                 <div class="col-sm-3 col-lg-3">
-                    <a href="{{route('legends.index')}}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{route('activities.index')}}" class="btn btn-secondary">Cancelar</a>
                 </div>
                 <div class="col-sm-3 col-lg-3"></div>
 

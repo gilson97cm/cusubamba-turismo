@@ -7,11 +7,11 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Crear Leyenda</h4>
+                <h4 class="page-title">Crear Actividad</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Leyenda</a></li>
+                            <li class="breadcrumb-item"><a href="#">Actividad</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Crear</li>
                         </ol>
                     </nav>
@@ -43,16 +43,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @can('legends.index')
-                            <a href="{{route('legends.index')}}"
+                        @can('activities.index')
+                            <a href="{{route('activities.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
                                 <i class="mdi mdi-format-list-bulleted"></i>Lista de Leyendass
                             </a>
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['legends.store'], 'files' => 'true']) !!}
-                        @include('backend.admin.legends.partials.form')
+                        {!! Form::open(['route' => ['activities.store'], 'files' => 'true']) !!}
+                        @include('backend.admin.activities.partials.form')
 
                         {!! Form::close() !!}
                     </div>
@@ -63,8 +63,8 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
 
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
@@ -72,9 +72,9 @@
 
     <script>
         function changeProfile() {
-            $('#avatar_legend').click();
+            $('#avatar_activity').click();
         }
-        $('#avatar_legend').change(function () {
+        $('#avatar_activity').change(function () {
             var imgPath = this.value;
             var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
             if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
@@ -102,7 +102,7 @@
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
-        CKEDITOR.replace('description_legend');
+        CKEDITOR.replace('description_activity');
     </script>
 
     <script>

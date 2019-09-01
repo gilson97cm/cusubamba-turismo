@@ -22,7 +22,7 @@ class CreateActivityGalleryTable extends Migration
             $table->timestamps();
 
             //relation
-            $table->foreign('activity_id')->references('id_activity')->on('activities')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('activity_id')->references('id')->on('activities')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('picture_id')->references('id_picture')->on('pictures')->onUpdate('cascade')->onDelete('cascade');
 
         });

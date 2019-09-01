@@ -21,7 +21,7 @@ class EventCategoriesTableSeeder extends Seeder
             'description_event_category' => 'eventos religioso',
         ]);
         EventCategories::create([
-            'name_event_category' => 'DEPORTIVAS',
+            'name_event_category' => 'DEPORTIVOS',
             'description_event_category' => 'eventos deportivos',
         ]);
     }

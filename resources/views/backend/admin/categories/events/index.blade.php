@@ -112,7 +112,7 @@
                                         {!! Form::open(['route' => ['categoriesE.destroy', $category->id], 'method' => 'DELETE']) !!}
                                         @can('categoriesE.destroy')
                                             <a href="#"
-                                               class="btn btn-danger btn-sm btn-delete destroy-category-activity">
+                                               class="btn btn-danger btn-sm btn-delete destroy-category-events">
                                                 <li class="fa fa-trash-o"></li>
                                                 Eliminar
                                             </a>

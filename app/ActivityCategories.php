@@ -12,6 +12,12 @@ class ActivityCategories extends Model
         'description_activity_category',
     ];
 
+    //relation
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
+
     //Scope
     public function scopeName($query, $name){
         if($name)
