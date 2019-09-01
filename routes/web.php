@@ -157,25 +157,55 @@ Route::middleware(['auth'])->group(function () {
     Route::post('grabar-actividad/', 'Admin\ActivityController@store')->name('activities.store')//
     ->middleware('permission:activities.create');
 
-    Route::get('editar-actividad/{activities}/', 'Admin\ActivityController@edit')->name('activities.edit')// vista del formulario
+    Route::get('editar-actividad/{activity}/', 'Admin\ActivityController@edit')->name('activities.edit')// vista del formulario
     ->middleware('permission:activities.edit');
 
-    Route::put('actualizar-actividad/{activities}/', 'Admin\ActivityController@update')->name('activities.update')//
+    Route::put('actualizar-actividad/{activity}/', 'Admin\ActivityController@update')->name('activities.update')//
     ->middleware('permission:activities.edit');
 
-    Route::get('ver-actividad/{activities}/', 'Admin\ActivityController@show')->name('activities.show')//
+    Route::get('ver-actividad/{activity}/', 'Admin\ActivityController@show')->name('activities.show')//
     ->middleware('permission:activities.show');
 
-    Route::delete('eliminar-actividad/{activities}', 'Admin\ActivityController@destroy')->name('activities.destroy')//
+    Route::delete('eliminar-actividad/{activity}', 'Admin\ActivityController@destroy')->name('activities.destroy')//
     ->middleware('permission:activities.destroy');
 
-    Route::get('eliminar-actividad/{activities}', function () { //evita el conflicto de rutas destroy
+    Route::get('eliminar-actividad/{activity}', function () { //evita el conflicto de rutas destroy
         return redirect()->route('home');
     });
 
     Route::get('activities/inactive', 'ActivityController@inactive')->name('activities.inactive')//
     ->middleware('permission:activities.inactive');
 
+    #endregion
+
+    #region PLACE
+    Route::get('lista-de-lugares/', 'Admin\PlaceController@index')->name('places.index')//
+    ->middleware('permission:places.index');
+
+    Route::get('publicar-lugar/', 'Admin\PlaceController@create')->name('places.create')// vista del formulario
+    ->middleware('permission:places.create');
+
+    Route::post('grabar-lugar/', 'Admin\PlaceController@store')->name('places.store')//
+    ->middleware('permission:places.create');
+
+    Route::get('editar-lugar/{place}/', 'Admin\PlaceController@edit')->name('places.edit')// vista del formulario
+    ->middleware('permission:places.edit');
+
+    Route::put('actualizar-lugar/{place}/', 'Admin\PlaceController@update')->name('places.update')//
+    ->middleware('permission:places.edit');
+
+    Route::get('ver-lugar/{place}/', 'Admin\PlaceController@show')->name('places.show')//
+    ->middleware('permission:places.show');
+
+    Route::delete('eliminar-lugar/{place}', 'Admin\PlaceController@destroy')->name('places.destroy')//
+    ->middleware('permission:places.destroy');
+
+    Route::get('eliminar-lugar/{place}', function () { //evita el conflicto de rutas destroy
+        return redirect()->route('home');
+    });
+
+    Route::get('activities/inactive', 'ActivityController@inactive')->name('activities.inactive')//
+    ->middleware('permission:activities.inactive');
     #endregion
 
     #region EVENT
@@ -204,31 +234,7 @@ Route::middleware(['auth'])->group(function () {
     ->middleware('permission:events.edit');
     #endregion
 
-    #region PLACE
-    Route::post('places/store/', 'PlaceController@store')->name('places.store')//
-    ->middleware('permission:places.create');
 
-    Route::get('places/all', 'PlaceController@index')->name('places.index')//
-    ->middleware('permission:places.index');
-
-    Route::get('places/inactive', 'PlaceController@inactive')->name('places.inactive')//
-    ->middleware('permission:places.inactive');
-
-    Route::get('places/create', 'PlaceController@create')->name('places.create')//
-    ->middleware('permission:places.create');
-
-    Route::put('places/{place}/update', 'PlaceController@update')->name('places.update')//
-    ->middleware('permission:places.edit');
-
-    Route::get('places/{place}/show', 'PlaceController@show')->name('places.show')//
-    ->middleware('permission:places.show');
-
-    Route::delete('places/{place}', 'PlaceController@destroy')->name('places.destroy')//
-    ->middleware('permission:places.destroy');
-
-    Route::get('places/{place}/edit', 'PlaceController@edit')->name('places.edit')//
-    ->middleware('permission:places.edit');
-    #endregion
 
     #region EMPLOYEE
     Route::post('employees/store/', 'EmployeeController@store')->name('employees.store')//

@@ -21,7 +21,7 @@ class CreateGalleryPlaceTable extends Migration
             $table->timestamps();
 
             //relation
-            $table->foreign('place_id')->references('id_place')->on('places')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('place_id')->references('id')->on('places')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('picture_id')->references('id_picture')->on('pictures')->onUpdate('cascade')->onDelete('cascade');
 
         });

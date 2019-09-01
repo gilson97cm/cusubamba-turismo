@@ -329,7 +329,7 @@ window.nv.tooltip.* also has various helper methods.
 
         var body = parentContainer;
         if ( !parentContainer || parentContainer.tagName.match(/g|svg/i)) {
-            //If the parent element is an SVG element, place tooltip in the <body> element.
+            //If the parent element is an SVG element, places tooltip in the <body> element.
             body = document.getElementsByTagName('body')[0];
         }
    
@@ -382,9 +382,9 @@ window.nv.tooltip.* also has various helper methods.
   };
 
   //Global utility function to render a tooltip on the DOM.
-  //pos = [left,top] coordinates of where to place the tooltip, relative to the SVG chart container.
+  //pos = [left,top] coordinates of where to places the tooltip, relative to the SVG chart container.
   //gravity = how to orient the tooltip
-  //dist = how far away from the mouse to place tooltip
+  //dist = how far away from the mouse to places tooltip
   //container = tooltip DIV
   nv.tooltip.calcTooltipPosition = function(pos, gravity, dist, container) {
 

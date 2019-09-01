@@ -7,12 +7,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Crear Actividad</h4>
+                <h4 class="page-title">Editar Lugar</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Actividad</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                            <li class="breadcrumb-item"><a href="#">Lugar</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar</li>
                         </ol>
                     </nav>
                 </div>
@@ -43,17 +43,24 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @can('activities.index')
-                            <a href="{{route('activities.index')}}"
+                        @can('places.index')
+                            <a href="{{route('places.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
-                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Actividades
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Lugares
                             </a>
                         @endcan
+                        <span></span>
+                        @can('places.create')
+                            <a href="{{route('places.create')}}"
+                               class="btn btn-sm btn-default my-button-create pull-right ">
+                                <i class="mdi mdi-plus"></i>Publicar Lugar
+                            </a>
+                        @endcan
+
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['activities.store'], 'files' => 'true']) !!}
-                        @include('backend.admin.activities.partials.form')
-
+                        {!! Form::model($place, ['route' => ['places.update', $place->id], 'method' => 'PUT', 'files' => 'true']) !!}
+                        @include('backend.admin.places.partials.form')
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -63,18 +70,17 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
-
+    <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
 
     <script>
         function changeProfile() {
-            $('#avatar_activity').click();
+            $('#avatar_place').click();
         }
-        $('#avatar_activity').change(function () {
+        $('#avatar_place').change(function () {
             var imgPath = this.value;
             var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
             if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
@@ -102,9 +108,8 @@
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
-        CKEDITOR.replace('description_activity');
+        CKEDITOR.replace('description_place');
     </script>
-
     <script>
         function aMayusculas(obj, id) {
             obj = obj.toUpperCase();

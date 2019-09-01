@@ -88,7 +88,7 @@ $('#scroll_ver_hor').DataTable({
 });
 
 /****************************************
- * Language - Comma decimal place Table  *
+ * Language - Comma decimal places Table  *
  ****************************************/
 $('#lang_comma_deci').DataTable({
     "language": {

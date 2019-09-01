@@ -7,11 +7,11 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Crear Actividad</h4>
+                <h4 class="page-title">Crear Lugar</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Actividad</a></li>
+                            <li class="breadcrumb-item"><a href="#">Lugar</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Crear</li>
                         </ol>
                     </nav>
@@ -43,16 +43,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @can('activities.index')
-                            <a href="{{route('activities.index')}}"
+                        @can('places.index')
+                            <a href="{{route('places.index')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
-                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Actividades
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Lugares
                             </a>
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['activities.store'], 'files' => 'true']) !!}
-                        @include('backend.admin.activities.partials.form')
+                        {!! Form::open(['route' => ['places.store'], 'files' => 'true']) !!}
+                        @include('backend.admin.places.partials.form')
 
                         {!! Form::close() !!}
                     </div>
@@ -72,9 +72,9 @@
 
     <script>
         function changeProfile() {
-            $('#avatar_activity').click();
+            $('#avatar_place').click();
         }
-        $('#avatar_activity').change(function () {
+        $('#avatar_place').change(function () {
             var imgPath = this.value;
             var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
             if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
@@ -102,7 +102,7 @@
     <script>
         CKEDITOR.config.height = 300;
         CKEDITOR.config.width = 'auto';
-        CKEDITOR.replace('description_activity');
+        CKEDITOR.replace('description_place');
     </script>
 
     <script>

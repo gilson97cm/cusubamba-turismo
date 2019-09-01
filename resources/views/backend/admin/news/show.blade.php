@@ -86,3 +86,8 @@
     </div>
 
 @endsection
+@section('scripts')
+    <script>
+        $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
+    </script>
+@endsection

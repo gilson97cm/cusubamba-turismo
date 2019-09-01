@@ -5402,7 +5402,7 @@
   }
 
   // Given a change object, compute the news set of marker spans that
-  // cover the line in which the change took place. Removes spans
+  // cover the line in which the change took places. Removes spans
   // entirely within the change, reconnects spans belonging to the
   // same marker that appear on both sides of the change, and cuts off
   // spans partially within the change. Returns an array of span

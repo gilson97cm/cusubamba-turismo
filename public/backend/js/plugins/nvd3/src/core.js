@@ -34,7 +34,7 @@ if (nv.dev) {
 // ********************************************
 //  Public Core NV functions
 
-// Logs all arguments, and returns the last so you can test things in place
+// Logs all arguments, and returns the last so you can test things in places
 // Note: in IE8 console.log is an object not a function, and if modernizr is used
 // then calling Function.prototype.bind with with anything other than a function
 // causes a TypeError to be thrown.

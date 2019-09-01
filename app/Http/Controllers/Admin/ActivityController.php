@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Activity;
 use App\ActivityCategories;
+use App\Http\Requests\ActivityStoreRequest;
+use App\Http\Requests\ActivityUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -49,7 +51,7 @@ class ActivityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ActivityStoreRequest $request)
     {
         $activity = Activity::create($request->all());
         //image
@@ -102,7 +104,7 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ActivityUpdateRequest $request, $id)
     {
         $activity = Activity::find($id);
         $activity->fill($request->all())->save();
@@ -113,7 +115,7 @@ class ActivityController extends Controller
             $activity->fill(['avatar_activity' => asset($path)])->save();
         }
 
-        Flash::success('Leyenda actualizada con exito!');
+        Flash::success('Actividad actualizada con exito!');
         //$activities = Activity::paginate(10);
         return redirect()->route('activities.show', $activity->id);
     }
@@ -124,10 +126,10 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Activity $activities)
+    public function destroy(Request $request, Activity $activity)
     {
         if ($request->ajax()) {
-            $activities->delete();
+            $activity->delete();
             return response()->json([
                 'message' => 'Actividad eliminada con exito.',
             ]);
