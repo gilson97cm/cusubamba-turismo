@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Activity;
+use App\Http\Requests\PlaceStoreRequest;
+use App\Http\Requests\PlaceUpdateRequest;
 use App\Place;
 use App\PlaceCategories;
 use Illuminate\Http\Request;
@@ -40,7 +43,8 @@ class PlaceController extends Controller
     public function create()
     {
         $categories = PlaceCategories::orderBy('name_place_category', 'ASC')->pluck('name_place_category', 'id');
-        return view('backend.admin.places.create', compact('categories'));
+        $activities = Activity::orderBy('name_activity', 'ASC')->paginate(100);
+        return view('backend.admin.places.create', compact('categories','activities'));
     }
 
     /**
@@ -49,7 +53,7 @@ class PlaceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlaceStoreRequest $request)
     {
         $place = Place::create($request->all());
         //image
@@ -59,6 +63,7 @@ class PlaceController extends Controller
         } else {
             $place->fill(['avatar_place' => 'assets/images/sin_img.jpg'])->save();
         }
+        $place->activities()->sync($request->get('activities'));
         Flash::success('Lugar: ' . $place->name_place . " publicado con exito!");
         // return redirect()->route('places.edit', $places->id);
         return back();
@@ -88,9 +93,10 @@ class PlaceController extends Controller
     public function edit($id)
     {
         $categories = PlaceCategories::orderBy('name_place_category', 'ASC')->pluck('name_place_category', 'id');
+        $activities = Activity::orderBy('name_activity', 'ASC')->paginate(100);
         $place = Place::find($id);
         if ($place)
-            return view('backend.admin.places.edit', compact('place', 'categories'));
+            return view('backend.admin.places.edit', compact('place', 'categories', 'activities'));
         else
             return redirect()->route('home');
     }
@@ -102,7 +108,7 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PlaceUpdateRequest $request, $id)
     {
         $place = Place::find($id);
         $place->fill($request->all())->save();
@@ -112,7 +118,7 @@ class PlaceController extends Controller
             $path = Storage::disk('public')->put('temp\avatar_places', $request->file('avatar_place'));
             $place->fill(['avatar_place' => asset($path)])->save();
         }
-
+        $place->activities()->sync($request->get('activities'));
         Flash::success('Lugar actualizado con exito!');
         //$places = places::paginate(10);
         return redirect()->route('places.show', $place->id);

@@ -55,6 +55,49 @@
         </div>
     </div>
 </div>
+
+<hr>
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <div class="form-group">
+           <h4>Lista de Actividades:</h4>
+            <br>
+
+            <table class="table table-striped table-hover table-responsive">
+                <thead>
+                <tr class="thead-tr">
+                    <th width="5%"></th>
+                    <th width="15%">Publicada el:</th>
+                    <th width="5%">Categoría</th>
+                    <th width="10%">Imágen</th>
+                    <th width="30%">Nombre</th>
+                    <th width="35%" style="text-align: left">Descripción</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($activities as $activity)
+                    <tr>
+                        <td style="vertical-align: middle" >
+                            <label class="container">
+                                {{Form::checkbox('activities[]', $activity->id, null)}}
+                                <span class="checkmark my-border-checkbox"></span>
+                            </label>
+                        </td>
+                        <td>{{$activity->created_at}}</td>
+                        <td>{{$activity->category->name_activity_category}}</td>
+                        <td style=" vertical-align: middle;" align="center"><img src="{{asset($activity->avatar_activity)}}" alt="img" width="80px" height="50px"></td>
+                        <td class="expandDiv" > <strong>{{$activity->name_activity}}</strong> </td>
+                        <td class="expandDiv"  align="justify">{!! $activity->description_activity !!}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            {!! $activities->render() !!}
+
+        </div>
+    </div>
+</div>
+
 <hr>
 
 <div class="row">

@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/my-libs/custom-table.css')}}">
 @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
@@ -65,6 +65,8 @@
 @section('scripts')
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
+    <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
+    <script src="{{asset('vendor/jquery.expander/expander.js')}}"></script>
 
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);

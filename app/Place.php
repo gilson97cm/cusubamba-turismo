@@ -18,6 +18,10 @@ class Place extends Model
     {
         return $this->belongsTo(PlaceCategories::class, 'place_category_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
+    public function activities()
+    {
+        return $this->belongsToMany(Activity::class);
+    }
     //scope
     public function scopePlace_category_id($query, $id){
         if($id)

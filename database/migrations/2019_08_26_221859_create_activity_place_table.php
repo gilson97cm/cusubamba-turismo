@@ -14,7 +14,7 @@ class CreateActivityPlaceTable extends Migration
     public function up()
     {
         Schema::create('activity_place', function (Blueprint $table) {
-            $table->bigIncrements('id_activity_place');
+            $table->bigIncrements('id');
 
             $table->bigInteger('place_id')->unsigned();
             $table->bigInteger('activity_id')->unsigned();
@@ -22,8 +22,12 @@ class CreateActivityPlaceTable extends Migration
             $table->timestamps();
 
             //relation
-            $table->foreign('place_id')->references('id')->on('places');
-            $table->foreign('activity_id')->references('id')->on('activities');
+            $table->foreign('place_id')->references('id')->on('places')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('activity_id')->references('id')->on('activities')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

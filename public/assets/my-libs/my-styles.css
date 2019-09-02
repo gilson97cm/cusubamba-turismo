@@ -40,6 +40,9 @@ textarea {
 .my-border {
     border: #14b19b solid 0.9px;
 }
+.my-border-checkbox {
+    border: #14b19b solid 2px;
+}
 
 /* Customize the label (the container) */
 .container {
