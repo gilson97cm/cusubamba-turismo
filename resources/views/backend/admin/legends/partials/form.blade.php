@@ -38,7 +38,7 @@
                     {{Form::label('title_legend', 'Titulo:',['class' => 'my-label'])}}
                     {{Form::text('title_legend', null , ['class' => 'form-control my-border',
                             'id'=> 'add_legend',
-                            'onkeypress' => 'return validar_caracteres(event)',
+                            'onkeypress' => 'events',
                             'onblur' => 'aMayusculas(this.value,this.id)']) }}
                 </div>
             </div>

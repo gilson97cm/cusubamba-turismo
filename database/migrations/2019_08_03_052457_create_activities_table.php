@@ -22,7 +22,7 @@ class CreateActivitiesTable extends Migration
             $table->timestamps();
 
             //relation
-            $table->foreign('activity_category_id')->references('id')->on('activity_categories');
+            $table->foreign('activity_category_id')->references('id')->on('activity_categories')->onUpdate('cascade');
 
         });
     }

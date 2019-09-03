@@ -24,10 +24,7 @@
 <script src="{{asset('assets/extra-libs/taskboard/js/lobilist.js')}}"></script>
 <script src="{{asset('assets/extra-libs/taskboard/js/lobibox.min.js')}}"></script>
 <script src="{{asset('assets/extra-libs/taskboard/js/task-init.js')}}"></script>
-<!-- TABLA DE PRODUCTOS -->
-<script src="{{asset('dist/js/pages/tables/js-grid-db.js')}}"></script>
-<script src="{{asset('assets/libs/jsgrid/dist/jsgrid.min.js')}}"></script>
-<script src="{{asset('dist/js/pages/tables/js-grid-init.js')}}"></script>
+
 
 <!-- ESTILOS BAKEND -->
 

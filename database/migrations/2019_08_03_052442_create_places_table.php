@@ -22,7 +22,7 @@ class CreatePlacesTable extends Migration
             $table->timestamps();
 
             //relation
-            $table->foreign('place_category_id')->references('id')->on('place_categories');
+            $table->foreign('place_category_id')->references('id')->on('place_categories')->onUpdate('cascade');
 
         });
     }

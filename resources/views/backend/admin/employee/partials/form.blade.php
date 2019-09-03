@@ -22,7 +22,7 @@
             <div class="form-group row">
                 {{Form::label('last_name_person', 'Apellido:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{Form::text('last_name_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Apellido','onkeypress' => 'return validar_letras(event)']) }}
+                    {{Form::text('last_name_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Apellido','onkeypress' => 'events']) }}
 
                 </div>
             </div>
@@ -104,7 +104,7 @@
             <div class="form-group row ">
                 {{Form::label('phone_person', 'Teléfono:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{Form::text('phone_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Teléfono','onkeypress' => 'return validar_numeros(event)']) }}
+                    {{Form::text('phone_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Teléfono','onkeypress' => 'events']) }}
 
                 </div>
             </div>

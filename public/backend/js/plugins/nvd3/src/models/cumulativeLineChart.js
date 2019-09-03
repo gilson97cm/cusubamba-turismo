@@ -530,7 +530,7 @@ nv.models.cumulativeLineChart = function() {
       });
 
 
-      // Update chart from a state object passed to event handler
+      // Update chart from a state object passed to events handler
       dispatch.on('changeState', function(e) {
 
         if (typeof e.disabled !== 'undefined') {

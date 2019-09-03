@@ -283,7 +283,7 @@ nv.models.scatter = function() {
             });
            */
 
-          // add event handlers to points instead voronoi paths
+          // add events handlers to points instead voronoi paths
           wrap.select('.nv-groups').selectAll('.nv-group')
             .selectAll('.nv-point')
               //.data(dataWithPoints)

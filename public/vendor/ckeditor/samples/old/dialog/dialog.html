@@ -30,7 +30,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 		CKEDITOR.on( 'instanceCreated', function( ev ){
 			var editor = ev.editor;
 
-			// Listen for the "pluginsLoaded" event, so we are sure that the
+			// Listen for the "pluginsLoaded" events, so we are sure that the
 			// "dialog" plugin has been loaded and we are able to do our
 			// customizations.
 			editor.on( 'pluginsLoaded', function() {
@@ -62,11 +62,11 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 		});
 
 		// When opening a dialog, its "definition" is created for it, for
-		// each editor instance. The "dialogDefinition" event is then
-		// fired. We should use this event to make customizations to the
+		// each editor instance. The "dialogDefinition" events is then
+		// fired. We should use this events to make customizations to the
 		// definition of existing dialogs.
 		CKEDITOR.on( 'dialogDefinition', function( ev ) {
-			// Take the dialog name and its definition from the event data.
+			// Take the dialog name and its definition from the events data.
 			var dialogName = ev.data.name;
 			var dialogDefinition = ev.data.definition;
 

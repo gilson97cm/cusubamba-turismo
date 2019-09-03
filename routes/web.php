@@ -209,26 +209,36 @@ Route::middleware(['auth'])->group(function () {
     #endregion
 
     #region EVENT
-    Route::post('events/store/', 'EventController@store')->name('events.store')//
+
+    Route::get('lista -de-eventos/', 'Admin\EventController@index')->name('events.index')//
+    ->middleware('permission:events.index');
+
+    Route::get('eventos-calendario/', 'Admin\EventController@create')->name('events.create')//vista del calendario
     ->middleware('permission:events.create');
 
-    Route::get('events/all', 'EventController@index')->name('events.index')//
-    ->middleware('permission:events.index');
+    Route::post('grabar-evento/', 'Admin\EventController@store')->name('events.store')//
+    ->middleware('permission:events.create');
+
+    Route::get('eventos-registrados/{event?}/', 'Admin\EventController@show')->name('events.show')//
+    ->middleware('permission:events.show');
+
+    Route::post('actualizar-evento', 'Admin\EventController@update')->name('events.update')//
+    ->middleware('permission:events.edit');
+
+    Route::post('eliminar-evento', 'Admin\EventController@destroy')->name('events.destroy')//
+    ->middleware('permission:events.destroy');
+
+
 
     Route::get('events/inactive', 'EventController@inactive')->name('events.inactive')//
     ->middleware('permission:events.inactive');
 
-    Route::get('events/create', 'EventController@create')->name('events.create')//
-    ->middleware('permission:events.create');
 
-    Route::put('events/{event}/update', 'EventController@update')->name('events.update')//
-    ->middleware('permission:events.edit');
 
-    Route::get('events/{event}/show', 'EventController@show')->name('events.show')//
-    ->middleware('permission:events.show');
 
-    Route::delete('events/{event}', 'EventController@destroy')->name('events.destroy')//
-    ->middleware('permission:events.destroy');
+
+
+
 
     Route::get('events/{event}/edit', 'EventController@edit')->name('events.edit')//
     ->middleware('permission:events.edit');

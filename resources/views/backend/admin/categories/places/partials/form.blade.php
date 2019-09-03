@@ -1,7 +1,7 @@
 <th>
     {{Form::text('name_place_category', null , [
     'id'=> 'add_category',
-    'onkeypress' => 'return validar_letras(event)',
+    'onkeypress' => 'events',
     'onblur' => 'aMayusculas(this.value,this.id)',
     'class' => 'form-control upletter']) }}
 </th>

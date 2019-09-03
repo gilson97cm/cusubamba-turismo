@@ -45,57 +45,56 @@
             {{--END NOTICIAS--}}
 
             {{--ACTIVIDADES--}}
-            @can('activities.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Actividades</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-human"></i><span class="hide-menu">Actividades</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesA.index')
-                            <li class="sidebar-item"><a href="{{route('categoriesA.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Actividades</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('categoriesA.index')}}" class="sidebar-link"><i class="mdi mdi-label"></i> <span class="hide-menu">Categoría de Actividades</span></a></li>
                         @endcan
                         @can('activities.create')
-                            <li class="sidebar-item"><a href="{{route('activities.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Actividad</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('activities.create')}}" class="sidebar-link"><i class="mdi mdi-plus"></i> <span class="hide-menu">Agregar Actividad</span></a></li>
                         @endcan
                         @can('activities.index')
-                            <li class="sidebar-item"><a href="{{route('activities.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Lista de Actividades</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('activities.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i> <span class="hide-menu">Lista de Actividades</span></a></li>
                         @endcan
                     </ul>
                 </li>
-            @endcan
+
             {{--END ACTIVIDADES--}}
 
             {{--LUGARES--}}
-            @can('places.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Lugares</span></a>
+
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-map-marker"></i><span class="hide-menu">Lugares</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesP.index')
-                            <li class="sidebar-item"><a href="{{route('categoriesP.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Lugares</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('categoriesP.index')}}" class="sidebar-link"><i class="mdi mdi-label"></i> <span class="hide-menu">Categoría de Lugares</span></a></li>
                         @endcan
                         @can('places.create')
-                            <li class="sidebar-item"><a href="{{route('places.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Agregar Lugar</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('places.create')}}" class="sidebar-link"><i class="mdi mdi-plus"></i> <span class="hide-menu">Agregar Lugar</span></a></li>
                         @endcan
                         @can('places.index')
-                            <li class="sidebar-item"><a href="{{route('places.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Lista de Lugares</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('places.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i> <span class="hide-menu">Lista de Lugares</span></a></li>
                         @endcan
                     </ul>
                 </li>
-            @endcan
+
             {{--END LUGARES--}}
 
             {{--EVENTOS--}}
-            @can('events.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Eventos</span></a>
+
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-calendar"></i><span class="hide-menu">Eventos</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('categoriesE.index')
-                            <li class="sidebar-item"><a href="{{route('categoriesE.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Categoría de Evento</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('categoriesE.index')}}" class="sidebar-link"><i class="mdi mdi-plus"></i> <span class="hide-menu">Categoría de Evento</span></a></li>
                         @endcan
                         @can('events.create')
-                            <li class="sidebar-item"><a href="{{route('events.create')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Calendario</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('events.create')}}" class="sidebar-link"><i class="mdi mdi-calendar-clock"></i> <span class="hide-menu">Calendario</span></a></li>
                         @endcan
                         @can('events.index')
-                            <li class="sidebar-item"><a href="{{route('events.index')}}" class="sidebar-link"><i class="mdi mdi-table"></i> <span class="hide-menu">Lista de Eventos</span></a></li>
+                            <li class="sidebar-item"><a href="{{route('events.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i> <span class="hide-menu">Lista de Eventos</span></a></li>
                         @endcan
                     </ul>
                 </li>
-            @endcan
+
             {{--END EVENTOS--}}
 
             {{--LEYENDAS--}}

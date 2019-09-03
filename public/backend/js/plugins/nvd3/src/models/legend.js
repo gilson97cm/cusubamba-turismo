@@ -41,7 +41,7 @@ nv.models.legend = function() {
           .data(function(d) { return d });
       var seriesEnter = series.enter().append('g').attr('class', 'nv-series')
           .on('mouseover', function(d,i) {
-            dispatch.legendMouseover(d,i);  //TODO: Make consistent with other event objects
+            dispatch.legendMouseover(d,i);  //TODO: Make consistent with other events objects
           })
           .on('mouseout', function(d,i) {
             dispatch.legendMouseout(d,i);

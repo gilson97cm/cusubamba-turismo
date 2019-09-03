@@ -406,7 +406,7 @@
         this.container.find('.cancelBtn').html(this.locale.cancelLabel);
 
         //
-        // event listeners
+        // events listeners
         //
 
         this.container.find('.calendar')
@@ -1320,7 +1320,7 @@
 
             this.updateView();
 
-            //This is to cancel the blur event handler if the mouse was in one of the inputs
+            //This is to cancel the blur events handler if the mouse was in one of the inputs
             e.stopPropagation();
 
         },

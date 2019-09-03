@@ -13,9 +13,9 @@
         options: {
             prependExistingHelpBlock: false
             , sniffHtml: true, // sniff for 'required', 'maxlength', etc
-            preventSubmit: true, // stop the form submit event from firing if validation fails
+            preventSubmit: true, // stop the form submit events from firing if validation fails
             submitError: false, // function called if there is an error when trying to submit
-            submitSuccess: false, // function called just before a successful submit event is sent to the server
+            submitSuccess: false, // function called just before a successful submit events is sent to the server
             semanticallyStrict: false, // set to true to tidy up generated HTML output
             bindEvents: [],
             autoAdd: {

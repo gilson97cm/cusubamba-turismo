@@ -421,7 +421,7 @@ nv.models.scatterPlusLineChart = function() {
         if (tooltips) showTooltip(e, that.parentNode);
       });
 
-      // Update chart from a state object passed to event handler
+      // Update chart from a state object passed to events handler
       dispatch.on('changeState', function(e) {
 
         if (typeof e.disabled !== 'undefined') {

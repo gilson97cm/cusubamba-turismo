@@ -124,7 +124,7 @@ var tableChildRows = $('.show-child-rows').DataTable({
 });
 
 //=============================================//
-// Add event listener for opening and closing details
+// Add events listener for opening and closing details
 //=============================================//
 $('.show-child-rows tbody').on('click', 'td.details-control', function() {
     var tr = $(this).closest('tr');

@@ -370,7 +370,7 @@ $.extend( $.validator, {
 					"[type='range'], [type='color'], [type='radio'], [type='checkbox']",
 					"focusin focusout keyup", delegate)
 				// Support: Chrome, oldIE
-				// "select" is provided as event.target when clicking a option
+				// "select" is provided as events.target when clicking a option
 				.validateDelegate("select, option, [type='radio'], [type='checkbox']", "click", delegate);
 
 			if ( this.settings.invalidHandler ) {
@@ -510,7 +510,7 @@ $.extend( $.validator, {
 					$( this.findLastActive() || this.errorList.length && this.errorList[ 0 ].element || [])
 					.filter( ":visible" )
 					.focus()
-					// manually trigger focusin event; without it, focusin handler isn't called, findLastActive won't have anything to find
+					// manually trigger focusin events; without it, focusin handler isn't called, findLastActive won't have anything to find
 					.trigger( "focusin" );
 				} catch ( e ) {
 					// ignore IE throwing errors when focusing hidden elements
@@ -1228,8 +1228,8 @@ $.extend( $.validator, {
 
 		// http://jqueryvalidation.org/equalTo-method/
 		equalTo: function( value, element, param ) {
-			// bind to the blur event of the target in order to revalidate whenever the target field is updated
-			// TODO find a way to bind the event just once, avoiding the unbind-rebind overhead
+			// bind to the blur events of the target in order to revalidate whenever the target field is updated
+			// TODO find a way to bind the events just once, avoiding the unbind-rebind overhead
 			var target = $( param );
 			if ( this.settings.onfocusout ) {
 				target.unbind( ".validate-equalTo" ).bind( "blur.validate-equalTo", function() {
@@ -1340,8 +1340,8 @@ if ( $.ajaxPrefilter ) {
 	};
 }
 
-// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
-// handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target
+// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier events delegation
+// handler is only called when $(events.target).is(delegate), in the scope of the jquery-object for events.target
 
 $.extend($.fn, {
 	validateDelegate: function( delegate, type, handler ) {

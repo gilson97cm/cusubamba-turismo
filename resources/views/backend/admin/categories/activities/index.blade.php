@@ -144,7 +144,7 @@
                                                     {{Form::label('name_activity_category', 'Nombre:',['class' => 'my-label'])}}
                                                     {{Form::text('name_activity_category', null , [
                                                             'id' => 'edit_category',
-                                                            'onkeypress' => 'return validar_letras(event)',
+                                                            'onkeypress' => 'events',
                                                             'onblur' => 'aMayusculas(this.value,this.id)',
                                                             'class' => 'form-control upletter']) }}
                                                 </div>

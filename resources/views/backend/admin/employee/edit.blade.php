@@ -201,7 +201,7 @@
                                         <div class="form-group row ">
                                             {{Form::label('position_person', 'Cargo:',['class' => ' col-sm-3 text-right  my-label'])}}
                                             <div class="col-sm-9">
-                                                {{Form::text('position_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Cargo','onkeypress' => 'return validar_caracteres(event)']) }}
+                                                {{Form::text('position_person', null , ['class' => 'form-control my-border', 'placeholder' => 'Cargo','onkeypress' => 'events']) }}
                                             </div>
                                         </div>
                                     </div>

@@ -2501,7 +2501,7 @@ Licensed under the MIT license.
                                    function (s) { return s["clickable"] != false; });
         }
 
-        // trigger click or hover event (they send the same parameters
+        // trigger click or hover events (they send the same parameters
         // so we share their code)
         function triggerClickHoverEvent(eventname, event, seriesFilter) {
             var offset = eventHolder.offset(),
@@ -2540,7 +2540,7 @@ Licensed under the MIT license.
 
         function triggerRedrawOverlay() {
             var t = options.interaction.redrawOverlayInterval;
-            if (t == -1) {      // skip event queue
+            if (t == -1) {      // skip events queue
                 drawOverlay();
                 return;
             }

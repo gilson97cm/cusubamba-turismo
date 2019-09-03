@@ -48,7 +48,7 @@
                     {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
                     {{Form::textarea('title_news', null , ['class' => 'form-control upletter my-border',
                             'rows' => '5','id'=> 'add_news',
-                            'onkeypress' => 'return validar_caracteres(event)',
+                            'onkeypress' => 'events',
                             'onblur' => 'aMayusculas(this.value,this.id)']) }}
                 </div>
             </div>

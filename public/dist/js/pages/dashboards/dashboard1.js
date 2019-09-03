@@ -47,7 +47,7 @@ $(function() {
         }
     });
 
-    // Create the gradient definition on created event (always after chart re-render)
+    // Create the gradient definition on created events (always after chart re-render)
     chart.on('created', function(ctx) {
         var defs = ctx.svg.elem('defs');
         defs.elem('linearGradient', {
