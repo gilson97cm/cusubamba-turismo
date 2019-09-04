@@ -21,10 +21,10 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+       // dd($request);
         //Valores recibidos via ajax
         $name_event_ = $_POST['name_event'];
-        $des = $_POST['des'];
+        //$des = $_POST['des'];
        // $description_event_ = $_POST['description_event'];
         $start_event_ = $_POST['start_event'];
       //  $time_event_ = $_POST['time_event'];
@@ -33,7 +33,7 @@ class EventController extends Controller
         //Insertando evento a base de datos
         $evento = new Event;
         $evento->name_event = $name_event_;
-        $evento->description_event = $des;
+       // $evento->description_event = $des;
         $evento->start_event = $start_event_;
         //$evento->time_event = $time_event_;
         $evento->all_day_event = 'true';
@@ -64,7 +64,7 @@ class EventController extends Controller
                 "start" => $start_date[$i], //por el plugin asi que asignamos a cada uno el valor correspondiente
                 "end"=>$end_event[$i],
                 "allDay" => $all_day_event[$i],
-                "backgroundColor"=> $color_event[$i],
+                "className"=> $color_event[$i],
                 // "borderColor"=>$borde[$i],
                 "id" => $id[$i]
                 //"url"=>"cargaEventos".$id[$i]
@@ -80,29 +80,28 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
-       // dd($request);
-        //alores recibidos via ajax
-        $id = $_POST['id'];
+       //dd($request);
+        //alores recibidos via ajax/
+         $id = $_POST['id'];
         $title = $_POST['title'];
         $start = $_POST['start'];
-        $end = $_POST['end'];
-        $allDay = $_POST['allday'];
-        $back = $_POST['back'];
+        //$end = $_POST['end'];
+        //$allDay = $_POST['allday'];
+        //$back = $_POST['back'];
 
         $evento = Event::find($id);
 
-        if ($end == 'NULL') {
-            $evento->end_event = NULL;
-        } else {
-            $evento->end_event = $end;
-        }
-         $evento->all_day_event = $allDay;
+        //if ($end == 'NULL') {
+           // $evento->end_event = NULL;
+        //} else {
+           // $evento->end_event = $end;
+        //}
+        $evento->all_day_event = true;
         $evento->start_event = $start;
-        $evento->color_event = $back;
+        ///$evento->color_event = $back;
         $evento->name_event = $title;
-
-
         $evento->save();
+        //return back();
     }
 
     public function destroy (){
