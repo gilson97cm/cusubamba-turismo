@@ -16,7 +16,7 @@ $(function () {
             $(this).draggable({
                 zIndex: 1070,
                 revert: true, // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
+                revertDuration: 0,  //  original position after the drag
             });
 
         });
@@ -44,13 +44,14 @@ $(function () {
             week: 'Semana',
             day: 'Día'
         },
-
+       // defaultAllDayEventDuration,
+        //timeZone: 'local',
         events: {url: "eventos-registrados"},
         editable: true,
         droppable: true, // this allows things to be dropped onto the calendar !!!
 
 
-        drop: function (date, allDay) { // this function is called when something is dropped
+        drop: function (date, allDay ){ // this function is called when something is dropped
             // retrieve the dropped element's stored Event Object
             var originalEventObject = $(this).data('eventObject');
             // we need to copy it, so that multiple events don't have a reference to the same object
@@ -73,15 +74,16 @@ $(function () {
             //Guardamos el evento creado en base de datos
             var name_event = copiedEventObject.title;
             // var description_event = copiedEventObject.description;
-            var start_event = copiedEventObject.start.format("YYYY-MM-DD HH:mm");
+            var start_event = copiedEventObject.start.format("YYYY-MM-DD HH:MM");
+          //  var time_event = copiedEventObject.time_format("HH:MM");
+            var des = $('#des').val();
             var color_event = copiedEventObject.backgroundColor;
             var route = $('#form-calendar').attr('action');
-
-
             crsfToken = document.getElementsByName("_token")[0].value;
+
             $.ajax({
                 url: route,
-                data: 'name_event=' + name_event + '&start_event=' + start_event + '&allday=' + allDay + '&color_event=' + color_event, //datos que envia el formulario via ajax (back es background)
+                data: 'name_event=' + name_event + '&des=' + des + '&start_event=' + start_event+ '&color_event=' + color_event, //datos que envia el formulario via ajax (back es background)
                 type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": crsfToken
@@ -97,18 +99,18 @@ $(function () {
         },
 
         eventResize: function (event) {
-            var start = event.start.format("YYYY-MM-DD hh:MM");
+            var start = event.start.format("YYYY-MM-DD HH:MM");
             var back = event.backgroundColor;
             var allDay = event.allDay;
             if (event.end) {
-                var end = event.end.format("YYYY-MM-DD hh:MM");
+                var end = event.end.format("YYYY-MM-DD HH:MM");
             } else {
                 var end = 'NULL';
             }
             crsfToken = document.getElementsByName("_token")[0].value;
             $.ajax({
                 url: 'actualizar-evento',
-                data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id + '&background' + back + '&allday=' + allDay,
+                data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id + '&back=' + back + '&allday=' + allDay,
                 type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": crsfToken
@@ -122,9 +124,9 @@ $(function () {
             });
         },
         eventDrop: function (event, delta) {
-            var start = event.start.format("YYYY-MM-DD hh:MM");
+            var start = event.start.format("YYYY-MM-DD HH:MM");
             if (event.end) {
-                var end = event.end.format("YYYY-MM-DD hh:MM");
+                var end = event.end.format("YYYY-MM-DD  HH:MM");
             } else {
                 var end = 'NULL';
             }
@@ -134,7 +136,7 @@ $(function () {
 
             $.ajax({
                 url: 'actualizar-evento',
-                data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id + '&background=' + back + '&allday=' + allDay,
+                data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id + '&back=' + back + '&allday=' + allDay,
                 type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": crsfToken

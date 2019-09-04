@@ -21,19 +21,24 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
         //Valores recibidos via ajax
         $name_event_ = $_POST['name_event'];
+        $des = $_POST['des'];
        // $description_event_ = $_POST['description_event'];
         $start_event_ = $_POST['start_event'];
+      //  $time_event_ = $_POST['time_event'];
         $color_event_ = $_POST['color_event'];
 
         //Insertando evento a base de datos
         $evento = new Event;
         $evento->name_event = $name_event_;
+        $evento->description_event = $des;
         $evento->start_event = $start_event_;
-        $evento->all_day_event = true;
+        //$evento->time_event = $time_event_;
+        $evento->all_day_event = 'true';
         $evento->color_event = $color_event_;
+
         //$evento->fechaFin=$end;
 
 
@@ -58,7 +63,7 @@ class EventController extends Controller
                 "title" => $name_event[$i], //obligatoriamente "title", "start" y "url" son campos requeridos
                 "start" => $start_date[$i], //por el plugin asi que asignamos a cada uno el valor correspondiente
                 "end"=>$end_event[$i],
-                "allday" => $all_day_event[$i],
+                "allDay" => $all_day_event[$i],
                 "backgroundColor"=> $color_event[$i],
                 // "borderColor"=>$borde[$i],
                 "id" => $id[$i]
@@ -75,14 +80,14 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
-        //dd($request);
-        //Valores recibidos via ajax
+       // dd($request);
+        //alores recibidos via ajax
         $id = $_POST['id'];
         $title = $_POST['title'];
         $start = $_POST['start'];
         $end = $_POST['end'];
         $allDay = $_POST['allday'];
-        $back = $_POST['background'];
+        $back = $_POST['back'];
 
         $evento = Event::find($id);
 
@@ -91,12 +96,7 @@ class EventController extends Controller
         } else {
             $evento->end_event = $end;
         }
-        if ($allDay == 'true')
-            $evento->all_day_event = 1;
-        else
-            $evento->all_day_event = 0;
-
-
+         $evento->all_day_event = $allDay;
         $evento->start_event = $start;
         $evento->color_event = $back;
         $evento->name_event = $title;

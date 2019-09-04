@@ -110,6 +110,7 @@
             </div><!-- /.panel-body -->
         </div><!-- /.panel -->
     </div>
+    <input type="text" name="des" id="des">
 @endsection
 
 @section('scripts')

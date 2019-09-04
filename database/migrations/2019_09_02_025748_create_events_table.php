@@ -19,7 +19,8 @@ class CreateEventsTable extends Migration
             $table->mediumText('description_event')->nullable();
             $table->datetime('start_event');
             $table->datetime('end_event')->nullable();
-            $table->boolean('all_day_event');
+            $table->time('time_event')->nullable();
+            $table->enum('all_day_event',['true','false']);
             $table->string('color_event')->nullable();
             $table->string('avatar_event')->nullable();
             $table->bigInteger('event_category_id')->unsigned()->nullable();
