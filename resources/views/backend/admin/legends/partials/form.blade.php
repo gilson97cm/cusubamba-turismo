@@ -24,14 +24,7 @@
     </div>
     <div class="col-sm-12 col-lg-6">
         <br>
-    <!--  <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <div class="form-group row">
-                    {{--Form::label('date_legends', 'Fecha:',['class' => ' my-label'])}}
-                    {{ Form::date('date_legends', new \DateTime(), ['class' => 'form-control my-border']) --}}
-        </div>
-    </div>
-</div> -->
+
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">

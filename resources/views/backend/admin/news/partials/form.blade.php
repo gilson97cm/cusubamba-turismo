@@ -55,6 +55,7 @@
         </div>
     </div>
 </div>
+<hr>
 <div class="row">
     <div class="col-sm-12 col-lg-12">
         <div class="form-group">

@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/my-libs/custom-table.css')}}">
 @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">

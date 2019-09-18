@@ -12,6 +12,11 @@ class EventCategories extends Model
         'description_event_category',
     ];
 
+    public function activity()
+    {
+        return $this->hasMany(Event::class);
+    }
+
     //Scope
     public function scopeName($query, $name){
         if($name)

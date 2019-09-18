@@ -48,6 +48,7 @@ class LegendController extends Controller
      */
     public function store(LegendStoreRequest $request)
     {
+        //dd($request);
         $legend = Legend::create($request->all());
         //image
         if ($request->file('avatar_legend')) {

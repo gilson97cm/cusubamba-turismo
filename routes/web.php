@@ -224,6 +224,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('actualizar-evento', 'Admin\EventController@update')->name('events.update')//
     ->middleware('permission:events.edit');
+    Route::post('actualizar-evento-form', 'Admin\EventController@updateForm')->name('events.update')//
+    ->middleware('permission:events.edit');
 
     Route::post('eliminar-evento', 'Admin\EventController@destroy')->name('events.destroy')//
     ->middleware('permission:events.destroy');

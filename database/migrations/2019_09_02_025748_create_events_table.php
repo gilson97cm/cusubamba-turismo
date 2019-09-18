@@ -17,10 +17,10 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name_event');
             $table->mediumText('description_event')->nullable();
+            $table->string('location_event')->nullable();
             $table->datetime('start_event');
             $table->datetime('end_event')->nullable();
-            $table->time('time_event')->nullable();
-            $table->enum('all_day_event',['true','false']);
+            $table->boolean('all_day_event');
             $table->string('color_event')->nullable();
             $table->string('avatar_event')->nullable();
             $table->bigInteger('event_category_id')->unsigned()->nullable();
