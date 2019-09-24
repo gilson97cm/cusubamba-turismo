@@ -16,8 +16,8 @@ Route::get('register/', 'RegisterController@showRegistrationForm')->name('regist
 Route::post('register', 'RegisterController@register');
 
 //province - canton -parish
-Route::get('cantons/{name}', 'Address\ProvinceController@getCanton')->name('cantons');
-Route::get('parishes/{name}', 'Address\ProvinceController@getParish')->name('parishes');
+Route::get('cantons/{id}', 'Address\ProvinceController@getCanton')->name('cantons');
+Route::get('parishes/{id}', 'Address\ProvinceController@getParish')->name('parishes');
 
 ///
 

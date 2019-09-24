@@ -12,34 +12,46 @@ class CantonTableSeeder extends Seeder
      */
     public function run()
     {
+        #region CARCHI
+        Canton::create([
+            'name_canton' => 'BOLÍVAR',
+            'province_id' => '1',
+        ]);
+        Canton::create([
+            'name_canton' => 'TULCÁN',
+            'province_id' => '1',
+        ]);
+
+        #endregion
+
         #region  COTOPAXI
         Canton::create([
             'name_canton' => 'LATACUNGA',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'LA MANÁ',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'PANGUA',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'PUJILI',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'SALCEDO',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'SAQUISILÍ',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         Canton::create([
             'name_canton' => 'SIGCHOS',
-            'name_province' => 'COTOPAXI',
+            'province_id' => '2',
         ]);
         #endregion
     }

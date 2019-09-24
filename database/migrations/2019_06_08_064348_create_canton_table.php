@@ -14,14 +14,14 @@ class CreateCantonTable extends Migration
     public function up()
     {
         Schema::create('canton', function (Blueprint $table) {
-          //  $table->bigIncrements('id');
+            $table->bigIncrements('id');
             $table->string('name_canton');
-            $table->primary('name_canton');
-            $table->string('name_province');
+          //  $table->primary('name_canton');
+            $table->bigInteger('province_id')->unsigned();
             $table->timestamps();
 
             //relation
-            $table->foreign('name_province')->references('name_province')->on('province');
+            $table->foreign('province_id')->references('id')->on('province');
         });
     }
 

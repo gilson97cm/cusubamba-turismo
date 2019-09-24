@@ -42,4 +42,8 @@ class Event extends Model
         if($description)
             return $query->where('description_event','LIKE', "%$description%");
     }
+    public function scopeEvent_category_id($query, $id){
+        if($id)
+            return $query->where('event_category_id','LIKE', "%$id%");
+    }
 }

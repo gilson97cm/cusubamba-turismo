@@ -116,16 +116,16 @@
 
             {{--EMPLEADOS--}}
             @can('employees.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Empleados </span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Empleados </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @can('employees.create')
-                            <li class="sidebar-item"><a href="{{route('employees.create')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Agregar Empleado </span></a></li>
+                            <li class="sidebar-item"><a href="{{route('employees.create')}}" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu">Agregar Empleado </span></a></li>
                         @endcan
                         @can('employees.index')
-                            <li class="sidebar-item"><a href="{{route('employees.index')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Lista de Empleados </span></a></li>
+                            <li class="sidebar-item"><a href="{{route('employees.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Lista de Empleados </span></a></li>
                         @endcan
                         @can('employees.inactive')
-                            <li class="sidebar-item"><a href="{{route('employees.inactive')}}" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu">Empleados Inactivos </span></a></li>
+                            <li class="sidebar-item"><a href="{{route('employees.inactive')}}" class="sidebar-link"><i class="mdi mdi-account-off"></i><span class="hide-menu">Empleados Inactivos </span></a></li>
                         @endcan
                     </ul>
                 </li>

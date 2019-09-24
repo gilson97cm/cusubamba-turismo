@@ -16,6 +16,7 @@ class EventController extends Controller
         $description = $request->get('description_event');
         $start_event = $request->get('start_event');
         $end_event = $request->get('end_event');
+        $category_id = $request->get('event_category_id');
 
         $categories = EventCategories::orderBy('name_event_category', 'ASC')->pluck('name_event_category', 'id');
 
@@ -24,6 +25,7 @@ class EventController extends Controller
             ->description($description)
             ->start_event($start_event)
             ->end_event($end_event)
+            ->event_category_id($category_id)
             ->paginate(10);
         return view('backend.admin.events.index', compact('events', 'categories'));
 

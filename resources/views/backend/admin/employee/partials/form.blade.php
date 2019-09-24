@@ -60,9 +60,7 @@
             <div class="form-group row">
                 {{Form::label('province_person', 'Provincia:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{-- !! Form::select('province_person', $provinces, null,['id'=>'province', 'placeholder' => 'Seleccione...', 'class' => 'form-control my-border']) !!--}}
-                    <input type="text" name="province_person" onkeypress="return validar_letras(event)" class="form-control my-border" placeholder="Provincia" aria-label="" aria-describedby="basic-addon11" required="" value="{{old('province_person')}}">
-
+                    {!! Form::select('province_person', $provinces, null,['id'=>'province', 'placeholder' => 'Seleccione...', 'class' => 'form-control my-border']) !!}
                 </div>
             </div>
         </div>
@@ -70,8 +68,7 @@
             <div class="form-group row">
                 {{Form::label('canton_person', 'Cantón:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{--!! Form::select('canton_person',['placeholder'=>'Seleccione...'], null,['id'=>'canton', 'class' => 'form-control my-border']) !!--}}
-                    <input type="text" name="canton_person" onkeypress="return validar_letras(event)" class="form-control my-border" placeholder="Cantón" aria-label="" aria-describedby="basic-addon11" required="" value="{{old('canton_person')}}">
+                    {!! Form::select('canton_person',['placeholder'=>'Seleccione...'], null,['id'=>'canton', 'class' => 'form-control my-border']) !!}
 
                 </div>
             </div>
@@ -82,8 +79,7 @@
             <div class="form-group row">
                 {{Form::label('parish_person', 'Parroquia:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{--!! Form::select('parish_person',['placeholder'=>'Seleccione...'], null,['id'=>'parish', 'class' => 'form-control my-border']) !!--}}
-                    <input type="text" name="parish_person" onkeypress="return validar_letras(event)" class="form-control my-border" placeholder="Parroquia" aria-label="" aria-describedby="basic-addon11" required="" value="{{old('parish_person')}}">
+                    {!! Form::select('parish_person',['placeholder'=>'Seleccione...'], null,['id'=>'parish', 'class' => 'form-control my-border']) !!}
 
                 </div>
             </div>

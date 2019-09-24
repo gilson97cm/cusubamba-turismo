@@ -54,6 +54,9 @@
                                         {{ Form::text('end_event',null,  ['class' => 'form-control my-border margin-search','placeholder'=>'F. fin', 'onfocus' => 'this.type = "date"']) }}
                                     </div>
                                     <div class="form-group">
+                                        {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Categoria']) }}
+                                    </div>
+                                    <div class="form-group">
                                         {{ Form::text('name_event', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre']) }}
                                     </div>
                                     <div class="form-group">

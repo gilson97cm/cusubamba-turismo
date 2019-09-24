@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address\Province;
 use App\Employee;
 use App\Person;
 use App\RoleUser;
@@ -39,7 +40,7 @@ class EmployeeController extends Controller
     public function create(){
 
         $roles = DB::table('roles')->pluck('name', 'id');
-        $provinces = DB::table('province')->pluck('name_province', 'name_province');
+        $provinces = Province::pluck('name_province', 'id');
         return view('backend.admin.employee.create', compact('roles', 'provinces'));
     }
 
