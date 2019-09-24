@@ -10,16 +10,28 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $name = $request->get('name_event');
+        $description = $request->get('description_event');
+        $start_event = $request->get('start_event');
+        $end_event = $request->get('end_event');
 
+        $categories = EventCategories::orderBy('name_event_category', 'ASC')->pluck('name_event_category', 'id');
+
+        $events = Event::orderBy('name_event', 'ASC')
+            ->name($name)
+            ->description($description)
+            ->start_event($start_event)
+            ->end_event($end_event)
+            ->paginate(10);
+        return view('backend.admin.events.index', compact('events', 'categories'));
 
     }
 
     public function create()
     {
         $categories = EventCategories::orderBy('name_event_category', 'ASC')->pluck('name_event_category', 'id');
-
         return view('backend.admin.events.create', compact('categories'));
     }
 
@@ -36,7 +48,7 @@ class EventController extends Controller
         }
     }
 
-    public function show()
+    public function show_in_calendar()
     {
         $data = array(); //declaramos un array principal que va contener los datos
         $id = Event::all()->pluck('id'); //listamos todos los id de los eventos
@@ -155,11 +167,25 @@ class EventController extends Controller
 
     public function destroy(Request $request)
     {
-       // dd($request);
-        //Valor id recibidos via ajax
-        $id = $_POST['id'];
-        Event::destroy($id);
+        Event::destroy($request->id);
+    }
 
+    public function destroy_list(Request $request, Event $event)
+    {
+        if ($request->ajax()) {
+            $event->delete();
+            return response()->json([
+                'message' => 'Evento eliminada con exito.',
+            ]);
+        }
+    }
+
+    public function show_list($id){
+        $event = Event::find($id);
+        if ($event)
+            return view('backend.admin.activities.show', compact('event'));
+        else
+            return redirect()->route('home');
     }
 }
 

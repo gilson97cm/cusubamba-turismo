@@ -1,4 +1,3 @@
-
 <div id="form-event">
     <div class="row">
         <div class="col-md-4">
@@ -34,11 +33,17 @@
                     <div class='form-group'>
                         {{Form::label('color_event', 'Color:',['class' => ' my-label'])}}
                         <select class='form-control my-border cls' name='color_event'>
-                            <option value="bg-danger">ROJO</option>
-                            <option value="bg-success">VERDE</option>
-                            <option value="bg-primary">MORADO</option>
-                            <option value="bg-info">AZUL</option>
-                            <option value="bg-warning">AMARILLO</option>
+                            <option value="" disabled selected> -</option>
+                            <option class="text-danger" value="bg-danger">&#9724; ROJO</option>
+                            <option class="text-success" value="bg-success">&#9724; VERDE</option>
+                            <option class="text-primary" value="bg-primary">&#9724; MORADO</option>
+                            <option class="text-info" value="bg-info">&#9724; AZUL</option>
+                            <option class="text-warning" value="bg-warning">&#9724; AMARILLO</option>
+                            <option class="text-amaranto" value="bg-amaranto" >&#9724; AMARANTO</option>
+                            <option class="text-jade" value="bg-jade" >&#9724; JADE</option>
+                            <option class="text-fucsia" value="bg-fucsia" >&#9724; FUCSIA</option>
+                            <option class="text-turquesa" value="bg-turquesa" >&#9724; TURQUESA</option>
+                            <option class="text-naranja" value="bg-naranja" >&#9724; NARANJA</option>
                         </select>
                     </div>
 
@@ -46,8 +51,9 @@
                 <div class='col-md-6'>
                     <div class='form-group'>
                         {{Form::label('name_event', 'Titulo:',['class' => ' my-label'])}}
-                        {{Form::text('name_event', null , ['class' => 'form-control my-border cls',
+                        {{Form::textarea('name_event', null , ['class' => 'form-control my-border cls',
                                         'id'=> 'add_event',
+                                        'rows' => '4',
                                         'onkeypress' => 'return validar_caracteres(event)',
                                         'onblur' => 'aMayusculas(this.value,this.id)']) }}
                     </div>

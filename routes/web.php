@@ -210,40 +210,35 @@ Route::middleware(['auth'])->group(function () {
 
     #region EVENT
 
-    Route::get('lista -de-eventos/', 'Admin\EventController@index')->name('events.index')//
+    Route::get('lista -de-eventos/', 'Admin\EventController@index')->name('events.index')// vista de la lista de eventos
     ->middleware('permission:events.index');
 
     Route::get('eventos-calendario/', 'Admin\EventController@create')->name('events.create')//vista del calendario
     ->middleware('permission:events.create');
 
+    //ACCIONES DEL CALENDARIO
     Route::post('grabar-evento/', 'Admin\EventController@store')->name('events.store')//
     ->middleware('permission:events.create');
 
-    Route::get('eventos-registrados/{event?}/', 'Admin\EventController@show')->name('events.show')//
+    Route::get('eventos-registrados/{event?}/', 'Admin\EventController@show_in_calendar')->name('events.show')//
     ->middleware('permission:events.show');
 
     Route::post('actualizar-evento', 'Admin\EventController@update')->name('events.update')//
     ->middleware('permission:events.edit');
+
     Route::post('actualizar-evento-form', 'Admin\EventController@updateForm')->name('events.update')//
     ->middleware('permission:events.edit');
 
     Route::post('eliminar-evento', 'Admin\EventController@destroy')->name('events.destroy')//
     ->middleware('permission:events.destroy');
 
+    //CCIONES DE LA TABLA
+    Route::delete('eliminar-evento-lista/{event}', 'Admin\EventController@destroy_list')->name('events.destroy.list')//
+    ->middleware('permission:events.destroy');
 
+    Route::delete('detalle-del-evento/{event}', 'Admin\EventController@show_list')->name('events.show.list')//
+    ->middleware('permission:events.show');
 
-    Route::get('events/inactive', 'EventController@inactive')->name('events.inactive')//
-    ->middleware('permission:events.inactive');
-
-
-
-
-
-
-
-
-    Route::get('events/{event}/edit', 'EventController@edit')->name('events.edit')//
-    ->middleware('permission:events.edit');
     #endregion
 
 

@@ -64,3 +64,56 @@
    background: #40c4ff; /*el color que reciben los evebtos al ser arrastrados */
 }
 
+/*MIS COLORES */
+.text-danger, .text-success, .text-primary, .text-info, .text-warning{
+    font-weight: bold;
+}
+
+.bg-escarlata{
+    background: rgb(255,36,0);
+}
+.text-escarlata{
+    color: rgb(255,36,0);
+    font-weight: bold;
+}
+
+.bg-amaranto{
+    background: rgb(229,43,80);
+}
+.text-amaranto{
+    color: rgb(229,43,80);
+    font-weight: bold;
+}
+
+.bg-jade{
+    background: rgb(0,168,107);
+}
+.text-jade{
+    color: rgb(0,168,107);
+    font-weight: bold;
+}
+
+.bg-fucsia{
+    background: rgb(253,63,146);
+}
+.text-fucsia{
+    color: rgb(253,63,146);
+    font-weight: bold;
+}
+
+.bg-turquesa{
+    background: rgb(48,213,200);
+}
+.text-turquesa{
+    color: rgb(48,213,200);
+    font-weight: bold;
+}
+
+.bg-naranja{
+    background: rgb(255,112,40);
+}
+.text-naranja{
+    color:  rgb(255,112,40);
+    font-weight: bold;
+}
+

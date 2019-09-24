@@ -193,3 +193,7 @@ textarea {
     margin-right: 3px;
 }
 
+.my-border-right{
+    border-left: gray 1px solid;
+}
+

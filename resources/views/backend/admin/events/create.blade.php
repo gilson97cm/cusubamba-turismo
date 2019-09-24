@@ -26,61 +26,30 @@
 @endsection
 
 @section('dashboard')
+
+
     <div class="container-fluid">
-        <div class="col-md-3 col-sm-12">
-            <button type="button" id="pos-bottom-left" style="display: none;"></button>
-        </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-1 col-md-12"></div>
+            <div class="col-lg-10 col-md-12">
                 <div class="card">
-                    <div class="">
-                        <div class="row">
-                            <div class="col-lg-3 border-right p-r-0">
-                                <div class="card-body border-bottom">
-                                    <h4 class="card-title m-t-10">Arrastrar y Agregar Evento</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="calendar-events" class="">
-                                                <div class="calendar-events m-b-20" data-class="bg-info"><i
-                                                        class="fa fa-circle text-info m-r-10"></i>Event One
-                                                </div>
-                                                <div class="calendar-events m-b-20" data-class="bg-success"><i
-                                                        class="fa fa-circle text-success m-r-10"></i> Event Two
-                                                </div>
-                                                <div class="calendar-events m-b-20" data-class="bg-danger"><i
-                                                        class="fa fa-circle text-danger m-r-10"></i>Event Three
-                                                </div>
-                                                <div class="calendar-events m-b-20" data-class="bg-warning"><i
-                                                        class="fa fa-circle text-warning m-r-10"></i>Event Four
-                                                </div>
-                                            </div>
-                                            <!-- checkbox -->
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="drop-remove">
-                                                <label class="custom-control-label" for="drop-remove">Remove after
-                                                    drop</label>
-                                            </div>
-                                            <a href="javascript:void(0)" data-toggle="modal"
-                                               data-target="#add-new-event"
-                                               class="btn m-t-20 btn-info btn-block waves-effect waves-light">
-                                                <i class="ti-plus"></i> Crear Evento
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="card-body b-l calender-sidebar">
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-header">
+                        @can('events.index')
+                            <a href="{{route('events.index')}}"
+                               class="btn btn-sm btn-primary my_button pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i> Lista de eventos
+                            </a>
+                        @endcan
+                    </div>
+                    <div class="card-body b-l calender-sidebar">
+                        <div id="calendar"></div>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-1 col-md-12"></div>
         </div>
+    </div>
+
     {!! Form::open(['route' => ['events.store'], 'method' => 'POST', 'id' =>'form-calendar']) !!}
     {!! Form::close() !!}
     {!! Form::open(['route' => ['events.update'], 'method' => 'POST', 'id' =>'form-calendar-edit']) !!}
@@ -130,57 +99,6 @@
         <div style="display: none;">
             @include('backend.admin.events.partials.form')
         </div>
-        <!-- Modal Add New Event with drop-->
-        <div class="modal fade bd-example-modal-lg" id="add-new-event">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title"><strong>Crear</strong> un evento temporal</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="control-label">Category Name</label>
-                                    <input class="form-control form-white" placeholder="Enter name" type="text"
-                                           name="category-name"/>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="control-label">Choose Category Color</label>
-                                    <select class="form-control form-white" data-placeholder="Choose a color..."
-                                            name="category-color">
-                                        <option value="success">Success</option>
-                                        <option value="danger">Danger</option>
-                                        <option value="info">Info</option>
-                                        <option value="primary">Primary</option>
-                                        <option value="warning">Warning</option>
-                                        <option value="inverse">Inverse</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="control-label">Descripcion</label>
-                                    <input class="form-control form-white" placeholder="Descripcion:" type="text"
-                                           name="category-description"/>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger waves-effect waves-light save-category"
-                                data-dismiss="modal">Saveeee
-                        </button>
-                        <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END MODAL -->
-
-
-    </div>
 
 @endsection
 
@@ -210,67 +128,6 @@
                     this.$saveCategoryBtn = $('.save-category'),
                     this.$calendarObj = null
             };
-
-
-            /* on drop */
-            CalendarApp.prototype.onDrop = function (eventObj, date, allDay, element) {
-                var $this = this;
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = eventObj.data('eventObject');
-                var $categoryClass = eventObj.attr('data-class');
-                var $description = eventObj.attr('description');
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.end = date;
-                copiedEventObject.allDay = allDay;
-                //copiedEventObject.description = element;
-
-                if ($description)
-                    copiedEventObject['category-description'] = [$description];
-
-                if ($categoryClass)
-                    copiedEventObject['className'] = [$categoryClass];
-
-                if ($('#drop-remove').is(':checked')) {
-                    eventObj.remove();
-                }
-
-                //Guardamos el evento creado en base de datos
-                var name_event = copiedEventObject.title;
-                var start_event = copiedEventObject.start.format("YYYY-MM-DD HH:mm");
-                var end_event = copiedEventObject.end.format("YYYY-MM-DD HH:mm");
-                var color_event = $categoryClass;
-                var description = $description;
-
-                var route = $('#form-calendar').attr('action');
-                var crsfToken = document.getElementsByName("_token")[0].value;
-                var allday = 0;
-
-                if (start_event == end_event)
-                    allday = 1;
-                else
-                    allday = 0;
-
-                $.ajax({
-                    url: route,
-                    data: 'name_event=' + name_event + '&description=' + description + '&start_event=' + start_event + '&end_event=' + end_event + '&allDay=' + allday + '&color_event=' + color_event, //datos que envia el formulario via ajax (back es background)
-                    type: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": crsfToken
-                    },
-                    success: function (events) {
-                        //console.log('Evento creado');
-                        $('#calendar').fullCalendar('refetchEvents');
-                    },
-                    error: function (json) {
-                        console.log("Error al crear evento");
-                    }
-                });
-
-            },
-
                 /* on select */ //agregar evento
                 CalendarApp.prototype.onSelect = function (eventObj, date, allDay) {
                     var $this = this;
@@ -305,7 +162,10 @@
                     });
 
                     $this.$modal.find('form').on('submit', function () {
-                        var name_event_ = form.find("input[name='name_event']").val();
+                        var name_event_ = form.find("textarea[name='name_event']").val();
+                        var location_ = form.find("input[name='location_event']").val();
+                        var description_ = form.find("textarea[name='description_event']").val();
+                        var category_id_ = form.find("select[name='event_category_id']").val();
                         var start_ = form.append("<input type='hidden' value='"+start_event_+"' name ='start_event' />" );
                         var end = form.append("<input type='hidden' value='"+end_event_+"' name ='end_event' />" );
 
@@ -313,7 +173,7 @@
                         var route = $('#form-calendar').attr('action');
                         var crsfToken = document.getElementsByName("_token")[0].value;
 
-                        if (name_event_ !== null && name_event_.length != 0) {
+                        if (name_event_ !== null && name_event_.length != 0 && location_ !== null && location_.length != 0 && description_ !== null && description_.length != 0 && category_id_ > 0) {
 
                             if (start_event_ == end_event_){
                                 all_day_event_ = 1;
@@ -348,7 +208,7 @@
                             });
                             $this.$modal.modal('hide');
                         } else {
-                            alert('You have to give a title to your event');
+                            alert('Asegurese de que todos los campos esten llenos');
                         }
                         return false;
 
@@ -398,7 +258,7 @@
                     ///en el siguiente form se cargan los datos para editar el evento
                     form.append($('#form-event'));
                     form.append("<input type='hidden' name= 'id' value='"+calEvent.id+"' />");
-                    form.find("input[name='name_event']").val(calEvent.title);
+                    form.find("textarea[name='name_event']").val(calEvent.title);
                     form.find("input[name='location_event']").val(calEvent.location);
                     form.find("textarea[name='description_event']").val(calEvent.description);
                     form.find("select[name='color_event']").val(calEvent.className);
@@ -575,7 +435,7 @@
                             today: 'Hoy',
                             month: 'Mes',
                             week: 'Semana',
-                            day: 'Día'
+                            day: 'Día',
                         },
 
                         events: {url: 'eventos-registrados'},
@@ -585,9 +445,9 @@
                         selectable: true,
                         resizable: true,
 
-                        drop: function (date, allDay, element) {
-                            $this.onDrop($(this), date, allDay, element);
-                        },
+                   /*     drop: function (date, allDay) {
+                            $this.onDrop($(this), date, allDay);
+                        },*/
                         select: function (date) {
                             $this.onSelect($(this), date, true);
                         },
@@ -617,7 +477,16 @@
                             } else {
                                 var allDay = "No";
                             }
-                            var tooltip = '<div class="tooltipevent ' + back + ' " style="width:200px;height:100px;color:white;position:absolute;z-index:10001;">' + '<center>' + event.title + '</center>' + 'Todo el dia: ' + allDay + '<br>' + 'Inicio: ' + start + '<br>' + 'Fin: ' + end + '</div>';
+                            var tooltip = '<div class="tooltipevent card text-white ' + back + ' mb-3 " style="width: 20rem; max-width: 20rem; position:absolute;z-index:10001;">' +
+                                            '<div class="card-header"><h5>'+event.title+'</h5></div>'+
+                                            '<div class="card-body">'+
+                                            '<label class="card-title" style="margin-right: 10px">Todo el día: </label> <label>'+allDay+'</label> <br>'+
+                                            '<label class="card-title" style="margin-right: 49px">Inicio: </label><label>'+start+'</label><br>'+
+                                            '<label class="card-title" style="margin-right: 63px">Fin: </label><label >'+end+'</label><br>'+
+                                            '<label class="card-title">Descripción: </label><br>'+
+                                            '<p class="card-text " align="justify" >'+event.description+'</p>'+
+                                            '</div>'+
+                                            '</div>';
                             $("body").append(tooltip);
                             $(this).mouseover(function (e) {
                                 $(this).css('z-index', 10000);
@@ -636,27 +505,10 @@
 
                     });
 
-                    //on new event
-                    this.$saveCategoryBtn.on('click', function () {
-                        var categoryName = $this.$categoryForm.find("input[name='name_event']").val();
-                        var categoryColor = $this.$categoryForm.find("select[name='color_event']").val();
-                        var description = $this.$categoryForm.find("input[name='description_event']").val();
-                        if (categoryName !== null && categoryName.length != 0) {
-                            $this.$extEvents.append('<div class="calendar-events m-b-20" ' +
-                                'data-class="bg-' + categoryColor + '" ' +
-                                'style="position: relative;">' +
-                                '<i class="fa fa-circle text-' + categoryColor + ' m-r-10" >' +
-                                '</i>' + categoryName + '' +
-                                '</div>')
-                            $this.enableDrag();
-                        }
-
-                    });
                 },
 
                 //init CalendarApp
                 $.CalendarApp = new CalendarApp, $.CalendarApp.Constructor = CalendarApp
-
         }(window.jQuery),
 
 //initializing CalendarApp

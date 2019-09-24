@@ -24,4 +24,22 @@ class Event extends Model
     {
         return $this->belongsTo(EventCategories::class, 'event_category_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
+
+    //scope
+    public function scopeStart_event($query, $date){
+        if($date)
+            return $query->where('start_event','LIKE', "%$date%");
+    }
+    public function scopeEnd_event($query, $date){
+        if($date)
+            return $query->where('end_event','LIKE', "%$date%");
+    }
+    public function scopeName($query, $name){
+        if($name)
+            return $query->where('name_event','LIKE', "%$name%");
+    }
+    public function scopeDescription($query, $description){
+        if($description)
+            return $query->where('description_event','LIKE', "%$description%");
+    }
 }
