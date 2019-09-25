@@ -241,31 +241,37 @@ Route::middleware(['auth'])->group(function () {
 
     #endregion
 
+    #region USERS
+    Route::get('lista-de-usuarios/', 'Admin\UserController@index')->name('users.index')//
+    ->middleware('permission:users.index');
 
+    Route::get('agregar-usuario/', 'Admin\UserController@create')->name('users.create')//
+    ->middleware('permission:users.create');
+
+    Route::get('lista-de-usuarios-inactivos/', 'Admin\UserController@inactive')->name('users.inactive')//
+    ->middleware('permission:users.inactive');
+    #endregion
 
     #region EMPLOYEE
     Route::post('employees/store/', 'EmployeeController@store')->name('employees.store')//
     ->middleware('permission:employees.create');
 
-    Route::get('employees/all', 'EmployeeController@index')->name('employees.index')//
-    ->middleware('permission:employees.index');
 
-    Route::get('employees/inactive', 'EmployeeController@inactive')->name('employees.inactive')//
-    ->middleware('permission:employees.inactive');
 
-    Route::get('employees/create', 'EmployeeController@create')->name('employees.create')//
-    ->middleware('permission:employees.create');
 
-    Route::put('employees/{employee}/update', 'EmployeeController@update')->name('employees.update')//
+
+
+
+    Route::put('employees/{employees}/update', 'EmployeeController@update')->name('employees.update')//
     ->middleware('permission:employees.edit');
 
-    Route::get('employees/{employee}/show', 'EmployeeController@show')->name('employees.show')//
+    Route::get('employees/{employees}/show', 'EmployeeController@show')->name('employees.show')//
     ->middleware('permission:employees.show');
 
-    Route::delete('employees/{employee}', 'EmployeeController@destroy')->name('employees.destroy')//
+    Route::delete('employees/{employees}', 'EmployeeController@destroy')->name('employees.destroy')//
     ->middleware('permission:employees.destroy');
 
-    Route::get('employees/{employee}/edit', 'EmployeeController@edit')->name('employees.edit')//
+    Route::get('employees/{employees}/edit', 'EmployeeController@edit')->name('employees.edit')//
     ->middleware('permission:employees.edit');
     #endregion
 

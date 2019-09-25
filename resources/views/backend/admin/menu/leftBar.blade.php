@@ -13,10 +13,7 @@
                     <div class="user-content hide-menu m-l-10">
                         <a href="javascript:void(0)" class="" id="Userdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <h4 class="m-b-0 user-name font-medium">
-                                {{DB::table('people')
-                                ->where('id_card_person',Auth::user()->person_id_card)
-                                ->value('name_person')
-                                }}</h4>
+                                {{Auth::user()->name_user}}</h4>
                             <span class="op-5 user-email">{{Auth::user()->email}}</span>
                         </a>
 
@@ -114,23 +111,23 @@
 
             <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Personal</span></li>
 
-            {{--EMPLEADOS--}}
-            @can('employees.index')
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Empleados </span></a>
+            {{--USUARIOS--}}
+            @can('users.index')
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Usuarios </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        @can('employees.create')
-                            <li class="sidebar-item"><a href="{{route('employees.create')}}" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu">Agregar Empleado </span></a></li>
+                        @can('users.create')
+                            <li class="sidebar-item"><a href="{{route('users.create')}}" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu">Agregar Usuario </span></a></li>
                         @endcan
-                        @can('employees.index')
-                            <li class="sidebar-item"><a href="{{route('employees.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Lista de Empleados </span></a></li>
+                        @can('users.index')
+                            <li class="sidebar-item"><a href="{{route('users.index')}}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Lista de Usuarios </span></a></li>
                         @endcan
-                        @can('employees.inactive')
-                            <li class="sidebar-item"><a href="{{route('employees.inactive')}}" class="sidebar-link"><i class="mdi mdi-account-off"></i><span class="hide-menu">Empleados Inactivos </span></a></li>
+                        @can('users.inactive')
+                            <li class="sidebar-item"><a href="{{route('users.inactive')}}" class="sidebar-link"><i class="mdi mdi-account-off"></i><span class="hide-menu">Usuarios Inactivos </span></a></li>
                         @endcan
                     </ul>
                 </li>
             @endcan
-            {{--END EMPLEADOS--}}
+            {{--END USUARIOS--}}
 
             {{--ROLES--}}
             @can('roles.index')

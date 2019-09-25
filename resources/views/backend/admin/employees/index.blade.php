@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/my-libs/custom-table.css')}}">
 @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
@@ -79,7 +79,7 @@
                                             </td>
                                             <td width="10px">
                                                 @can('employees.edit')
-                                                    <a href="{{route('employees.edit', [$ud->id_card_person])}}"
+                                                    <a href="{{route('employees.edit', [$ud->id_person])}}"
                                                        class="btn btn-sm btn-secondary">
                                                         Editar
                                                     </a>

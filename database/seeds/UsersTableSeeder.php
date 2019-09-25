@@ -20,7 +20,19 @@ UsersTableSeeder extends Seeder
         //factory(\App\User::class,20)->create();
         //crear usuario
         User::create([
-            'person_id_card' => '0440565993',
+            'id_card_user' => '0440565993',
+            'name_user' => 'Pedro Pablo',
+            'last_name_user' =>'Paramo',
+            'birth_date_user' => '1996/03/08',
+            'phone_user' => '0974551801',
+            'genre_user' => 'Masculino',
+            'position_user' => 'Presidente',
+
+            'province_user' => 'COTOPAXI',
+            'canton_user' => 'LATACUNGA',
+            'parish_user' => 'LA MATRIZ',
+            'address_user' => 'Calle 123456',
+
             'email' => 'admin@live.com',
             'password' => Hash::make('123456789'),
             'state_user' => 'Activo',

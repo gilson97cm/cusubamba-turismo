@@ -14,14 +14,14 @@ class CreateParishTable extends Migration
     public function up()
     {
         Schema::create('parish', function (Blueprint $table) {
-            $table->bigIncrements('id');
+           // $table->bigIncrements('id');
             $table->string('name_parish');
-           // $table->primary('name_parish');
-            $table->bigInteger('canton_id')->unsigned();
+           $table->primary('name_parish');
+            $table->string('name_canton');
             $table->timestamps();
 
             //relation
-             $table->foreign('canton_id')->references('id')->on('canton');
+             $table->foreign('name_canton')->references('name_canton')->on('canton');
         });
     }
 

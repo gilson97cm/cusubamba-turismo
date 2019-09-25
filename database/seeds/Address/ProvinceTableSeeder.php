@@ -13,10 +13,10 @@ class ProvinceTableSeeder extends Seeder
     public function run()
     {
         Province::create([
-            'name_province' => 'CARCHI',
+            'name_province' => 'CARCHI', //4
         ]);
         Province::create([
-            'name_province' => 'COTOPAXI',
+            'name_province' => 'COTOPAXI', //5
         ]);
     }
 }

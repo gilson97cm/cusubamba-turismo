@@ -9,23 +9,23 @@ use App\Http\Controllers\Controller;
 
 class ProvinceController extends Controller
 {
-    public function  getCanton(Request $request ,$id){
-       // $id = $request->get('id'); // el id se envia por parametro ya que el request no envia el id por que la pagina no utiliza el submit
-       // dd($id);
+    public function  getCanton(Request $request ,$name){
+       // $name = $request->get('id'); // el id se envia por parametro ya que el request no envia el id por que la pagina no utiliza el submit
+       // dd($name);
         if($request->ajax()){
-            $cantons = Canton::province_id($id)->get();
+            $cantons = Canton::name_province($name)->get();
             //dd($cantons);
             return response()->json($cantons);
         }else{
-            $cantons = Canton::province_id($id)->get();
+            $cantons = Canton::name_province($name)->get();
             //dd($cantons);
             return $cantons;
         }
     }
-    public function  getParish(Request $request, $id){
-       // $id = $request->get('id');
+    public function  getParish(Request $request, $name){
+       // $name = $request->get('id');
         if($request->ajax()){
-            $parishes = Parish::canton_id($id)->get();
+            $parishes = Parish::name_canton($name)->get();
             return response()->json($parishes);
         }
     }

@@ -9,14 +9,13 @@ class Canton extends Model
 {
     protected $table = 'canton';
     protected $fillable = [
-        'id',
         'name_canton',
-        'province_id'
+        'name_province'
     ];
 
     public function province()
     {
-        return $this->belongsTo(Province::class, 'province_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
+        return $this->belongsTo(Province::class, 'name_province'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
 
     public function parish()
@@ -24,8 +23,8 @@ class Canton extends Model
         return $this->hasMany(Parish::class);
     }
 
-    public function scopeProvince_id($query, $id){
-        if($id)
-            return $query->where('province_id','LIKE', "%$id%");
+    public function scopeName_province($query, $name){
+        if($name)
+            return $query->where('name_province','LIKE', "%$name%");
     }
 }

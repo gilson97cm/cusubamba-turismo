@@ -13,26 +13,32 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-       /* Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });*/
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('person_id_card', 10);
+            $table->bigIncrements('id'); //clave primaria
+            //datos de la persona
+            $table->string('id_card_user',10)->unique(); //cedula
+            $table->string('name_user');
+            $table->string('last_name_user');
+            $table->date('birth_date_user')->nullable();
+            $table->string('phone_user')->nullable();
+            $table->enum('genre_user',['Masculino','Femenino','Otro'])->nullable();
+            $table->string('position_user');
+
+            //direccion
+            $table->string('province_user')->nullable();
+            $table->string('canton_user')->nullable();
+            $table->string('parish_user')->nullable();
+            $table->string('address_user')->nullable();
+
+            //credenciales de acceso al sistema
+
            $table->string('email')->unique();
             $table->string('password');
             $table->enum('state_user',['ACTIVO','INACTIVO'])->default('ACTIVO');
+
+
             $table->rememberToken();
             $table->timestamps();
-
-            //Relation
-            $table->foreign('person_id_card')->references('id_card_person')->on('people')->onUpdate('cascade');
         });
     }
 

@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    @endsection
+@endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
         <div class="row">
@@ -21,33 +21,33 @@
 @endsection
 @section('dashboard')
     <!-- Row -->
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-12">
-              <div class="card">
-                  <div class="card-header">
-                      <h4 class="card-title">Perfil de Empleado</h4>
-                      <div  id="alert">
-                      </div>
-                      @include('flash::message')
-                      @if($errors->any())
-                          <div class="alert alert-danger">
-                              <ul>
-                                  @foreach($errors-> all() as $error)
-                                      <li>{{$error}}</li>
-                                  @endforeach
-                              </ul>
-                          </div>
-                      @endif
-                  </div>
-                  <form class="form-horizontal r-separator" method="POST" action="{{route('employees.store')}}">
-                      @csrf
-                      @include('backend.admin.employee.partials.form')
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Perfil de Usuario</h4>
+                        <div  id="alert">
+                        </div>
+                        @include('flash::message')
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors-> all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                    <form class="form-horizontal r-separator" method="POST" action="{{route('employees.store')}}">
+                        @csrf
+                        @include('backend.admin.users.partials.form')
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- End Row -->
 @endsection
 @section('scripts')
@@ -57,4 +57,4 @@
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
-    @endsection
+@endsection

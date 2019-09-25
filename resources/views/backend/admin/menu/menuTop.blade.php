@@ -120,10 +120,7 @@
                     <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                         <div class=""><img src="{{asset('assets/images/users/1.jpg')}}" alt="user" class="img-circle" width="60"></div>
                         <div class="m-l-10">
-                            <h5 class="m-b-0">{{DB::table('people')
-                                ->where('id_card_person',Auth::user()->person_card_id)
-                                ->value('name_person')
-                                }}</h5>
+                            <h5 class="m-b-0">{{Auth::user()->name_user}}</h5>
                             <p class=" m-b-0">{{ Auth::user()->email }} </p>
 
                         </div>

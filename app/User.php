@@ -3,6 +3,7 @@
 namespace App;
 
 use Caffeinated\Shinobi\Concerns\HasRolesAndPermissions;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +18,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'person_id_card', 'email', 'password',
+        'id_card_user',
+        'name_user',
+        'last_name_user',
+        'birth_date_user',
+        'phone_user',
+        'genre_user',
+        'position_user',
+
+        'province_user',
+        'canton_user',
+        'parish_user',
+        'address_user',
+
+        'email',
+        'password',
+        'state_user',
     ];
 
     /**
@@ -38,10 +54,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //RELACIONES
-    public function people(){
-        return $this->belongsTo(Person::class);
-    }
-    public function deals(){
-        return $this->hasOne(Deal::class);
+    public function role(){
+        return $this->belongsToMany(Role::class);
     }
 }

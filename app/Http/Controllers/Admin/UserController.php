@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\User;
+use App\Address\Province;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -15,16 +16,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate();
-
-        return view('users.index', compact('users'));
+        return view('backend.admin.users.index');
     }
 
     /**
-     * Show the form for creating a news resource.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+        $roles = Role::pluck('name', 'id');
+        $provinces = Province::pluck('name_province', 'name_province');
+        return view('backend.admin.users.create', compact('roles', 'provinces'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -32,7 +37,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.
@@ -40,9 +48,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return view('users.show', compact('user'));
+        //
     }
 
     /**
@@ -51,10 +59,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        $roles = Role::get();
-        return view('users.edit', compact('user', 'roles'));
+        //
     }
 
     /**
@@ -64,17 +71,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //actualicen los usuarios
-        $user->update($request->all());
-
-        //actualicen los roles
-        $user->roles()->sync($request->get('roles'));
-
-        return redirect()->route('users.index')
-            ->with('info', 'Usuario actualizado con exito.');
-
+        //
     }
 
     /**
@@ -83,9 +82,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-        return back()->with('info', 'Eliminado con exito.');
+        //
+    }
+
+    public function inactive()
+    {
+        return view('backend.admin.users.inactive');
     }
 }

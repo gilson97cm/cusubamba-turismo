@@ -39,7 +39,7 @@
                         <div>
                             <div class="widget-title">Total de Empleados</div>
                             <div class="widget-subtitle">Currently Booked</div>
-                            <div class="widget-int">{{\App\Person::count()}}</div>
+                            <div class="widget-int">{{--\App\Person::count()--}}</div>
                         </div>
                     </div>
                     <div class="widget-controls">

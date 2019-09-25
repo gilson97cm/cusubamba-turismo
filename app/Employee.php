@@ -39,6 +39,6 @@ class Employee extends Model
             ->where('people.id_card_person', '=', $id_employee)
             ->get();
 
-        // dd($employee);
+        // dd($employees);
     }
 }

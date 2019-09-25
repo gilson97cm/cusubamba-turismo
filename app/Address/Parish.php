@@ -10,17 +10,17 @@ class Parish extends Model
     protected $table = 'parish';
     protected $fillable = [
         'name_parish',
-        'canton_id'
+        'name_canton'
     ];
 
     public function canton()
     {
-        return $this->belongsTo(Canton::class, 'canton_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
+        return $this->belongsTo(Canton::class, 'name_canton'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
 
-    public function scopeCanton_id($query, $id){
-        if($id)
-            return $query->where('canton_id','LIKE', "%$id%");
+    public function scopeName_canton($query, $name){
+        if($name)
+            return $query->where('name_canton','LIKE', "%$name%");
     }
 
 }

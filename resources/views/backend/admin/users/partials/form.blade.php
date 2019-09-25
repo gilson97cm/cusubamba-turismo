@@ -109,7 +109,7 @@
             <div class="form-group row ">
                 {{Form::label('email', 'Correo:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
-                    {{Form::text('email', null , ['class' => 'form-control my-border', 'placeholder' => 'Correo','onkeypress' => 'return validar_caracteres(event)']) }}
+                    {{Form::email('email', null , ['class' => 'form-control my-border', 'placeholder' => 'Correo','onkeypress' => 'return validar_email(event)']) }}
                 </div>
             </div>
         </div>
@@ -183,6 +183,6 @@
 <div class="card-body">
     <div class="form-group m-b-0 text-right">
         <button type="submit" class="btn btn-info waves-effect waves-light my_button" >Registrar</button>
-        <a href="{{route('employees.index')}}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{route('users.index')}}" class="btn btn-secondary">Cancelar</a>
     </div>
 </div>

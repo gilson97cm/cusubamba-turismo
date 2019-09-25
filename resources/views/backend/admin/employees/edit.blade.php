@@ -40,8 +40,8 @@
                             </div>
                         @endif
                     </div>
-                        @foreach($employee as $emplo)
-                        {!! Form::model($emplo, ['route' => ['employees.update', $emplo->id_person], 'method' => 'PUT']) !!}
+                     {{--   @foreach($employee as $emplo) --}}
+                        {!! Form::model($employee, ['route' => ['employees.update', $employee->id_person], 'method' => 'PUT']) !!}
                         <div class="card-body">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group row">
@@ -104,7 +104,7 @@
                                         {{Form::label('province_person', 'Provincia:',['class' => ' col-sm-3 text-right  my-label'])}}
                                         <div class="col-sm-9">
                                             <select name="province_person" id="province" class="form-control my-border" style="text-transform: uppercase;">
-                                                <option style="background: #f2f2f2" name="" id ="" value="{{$emplo->province_person}}">{{$emplo->province_person}}</option>
+                                                <option style="background: #f2f2f2" name="" id ="" value="{{$employee->province_person}}">{{$employee->province_person}}</option>
                                                 @foreach($provinces as $province)
                                                     <option name="" value="{{$province->name_province}}">{{$province->name_province}}</option>
                                                 @endforeach
@@ -117,7 +117,7 @@
                                         {{Form::label('canton_person', 'Cantón:',['class' => ' col-sm-3 text-right  my-label'])}}
                                         <div class="col-sm-9">
                                             <select name="canton_person" id="canton" class="form-control my-border" style="text-transform: uppercase;">
-                                                <option style="background: #f2f2f2" name="" id ="" value="{{$emplo->canton_person}}" >{{$emplo->canton_person}}</option>
+                                                <option style="background: #f2f2f2" name="" id ="" value="{{$employee->canton_person}}" >{{$employee->canton_person}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                         {{Form::label('parish_person', 'Parroquia:',['class' => ' col-sm-3 text-right  my-label'])}}
                                         <div class="col-sm-9">
                                             <select name="parish_person" id="parish" class="form-control my-border" style="text-transform: uppercase;">
-                                                <option style="background: #f2f2f2" name="" id ="" value="{{$emplo->parish_person}}">{{$emplo->parish_person}}</option>
+                                                <option style="background: #f2f2f2" name="" id ="" value="{{$employee->parish_person}}">{{$employee->parish_person}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                             {{Form::label('rol', 'Rol:',['class' => ' col-sm-3 text-right  my-label'])}}
                                             <div class="col-sm-9">
                                                 <select name="rol" id="rol" class="form-control my-border">
-                                                    <option style="background: #f2f2f2" name="" value="{{$emplo->id}}">{{$emplo->name}}</option>
+                                                    <option style="background: #f2f2f2" name="" value=""></option>
                                                     @foreach($roles as $role)
                                                         <option name="" value="{{$role->id}}">{{$role->name}}</option>
                                                     @endforeach
@@ -254,7 +254,7 @@
                         </div>
 
                         {!! Form::close() !!}
-                            @endforeach
+                    {{--@endforeach --}}
                 </div>
             </div>
         </div>

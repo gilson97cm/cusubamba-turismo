@@ -14,9 +14,9 @@ class CreateProvinceTable extends Migration
     public function up()
     {
         Schema::create('province', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            //$table->bigIncrements('id');
             $table->string('name_province')->unique();
-            //$table->primary('name_province');
+            $table->primary('name_province');
             $table->timestamps();
         });
     }

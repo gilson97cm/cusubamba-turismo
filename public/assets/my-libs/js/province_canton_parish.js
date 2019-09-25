@@ -7,7 +7,7 @@ $("#province").change(function (event) {
             $("#canton").empty();
             $("#canton").append("<option value='' >-</option>");
             for (i = 0; i < response.length; i++) {
-                $("#canton").append("<option value='" + response[i].id + "' >" + response[i].name_canton + "</option>")
+                $("#canton").append("<option value='" + response[i].name_canton + "' >" + response[i].name_canton + "</option>")
             }
         });
     } else {
@@ -26,7 +26,7 @@ $("#canton").change(function (event) {
             $("#parish").empty();
             $("#parish").append("<option value='' >-</option>");
             for (i = 0; i < response.length; i++) {
-                $("#parish").append("<option value='" + response[i].id + "'>" + response[i].name_parish + "</option>")
+                $("#parish").append("<option value='" + response[i].name_parish + "'>" + response[i].name_parish + "</option>")
             }
         });
     } else {
