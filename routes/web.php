@@ -248,31 +248,23 @@ Route::middleware(['auth'])->group(function () {
     Route::get('agregar-usuario/', 'Admin\UserController@create')->name('users.create')//
     ->middleware('permission:users.create');
 
+    Route::post('grabar-usuario/', 'Admin\UserController@store')->name('users.store')//
+    ->middleware('permission:users.create');
+
     Route::get('lista-de-usuarios-inactivos/', 'Admin\UserController@inactive')->name('users.inactive')//
     ->middleware('permission:users.inactive');
-    #endregion
 
-    #region EMPLOYEE
-    Route::post('employees/store/', 'EmployeeController@store')->name('employees.store')//
-    ->middleware('permission:employees.create');
+    Route::get('ver-usuario/{user}', 'Admin\UserController@show')->name('users.show')//
+    ->middleware('permission:users.show');
 
+    Route::get('editar-usuario/{user}', 'Admin\UserController@edit')->name('users.edit')//
+    ->middleware('permission:users.edit');
 
+    Route::put('actalizar-empleado/{user}', 'Admin\UserController@update')->name('users.update')//
+    ->middleware('permission:users.edit');
 
-
-
-
-
-    Route::put('employees/{employees}/update', 'EmployeeController@update')->name('employees.update')//
-    ->middleware('permission:employees.edit');
-
-    Route::get('employees/{employees}/show', 'EmployeeController@show')->name('employees.show')//
-    ->middleware('permission:employees.show');
-
-    Route::delete('employees/{employees}', 'EmployeeController@destroy')->name('employees.destroy')//
-    ->middleware('permission:employees.destroy');
-
-    Route::get('employees/{employees}/edit', 'EmployeeController@edit')->name('employees.edit')//
-    ->middleware('permission:employees.edit');
+    Route::delete('eliminar-usuario/{user}', 'Admin\UserController@destroy')->name('users.destroy')//
+    ->middleware('permission:users.destroy');
     #endregion
 
     #region ROLES

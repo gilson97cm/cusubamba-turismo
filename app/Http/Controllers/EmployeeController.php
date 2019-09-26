@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Address\Province;
 use App\Employee;
-use App\Http\Requests\EmployeeStoreRequest;
+use App\Http\Requests\UserStoreRequest;
 use App\Person;
 use App\RoleUser;
 use App\User;
@@ -42,7 +42,7 @@ class EmployeeController extends Controller
 
     }
 
-    public function store(EmployeeStoreRequest $request){
+    public function store(UserStoreRequest $request){
         //dd($data);
         $persona = Person::create($request->all());
         $user = User::create([

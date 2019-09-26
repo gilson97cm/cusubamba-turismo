@@ -40,9 +40,15 @@
                             </div>
                         @endif
                     </div>
-                    <form class="form-horizontal r-separator" method="POST" action="{{route('employees.store')}}">
+                    <form class="form-horizontal r-separator" method="POST" action="{{route('users.store')}}">
                         @csrf
                         @include('backend.admin.users.partials.form')
+                        <div class="card-footer">
+                            <div class="form-group m-b-0 text-right">
+                                <button type="submit" class="btn btn-info waves-effect waves-light my_button">Registrar</button>
+                                <a href="{{route('users.index')}}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

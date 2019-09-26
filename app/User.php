@@ -4,6 +4,7 @@ namespace App;
 
 use Caffeinated\Shinobi\Concerns\HasRolesAndPermissions;
 use Caffeinated\Shinobi\Models\Role;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -54,7 +55,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //RELACIONES
-    public function role(){
-        return $this->belongsToMany(Role::class);
+    public function roles() :BelongsToMany
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
     }
 }

@@ -68,10 +68,14 @@
                                            </td>
                                            <td width="10px">
                                                @can('roles.edit')
+                                                   @if($role->name != "Administrador")
                                                    <a href="{{route('roles.edit', $role->id)}}"
                                                       class="btn btn-sm btn-secondary">
                                                        Editar
                                                    </a>
+                                                   @else
+                                                       <button disabled="true"  class="btn btn-sm btn-secondary">Editar</button>
+                                                   @endif
                                                @endcan
                                            </td>
                                            <td width="10px">
