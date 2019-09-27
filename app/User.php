@@ -35,6 +35,7 @@ class User extends Authenticatable
         'email',
         'password',
         'state_user',
+        'avatar_user',
     ];
 
     /**
@@ -55,8 +56,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     //RELACIONES
-    public function roles() :BelongsToMany
-    {
+    public function roles(){
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 }

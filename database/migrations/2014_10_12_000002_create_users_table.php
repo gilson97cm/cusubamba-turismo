@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
            $table->string('email')->unique();
             $table->string('password');
             $table->enum('state_user',['ACTIVO','INACTIVO'])->default('ACTIVO');
+            $table->string('avatar_user')->nullable();
 
 
             $table->rememberToken();

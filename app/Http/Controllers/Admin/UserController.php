@@ -23,10 +23,11 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('state_user', 'Activo')->paginate(15);
-        return view('backend.admin.users.index',compact('users'));
+        return view('backend.admin.users.index', compact('users'));
     }
 
-    public function inactive(){
+    public function inactive()
+    {
         $users = User::where('state_user', 'Inactivo')->paginate(15);
         // dd($user_deal);
         return view('backend.admin.users.inactive', compact('users'));
@@ -39,7 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::orderBy('id','ASC')->pluck('name', 'id');
+        $roles = Role::orderBy('id', 'ASC')->pluck('name', 'id');
         $provinces = Province::pluck('name_province', 'name_province');
         return view('backend.admin.users.create', compact('roles', 'provinces'));
     }
@@ -47,7 +48,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(UserStoreRequest $request)
@@ -55,27 +56,29 @@ class UserController extends Controller
         //dd($data);
         $user = User::create($request->all());
 
-        if($request['password'])
+        if($user->genre_user == 'Masculino')
+            $user->fill(['avatar_user' => 'temp/profile/default/male.png'])->save();
+        else
+            $user->fill(['avatar_user' => 'temp/profile/default/female.png'])->save();
+
+        if ($request['password'])
             $user->fill(['password' => bcrypt($request['password'])])->save();
 
-        $role = RoleUser::create([
-            'role_id' => $request['rol'],
-            'user_id' => $user->id,
-        ]);
+        $user->roles()->sync($request->get('rol'));
 
-        Flash::success("Se registro a: ".$user->name_user." ".$user->last_name_user." con exito!");
+        Flash::success("Se registro a: " . $user->name_user . " " . $user->last_name_user . " con exito!");
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-       $user = User::find($id);
+        $user = User::find($id);
         // dd($employees);
         return view('backend.admin.users.show', compact('user'));
     }
@@ -83,7 +86,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -92,7 +95,7 @@ class UserController extends Controller
         $roles = Role::orderBy('id', 'ASC')->get();
         $provinces = Province::get();
         if ($user)
-            return view('backend.admin.users.edit', compact( 'user', 'provinces', 'roles'));
+            return view('backend.admin.users.edit', compact('user', 'provinces', 'roles'));
         else
             return redirect()->route('home');
 
@@ -101,24 +104,73 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UserUpdateRequest $request, $id)
     {
-        //
+        //dd($request);
+        $user = User::find($id);
+        $user->id_card_user = $request->id_card_user;
+        $user->name_user = $request->name_user;
+        $user->last_name_user = $request->last_name_user;
+        $user->birth_date_user = $request->birth_date_user;
+        $user->phone_user = $request->phone_user;
+        $user->genre_user = $request->genre_user;
+
+        $user->province_user = $request->province_user;
+        $user->canton_user = $request->canton_user;
+        $user->parish_user = $request->parish_user;
+        $user->address_user = $request->address_user;
+
+        $user->email = $request->email;
+        if (!empty($request->password))
+            $user->password = bcrypt($request->password);
+
+        $user->state_user = $request->state_user;
+        $user->save();
+
+        $user->roles()->sync($request->get('rol'));
+
+       /* $role = RoleUser::create([
+            'role_id' => $request['rol'],
+            'user_id' => $user->id,
+        ]);*/
+
+        Flash::success("Los datos de " . $user->name_user . " " . $user->last_name_user . " fueron actualizados con exito!");
+        return redirect()->route('users.show', $user->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$user)
     {
-        //
+        if ($request->ajax()) {
+            //dd($user);
+            $user = User::find($user);
+            $user->state_user = 'Inactivo';
+            $user->save();
+            return response()->json([
+                'message' => 'El estado del usuario a cambiado a Inactivo.',
+            ]);
+        }
+    }
+
+    public function active(Request $request,$user)
+    {
+
+            $user = User::find($user);
+            $user->state_user = 'Activo';
+            $user->save();
+
+        Flash::success("El estado del usuario " . $user->name_user . " " . $user->last_name_user . " a cambiado a Activo.");
+        return back();
+
     }
 
 }

@@ -265,6 +265,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::delete('eliminar-usuario/{user}', 'Admin\UserController@destroy')->name('users.destroy')//
     ->middleware('permission:users.destroy');
+
+    Route::delete('activar-usuario/{user}', 'Admin\UserController@active')->name('users.active')//
+    ->middleware('permission:users.active');
     #endregion
 
     #region ROLES

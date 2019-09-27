@@ -207,6 +207,7 @@ class EmployeeController extends Controller
         Flash::success("Los datos de ".$employee->name_person." ".$employee->last_name_person." fueron actualizados con exito!");
         return redirect()->route('employees.index');
 
+
     }
 
     public function show($employee){

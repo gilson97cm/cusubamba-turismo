@@ -45,9 +45,10 @@
                         <div class="row">
 
                             <div class=" form-group col-lg-12">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover table-responsive">
                                     <thead>
                                     <tr class="thead-tr">
+                                        <th>Avatar</th>
                                         <th width="50px">Cédula</th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
@@ -62,6 +63,7 @@
                                     <tbody>
                                     @foreach($users as $user)
                                         <tr>
+                                            <td><img src="{{asset($user->avatar_user)}}" alt="users" class="rounded-circle" width="50px" height="50px"></td>
                                             <td>{{$user->id_card_user}}</td>
                                             <td>{{$user->name_user}}</td>
                                             <td>{{$user->last_name_user}}</td>
@@ -90,13 +92,13 @@
                                             <td width="10px">
                                                 @can('users.destroy')
                                                     @if($role->name != "Administrador")
-                                                        {!! Form::open(['route' => ['users.destroy', $user['id']],'method' => 'DELETE' ]) !!}
+                                                        {!! Form::open(['route' => ['users.destroy', $user->id],'method' => 'DELETE' ]) !!}
                                                         <a href="#"
-                                                           class="btn btn-sm btn-danger btn-destroy">Eliminar</a>
+                                                           class="btn btn-sm btn-danger destroy-users">Eliminar</a>
                                                         {!! Form::close() !!}
                                                     @else
                                                         <button disabled="true"
-                                                                class="btn btn-sm btn-danger btn-destroy">Eliminar
+                                                                class="btn btn-sm btn-danger destroy-users">Eliminar
                                                         </button>
                                                     @endif
                                                 @endcan
@@ -117,7 +119,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/cruser_role.js')}}"></script>
+    <script src="{{asset('assets/my-libs/js/destroy.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);

@@ -24,7 +24,7 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'id_card_user' => 'required|max:10|min:10|unique:users,id_card_user', //
+            'id_card_user' => 'required|max:10|min:10|unique:users,id_card_user,'.$this->user, //
             'name_user' => ['required','string','max:50'], //
             'last_name_user' => ['required','string','max:50'], //
             'birth_date_user' => ['required','before: 2000/01/01'], //
@@ -35,14 +35,14 @@ class UserUpdateRequest extends FormRequest
             'address_user'=> ['required','max:50'], //
             'phone_user'=> ['required','max:10', 'min:10'],//
             'position_user' => 'required',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'], //
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$this->user], //
            // 'password' => ['required', 'string', 'min:8', 'confirmed'], //
             //confirmar contraseña//
             'rol' => 'required',//
             'state_user' => 'required',//
         ];
         if($this->get('password'))
-            $rules = array_merge($rules, ['avatar_activity' => 'string', 'min:8', 'confirmed']);
+            $rules = array_merge($rules, ['password' => 'string', 'min:8', 'confirmed']);
 
 
         return $rules;
@@ -51,7 +51,7 @@ class UserUpdateRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'id_card_user.required' => 'La campo cédula es obligatorio'.$this->user,
+            'id_card_user.required' => 'La campo cédula es obligatorio',
             'id_card_user.max' => 'Cédula invalida',
             'id_card_user.min' => 'Cédula invalida',
             'id_card_user.unique' => 'El usuario ya esta registrado',

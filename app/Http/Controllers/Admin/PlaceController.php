@@ -55,6 +55,7 @@ class PlaceController extends Controller
      */
     public function store(PlaceStoreRequest $request)
     {
+        //dd($request->name_place);
         $place = Place::create($request->all());
         //image
         if ($request->file('avatar_place')) {
@@ -64,6 +65,7 @@ class PlaceController extends Controller
             $place->fill(['avatar_place' => 'assets/images/sin_img.jpg'])->save();
         }
         $place->activities()->sync($request->get('activities'));
+
         Flash::success('Lugar: ' . $place->name_place . " publicado con exito!");
         // return redirect()->route('places.edit', $places->id);
         return back();

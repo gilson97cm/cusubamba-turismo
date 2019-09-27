@@ -9,7 +9,7 @@
             <li>
                 <!-- User Profile-->
                 <div class="user-profile d-flex no-block ">
-                    <div class="user-pic"><img src="{{asset('assets/images/users/1.jpg')}}" alt="users" class="rounded-circle" width="50" /></div>
+                    <div class="user-pic"><img src="{{asset(Auth::user()->avatar_user)}}" alt="users" class="rounded-circle" width="50" /></div>
                     <div class="user-content hide-menu m-l-10">
                         <a href="javascript:void(0)" class="" id="Userdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <h4 class="m-b-0 user-name font-medium">

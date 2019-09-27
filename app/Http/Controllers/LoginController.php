@@ -13,7 +13,7 @@ class LoginController extends Controller
         return view('backend.admin.auth.login');
     }
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/cusubamba-administrador';
 
     /**
      * Create a news controller instance.

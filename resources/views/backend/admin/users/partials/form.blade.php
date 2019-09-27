@@ -61,7 +61,7 @@
                 {{Form::label('province_user', 'Provincia:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
                     @if(isset($user))
-                        <select name="province_person" id="province" class="form-control my-border"
+                        <select name="province_user" id="province" class="form-control my-border"
                                 style="text-transform: uppercase;">
                             <option style="background: #f2f2f2" name="" id=""
                                     value="{{$user->province_user}}">{{$user->province_user}}</option>
@@ -82,7 +82,7 @@
                 {{Form::label('canton_user', 'Cantón:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
                     @if(isset($user))
-                        <select name="canton_person" id="canton" class="form-control my-border" style="text-transform: uppercase;">
+                        <select name="canton_user" id="canton" class="form-control my-border" style="text-transform: uppercase;">
                             <option style="background: #f2f2f2" name="" id ="" value="{{$user->canton_user}}" >{{$user->canton_user}}</option>
                         </select>
                     @else
@@ -99,7 +99,7 @@
                 {{Form::label('parish_user', 'Parroquia:',['class' => ' col-sm-3 text-right  my-label'])}}
                 <div class="col-sm-9">
                     @if(isset($user))
-                        <select name="canton_person" id="canton" class="form-control my-border" style="text-transform: uppercase;">
+                        <select name="parish_user" id="parish" class="form-control my-border" style="text-transform: uppercase;">
                             <option style="background: #f2f2f2" name="" id ="" value="{{$user->parish_user}}" >{{$user->parish_user}}</option>
                         </select>
                     @else

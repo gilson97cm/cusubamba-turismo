@@ -36,6 +36,7 @@ UsersTableSeeder extends Seeder
             'email' => 'admin@live.com',
             'password' => Hash::make('123456789'),
             'state_user' => 'Activo',
+            'avatar_user' => 'temp/profile/default/male.png',
         ]);
 
 

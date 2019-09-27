@@ -170,4 +170,38 @@ $(document).ready(function(){
             }
         });
     });
+
+    //ELIMINAR USUARIOS solo cambiara el estado activo a inactivo//
+    $('.destroy-users').click(function(){
+        swal.fire({
+            title: "¿Está seguro?",
+            text: "El usuario cambiara de estado a INACTIVO",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Sí, ¡cambiar!",
+            cancelButtonText: "No, ¡cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }).then((r)=>{
+            if (r.value) {
+                var row = $(this).parents('tr');
+                var form = $(this).parents('form');
+                var url = form.attr('action');
+
+                $('#alert').show();
+
+                $.post(url, form.serialize(), function(result){
+                    row.fadeOut();
+                    $('#alert').html(result.message).removeClass("alert alert-info").addClass("alert alert-danger").delay(2000).fadeOut(3000);
+                    //$('#total_product').html(result.total);
+
+                }).fail(function (){
+                    $('#alert').html('Algo salio mal :(').removeClass("alert alert-danger").addClass("alert alert-info").delay(2000).fadeOut(3000);
+                });
+            }else {
+                return false;
+            }
+        });
+    });
 });

@@ -20,7 +20,7 @@ class Activity extends Model
     }
     public function places()
     {
-        return $this->belongsToMany(Place::class);
+        return $this->belongsToMany(Place::class)->withTimestamps();
     }
     //scope
     public function scopeActivity_category_id($query, $id){
