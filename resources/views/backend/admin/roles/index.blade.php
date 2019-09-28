@@ -42,6 +42,34 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-8">
+                                <div class="page-header">
+                                    {{ Form::open(['route' => 'roles.index', 'method' => 'GET', 'class' => 'form-inline pull-left']) }}
+                                    <div class="form-group">
+                                        {{ Form::text('name', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Nombre']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('description', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Descripción']) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default btn-search margin-search">
+                                            <span class="mdi mdi-magnify"></span>Buscar
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="{{route('roles.index')}}" class="btn btn-default btn-add">
+                                            <span class="mdi mdi-filter"></span> Ver Todo
+                                        </a>
+                                    </div>
+                                    {{ Form::close() }}
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <hr>
                        <div class="row">
                            <div class="col-lg-2"></div>
                            <div class=" form-group col-lg-8">
@@ -82,7 +110,7 @@
                                                @can('roles.destroy')
                                                    @if($role->name != "Administrador")
                                                    {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'DELETE']) !!}
-                                                   <a href="#" class="btn btn-sm btn-danger btn-destroy">Eliminar</a>
+                                                   <a href="#" class="btn btn-sm btn-danger destroy-roles">Eliminar</a>
                                                    {!! Form::close() !!}
                                                    @else
                                                        <button disabled="true"  class="btn btn-sm btn-danger btn-destroy">Eliminar</button>
@@ -104,7 +132,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/crud_role.js')}}"></script>
+    <script src="{{asset('assets/my-libs/js/destroy.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);

@@ -17,7 +17,7 @@ function validar_email(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 
     //Tecla de retroceso para borrar, siempre la permite
-    if (tecla == 8 || tecla == 32 || tecla == 46 || tecla == 45 || tecla == 64 || tecla == 95) { //los valores a los que se iguala la variable tecla son del codigo ascii
+    if (tecla == 8 || tecla == 46 || tecla == 45 || tecla == 64 || tecla == 95) { //los valores a los que se iguala la variable tecla son del codigo ascii
         return true;
     }
 

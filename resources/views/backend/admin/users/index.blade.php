@@ -43,6 +43,41 @@
 
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="page-header">
+                                    {{ Form::open(['route' => 'users.index', 'method' => 'GET', 'class' => 'form-inline pull-left']) }}
+                                    <div class="form-group">
+                                        {{ Form::text('id_card_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_numeros(event)', 'placeholder' => 'Cédula']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('name_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Nombre']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('last_name_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Apellido']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('email', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_email(event)', 'placeholder' => 'Correo']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('position_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Crargo']) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default btn-search margin-search">
+                                            <span class="mdi mdi-magnify"></span>Buscar
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="{{route('users.index')}}" class="btn btn-default btn-add">
+                                            <span class="mdi mdi-filter"></span> Ver Todo
+                                        </a>
+                                    </div>
+                                    {{ Form::close() }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
 
                             <div class=" form-group col-lg-12">
                                 <table class="table table-striped table-hover table-responsive">
@@ -121,6 +156,7 @@
 @section('scripts')
     <script src="{{asset('assets/my-libs/js/destroy.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>

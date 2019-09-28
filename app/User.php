@@ -59,4 +59,28 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
+
+    //scope
+    public function scopeId_card_user($query, $id){
+        if($id)
+            return $query->where('id_card_user','LIKE', "%$id%");
+    }
+    public function scopeName_user($query, $name){
+        if($name)
+            return $query->where('name_user','LIKE', "%$name%");
+    }
+    public function scopeLast_name_user($query, $last_name){
+        if($last_name)
+            return $query->where('last_name_user','LIKE', "%$last_name%");
+    }
+    public function scopeEmail($query, $email){
+        if($email)
+            return $query->where('email','LIKE', "%$email%");
+    }
+
+    public function scopePosition_user($query, $position){
+        if($position)
+            return $query->where('position_user','LIKE', "%$position%");
+    }
+
 }

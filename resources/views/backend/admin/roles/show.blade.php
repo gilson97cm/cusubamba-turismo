@@ -1,7 +1,7 @@
 @extends('backend.admin.layout')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/my-libs/my-styles.css')}}">
-    <link rel="stylesheet" href="{{asset('custom-table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/my-libs/custom-table.css')}}">
     @endsection
 @section('breadcrumb')
     <div class="page-breadcrumb">
@@ -66,7 +66,7 @@
                         <div class="row">
                             <div class="col-lg-2"></div>
                             <div class="form-group col-lg-8">
-                                @if($total >= 1)
+
                                     <table class="table table-striped">
                                         <thead >
                                         <tr class="thead-tr">
@@ -75,7 +75,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($permissions as $permission)
+                                        @foreach($role->permissions as $permission)
                                             <tr>
                                                 <td>{{$permission->name}}</td>
                                                 <td>{{$permission->description ?: 'N/A'}}</td>
@@ -83,10 +83,8 @@
                                         @endforeach
                                         </tbody>
                                     </table>
-                                @else
-                                            <p>No tiene permisos definidos.</p>
-                                @endif
-                                {!! $permissions->render() !!}
+
+
                             </div>
                             <div class="col-lg-2"></div>
                         </div>

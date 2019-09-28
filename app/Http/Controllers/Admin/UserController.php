@@ -20,9 +20,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::where('state_user', 'Activo')->paginate(15);
+        $id_card = $request->get('id_card_user');
+        $name = $request->get('name_user');
+        $last_name = $request->get('last_name_user');
+        $email = $request->get('email');
+        $position = $request->get('position_user');
+
+        $users = User::where('state_user', 'Activo')
+            ->id_card_user($id_card)
+            ->name_user($name)
+            ->last_name_user($last_name)
+            ->email($email)
+            ->position_user($position)
+            ->paginate(15);
         return view('backend.admin.users.index', compact('users'));
     }
 

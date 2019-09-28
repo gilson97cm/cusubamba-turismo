@@ -2,18 +2,18 @@
     <div class="col-sm-12 col-lg-5">
         <div class="form-group row">
             {{Form::label('name', 'Nombre del Rol:',['class' => 'my-label'])}}
-                {{Form::text('name', null , ['class' => 'form-control my-border']) }}
+                {{Form::text('name', null , ['class' => 'form-control my-border','onkeypress' => 'return validar_caracteres(event)']) }}
         </div>
         <div class="form-group row">
             {{Form::label('slug', 'URL amigable:',['class' => 'my-label'])}}
-            {{Form::text('slug', null , ['class' => 'form-control my-border', 'placeholder' => 'ej. rol.sistema']) }}
+            {{Form::text('slug', null , ['class' => 'form-control my-border', 'readonly' => 'readonly','onkeypress' => 'return validar_caracteres(event)']) }}
         </div>
     </div>
     <div class="col-sm-12 col-lg-1"> </div>
     <div class="col-sm-12 col-lg-5">
         <div class="form-group row">
             {{Form::label('description', 'Descripcion:',['class' => 'my-label'])}}
-            {{Form::textarea('description', null , ['class' => ' md-textarea form-control my-border', 'rows' => '5' ]) }}
+            {{Form::textarea('description', null , ['class' => ' md-textarea form-control my-border', 'rows' => '5','onkeypress' => 'return validar_caracteres(event)' ]) }}
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="container">
                 {{Form::radio('special', 'all-access')}} Acceso Total.
-                <span class="checkmark"></span>
+                <span class="checkmark my-border-checkbox"></span>
             </label>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             <label class="container">
                 {{Form::radio('special', 'no-access')}} Ningun acceso.
-                <span class="checkmark"></span>
+                <span class="checkmark my-border-checkbox"></span>
             </label>
         </div>
     </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             <label class="container">
                 {{Form::radio('special', ' ')}} Sin permisos especiales.
-                <span class="checkmark"></span>
+                <span class="checkmark my-border-checkbox"></span>
             </label>
         </div>
     </div>
@@ -61,7 +61,7 @@
                         {{Form::checkbox('permissions[]', $permission->id, null)}}
                         <strong>{{$permission->name}}</strong>
                         <em>({{$permission->description ?: 'N/A'}})</em>
-                        <span class="checkmark"></span>
+                        <span class="checkmark my-border-checkbox"></span>
                     </label>
                 </li>
             @endforeach

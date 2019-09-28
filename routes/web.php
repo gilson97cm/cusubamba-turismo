@@ -232,6 +232,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('eliminar-evento', 'Admin\EventController@destroy')->name('events.destroy')//
     ->middleware('permission:events.destroy');
 
+    Route::get('eliminar-evento/{event}', function () { //evita el conflicto de rutas destroy
+        return redirect()->route('home');
+    });
+
     //CCIONES DE LA TABLA
     Route::delete('eliminar-evento-lista/{event}', 'Admin\EventController@destroy_list')->name('events.destroy.list')//
     ->middleware('permission:events.destroy');
@@ -266,31 +270,40 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('eliminar-usuario/{user}', 'Admin\UserController@destroy')->name('users.destroy')//
     ->middleware('permission:users.destroy');
 
-    Route::delete('activar-usuario/{user}', 'Admin\UserController@active')->name('users.active')//
+    Route::get('eliminar-evento/{event}', function () { //evita el conflicto de rutas destroy
+        return redirect()->route('home');
+    });
+
+    Route::put('activar-usuario/{user}', 'Admin\UserController@active')->name('users.active')//
     ->middleware('permission:users.active');
+
+    Route::get('activar-usuario/{user}', function () {
+        return redirect()->route('home');
+    });
     #endregion
 
     #region ROLES
-    Route::post('roles/store', 'RoleController@store')->name('roles.store')//
-    ->middleware('permission:roles.create');
-
-    Route::get('roles/', 'RoleController@index')->name('roles.index')//
+    Route::get('lista-de-roles/', 'Admin\RoleController@index')->name('roles.index')//
     ->middleware('permission:roles.index');
 
-    Route::get('roles/create/', 'RoleController@create')->name('roles.create')//
+    Route::get('crear-rol/', 'Admin\RoleController@create')->name('roles.create')//
     ->middleware('permission:roles.create');
 
-    Route::put('roles/{role}/', 'RoleController@update')->name('roles.update')//
+    Route::post('grabar-rol/', 'Admin\RoleController@store')->name('roles.store')//
+    ->middleware('permission:roles.create');
+
+    Route::get('editar-rol/{role}', 'Admin\RoleController@edit')->name('roles.edit')//
     ->middleware('permission:roles.edit');
 
-    Route::get('roles/{role}/info', 'RoleController@show')->name('roles.show')//
+    Route::put('actualizar-rol/{role}/', 'Admin\RoleController@update')->name('roles.update')//
+    ->middleware('permission:roles.edit');
+
+    Route::get('ver-rol/{role}', 'Admin\RoleController@show')->name('roles.show')//
     ->middleware('permission:roles.show');
 
-    Route::delete('roles/{role}', 'RoleController@destroy')->name('roles.destroy')//
+    Route::delete('eliminar-rol/{role}', 'Admin\RoleController@destroy')->name('roles.destroy')//
     ->middleware('permission:roles.destroy');
 
-    Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')//
-    ->middleware('permission:roles.edit');
     #endregion
 
 

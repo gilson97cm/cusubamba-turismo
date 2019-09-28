@@ -58,4 +58,14 @@
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
     </script>
+    <script src="{{ asset('vendor/stringToSlug/jquery.stringToSlug.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("#name, #slug").stringToSlug({
+                callback: function(text){
+                    $('#slug').val(text);
+                }
+            });
+        });
+    </script>
 @endsection

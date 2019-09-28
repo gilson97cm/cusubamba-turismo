@@ -43,13 +43,13 @@
                 <div class="col-sm-3 p-t-5">
                     <label class="container">
                         {{Form::radio('genre_user', 'Masculino')}} Masculino.
-                        <span class="checkmark"></span>
+                        <span class="checkmark my-border-checkbox"></span>
                     </label>
                 </div>
                 <div class="col-sm-3 p-t-5">
                     <label class="container">
                         {{Form::radio('genre_user', 'Femenino')}} Femenino.
-                        <span class="checkmark"></span>
+                        <span class="checkmark my-border-checkbox"></span>
                     </label>
                 </div>
             </div>
@@ -175,13 +175,13 @@
                 <div class="col-sm-3 p-t-5">
                     <label class="container">
                         {{Form::radio('state_user', 'ACTIVO')}} Activo.
-                        <span class="checkmark"></span>
+                        <span class="checkmark my-border-checkbox"></span>
                     </label>
                 </div>
                 <div class="col-sm-3 p-t-5 ">
                     <label class="container">
                         {{Form::radio('state_user', 'INACTIVO')}} Inactivo.
-                        <span class="checkmark"></span>
+                        <span class="checkmark my-border-checkbox"></span>
                     </label>
                 </div>
             </div>

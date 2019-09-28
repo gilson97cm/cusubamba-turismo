@@ -42,6 +42,41 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="page-header">
+                                    {{ Form::open(['route' => 'users.index', 'method' => 'GET', 'class' => 'form-inline pull-left']) }}
+                                    <div class="form-group">
+                                        {{ Form::text('id_card_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_numeros(event)', 'placeholder' => 'Cédula']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('name_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Nombre']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('last_name_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Apellido']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('email', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_email(event)', 'placeholder' => 'Correo']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::text('position_user', null, ['class' => 'form-control my-border margin-search','onkeypress' => 'return validar_letras(event)', 'placeholder' => 'Crargo']) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default btn-search margin-search">
+                                            <span class="mdi mdi-magnify"></span>Buscar
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="{{route('users.index')}}" class="btn btn-default btn-add">
+                                            <span class="mdi mdi-filter"></span> Ver Todo
+                                        </a>
+                                    </div>
+                                    {{ Form::close() }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
 
                         <table class="table table-striped table-hover table-responsive">
                             <thead>
@@ -81,7 +116,7 @@
                                     </td>
                                     <td width="10px">
                                         @can('users.destroy')
-                                            {!! Form::open(['route' => ['users.active', $user->id], 'method' => 'DELETE']) !!}
+                                            {!! Form::open(['route' => ['users.active', $user->id], 'method' => 'PUT']) !!}
                                             <input type="submit" class="btn btn-sm btn-secondary" value="Activar">
                                             {!! Form::close() !!}
                                         @endcan
