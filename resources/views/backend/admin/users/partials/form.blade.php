@@ -21,7 +21,7 @@
                     {{Form::label('name_user', 'Nombre:',['class' => 'control-label my-label'])}}
                     <span class="text-danger">*</span>
                     <div class="controls">
-                        {{Form::text('name_user', null , ['class' => 'form-control my-border', 'placeholder' => 'Nombre',
+                        {{Form::text('name_user', null , ['class' => 'form-control my-border capitalize-word', 'placeholder' => 'Nombre',
                     'onkeypress' => 'return validar_letras(event)',
                     'required',
                     'data-validation-required-message' => 'Ingrese el Nombre.']) }}
@@ -34,7 +34,7 @@
                     {{Form::label('last_name_user', 'Apellido:',['class' => 'control-label my-label'])}}
                     <span class="text-danger">*</span>
                     <div class="controls">
-                        {{Form::text('last_name_user', null , ['class' => 'form-control my-border', 'placeholder' => 'Apellido',
+                        {{Form::text('last_name_user', null , ['class' => 'form-control my-border capitalize-word', 'placeholder' => 'Apellido',
                     'onkeypress' => 'return validar_letras(event)',
                     'required',
                     'data-validation-required-message' => 'Ingrese el Apellido.']) }}

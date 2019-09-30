@@ -144,11 +144,6 @@
             @endcan
             {{--END ROLES--}}
 
-
-
-
-
-
         </ul>
     </nav>
     <!-- End Sidebar navigation -->

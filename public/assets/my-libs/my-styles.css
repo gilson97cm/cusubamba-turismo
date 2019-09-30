@@ -197,3 +197,7 @@ textarea {
     border-left: gray 1px solid;
 }
 
+.capitalize-word{
+    text-transform: capitalize;
+}
+

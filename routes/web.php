@@ -15,17 +15,17 @@ Route::post('logout', 'LoginController@logout')->name('logout');
 Route::get('register/', 'RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'RegisterController@register');
 
-//province - canton -parish
-Route::get('cantons/{id}', 'Address\ProvinceController@getCanton')->name('cantons');
-Route::get('parishes/{id}', 'Address\ProvinceController@getParish')->name('parishes');
 
-///
 
 Route::get('/cusubamba-administrador', 'HomeController@index')->name('home');
 
 //Routes
 
 Route::middleware(['auth'])->group(function () {
+
+    //province - canton -parish
+    Route::get('cantons/{id}', 'Address\ProvinceController@getCanton')->name('cantons');
+    Route::get('parishes/{id}', 'Address\ProvinceController@getParish')->name('parishes');
 
     #region NEWS
     Route::get('lista-de-noticias/', 'Admin\NewsController@index')->name('news.index')//
@@ -61,9 +61,6 @@ Route::middleware(['auth'])->group(function () {
     #region LEGENDS
     Route::get('lista-de-leyendas/', 'Admin\LegendController@index')->name('legends.index')//
     ->middleware('permission:legends.index');
-
-    Route::get('leyendas-inactivas/', 'Admin\LegendController@inactive')->name('legends.inactive')//
-    ->middleware('permission:legends.inactive');
 
     Route::get('publicar-leyenda/', 'Admin\LegendController@create')->name('legends.create')//vista del formulario crear
     ->middleware('permission:legends.create');
@@ -173,9 +170,6 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->route('home');
     });
 
-    Route::get('activities/inactive', 'ActivityController@inactive')->name('activities.inactive')//
-    ->middleware('permission:activities.inactive');
-
     #endregion
 
     #region PLACE
@@ -204,8 +198,6 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->route('home');
     });
 
-    Route::get('activities/inactive', 'ActivityController@inactive')->name('activities.inactive')//
-    ->middleware('permission:activities.inactive');
     #endregion
 
     #region EVENT
