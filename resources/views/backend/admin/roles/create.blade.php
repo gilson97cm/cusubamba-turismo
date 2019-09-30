@@ -42,13 +42,24 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Roles</h4>
+                        <label class="my-label">Crear Rol</label>
+                        @can('roles.index')
+                            <a href="{{route('roles.index')}}"
+                               class="btn btn-sm btn-primary my_button pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i> Lista de Roles
+                            </a>
+                        @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['roles.store']]) !!}
+                        {!! Form::open(['route' => ['roles.store'], 'novalidate']) !!}
                         @include('backend.admin.roles.partials.form')
+                            <div class="form-group">
+                                {{Form::submit('Guardar' , ['class' => 'btn btn-sm btn-primary my_button']) }}
+                                <a href="{{route('roles.index')}}" class="btn btn-sm btn-secondary">Cancelar</a>
+                            </div>
                         {!! Form::close() !!}
                     </div>
+
                 </div>
             </div>
         </div>

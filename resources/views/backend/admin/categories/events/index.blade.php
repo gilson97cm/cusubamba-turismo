@@ -142,17 +142,25 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('name_event_category', 'Nombre:',['class' => 'my-label'])}}
-                                                    {{Form::text('name_event_category', null , [
+                                                    <span class="text-danger">*</span>
+                                                    <div class="controls">
+                                                        {{Form::text('name_event_category', null , [
                                                             'id' => 'edit_category',
-                                                            'onkeypress' => 'events',
+                                                            'onkeypress' => 'return validar_letras(event)',
                                                             'onblur' => 'aMayusculas(this.value,this.id)',
+                                                            'required',
                                                             'class' => 'form-control upletter']) }}
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('description_event_category', 'Descripción:',['class' => 'my-label'])}}
-                                                    {{Form::text('description_event_category', null , [
+                                                    <span class="text-danger">*</span>
+                                                    <div class="controls">
+                                                        {{Form::text('description_event_category', null , [
                                                             'onkeypress' => 'return validar_caracteres(event)',
+                                                            'required',
                                                             'class' => 'form-control']) }}
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -185,7 +193,6 @@
 @section('scripts')
     <script src="{{asset('assets/my-libs/js/categories.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script> //inputs.js incluye la accion del boton search_add
     <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/expand.js')}}"></script>
     <script>

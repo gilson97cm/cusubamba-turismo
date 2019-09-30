@@ -6,12 +6,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Agregar Empleado</h4>
+                <h4 class="page-title">Registro de Usuarios</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Empleado</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Nuevo</li>
+                            <li class="breadcrumb-item"><a href="#">Usuario</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Registro</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,10 +23,16 @@
     <!-- Row -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Perfil de Usuario</h4>
+                        <label class="card-title my-label" >Registrar Usuario</label>
+                        @can('users.index')
+                            <a href="{{route('users.index')}}"
+                               class="btn btn-sm btn-primary my_button pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Usuarios
+                            </a>
+                        @endcan
                         <div  id="alert">
                         </div>
                         @include('flash::message')
@@ -40,7 +46,7 @@
                             </div>
                         @endif
                     </div>
-                    <form class="form-horizontal r-separator" method="POST" action="{{route('users.store')}}">
+                    <form class="form-horizontal r-separator" method="POST" action="{{route('users.store')}}" novalidate>
                         @csrf
                         @include('backend.admin.users.partials.form')
                         <div class="card-footer">

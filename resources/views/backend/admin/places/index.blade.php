@@ -50,10 +50,10 @@
                                         {{ Form::select('place_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Categoria']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('name_place', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre']) }}
+                                        {{ Form::text('name_place', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre','onkeypress' => 'return validar_caracteres(event)',]) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('description_place', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle']) }}
+                                        {{ Form::text('description_place', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle','onkeypress' => 'return validar_caracteres(event)',]) }}
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-search margin-search">

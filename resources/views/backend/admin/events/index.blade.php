@@ -57,10 +57,10 @@
                                         {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Categoria']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('name_event', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre']) }}
+                                        {{ Form::text('name_event', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre','onkeypress' => 'return validar_caracteres(event)']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('description_event', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Descripción']) }}
+                                        {{ Form::text('description_event', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Descripción','onkeypress' => 'return validar_caracteres(event)']) }}
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-search margin-search">

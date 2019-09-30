@@ -33,12 +33,20 @@
                 <div class="card">
                     <div class="card-header">
                         <label class="my-label"> Usuarios</label>
-                        @can('users.create')
-                            <a href="{{route('users.create')}}"
-                               class="btn btn-sm btn-primary my_button pull-right ">
-                                Crear
+                        @can('users.inactive')
+                            <a href="{{route('users.inactive')}}"
+                               class="btn btn-sm btn-primary pull-right ">
+                                <i class="mdi mdi-account-off"></i>Usuarios Inactivos
                             </a>
                         @endcan
+                        <span></span>
+                        @can('users.create')
+                            <a href="{{route('users.create')}}"
+                               class="btn btn-sm btn-info my_button pull-right " style="margin-right: 3px">
+                                <i class="mdi mdi-plus"></i>Registrar Usuario
+                            </a>
+                        @endcan
+
                     </div>
 
                     <div class="card-body">

@@ -50,9 +50,8 @@
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['news.store'], 'files' => 'true']) !!}
+                        {!! Form::open(['route' => ['news.store'], 'files' => 'true', 'novalidate']) !!}
                         @include('backend.admin.news.partials.form')
-
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -62,7 +61,7 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
+
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
 
     <script>

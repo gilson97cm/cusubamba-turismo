@@ -17,7 +17,7 @@ class CreateLegendsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title_legend');
             $table->longText('description_legend');
-            $table->string('avatar_legend');
+            $table->string('avatar_legend')->nullable();
             $table->timestamps();
         });
     }

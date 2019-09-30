@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name_activity')->unique();
             $table->text('description_activity');
-            $table->string('avatar_activity');
+            $table->string('avatar_activity')->nullable();
             $table->bigInteger('activity_category_id')->unsigned();
             $table->timestamps();
 

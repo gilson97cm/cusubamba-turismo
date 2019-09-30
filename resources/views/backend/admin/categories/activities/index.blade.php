@@ -56,7 +56,7 @@
 
                             {{-- formulario para agregar --}}
                             <tr id="tr_add" class="thead-add" style="background: rgb(227,255,229)">
-                                {!! Form::open(['route' => ['categoriesA.store'], 'method' => 'POST']) !!}
+                                {!! Form::open(['route' => ['categoriesA.store'], 'method' => 'POST' ]) !!}
                                 @csrf
                                 @include('backend.admin.categories.activities.partials.form')
                                 <th width="10px" colspan="2" style="vertical-align: middle;">
@@ -142,19 +142,28 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('name_activity_category', 'Nombre:',['class' => 'my-label'])}}
-                                                    {{Form::text('name_activity_category', null , [
-                                                            'id' => 'edit_category',
-                                                            'onkeypress' => 'events',
-                                                            'onblur' => 'aMayusculas(this.value,this.id)',
-                                                            'class' => 'form-control upletter']) }}
+                                                    <span class="text-danger">*</span>
+                                                   <div class="controls">
+                                                       {{Form::text('name_activity_category', null , [
+                                                           'id' => 'edit_category',
+                                                           'onkeypress' => 'return validar_letras(event)',
+                                                           'onblur' => 'aMayusculas(this.value,this.id)',
+                                                           'class' => 'form-control upletter',
+                                                           'required' => 'required',
+                                                           'required data-validation-required-message' =>'Ingrese un Nombree.']) }}
+                                                   </div>
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('description_activity_category', 'Descripción:',['class' => 'my-label'])}}
-                                                    {{Form::text('description_activity_category', null , [
+                                                    <span class="text-danger">*</span>
+                                                    <div class="controls">
+                                                        {{Form::text('description_activity_category', null , [
                                                             'onkeypress' => 'return validar_caracteres(event)',
-                                                            'class' => 'form-control']) }}
+                                                            'class' => 'form-control',
+                                                            'required' => 'required',
+                                                            'required data-validation-required-message' =>'Ingrese una Descripción.']) }}
+                                                    </div>
                                                 </div>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="submit" id="btn-edit" name="btn-edit"
@@ -185,7 +194,6 @@
 @section('scripts')
     <script src="{{asset('assets/my-libs/js/categories.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script> //inputs.js incluye la accion del boton search_add
     <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/expand.js')}}"></script>
     <script>

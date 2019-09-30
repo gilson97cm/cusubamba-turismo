@@ -7,7 +7,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Módulo Roles</h4>
+                <h4 class="page-title">Lista de Roles</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -32,11 +32,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label">  Roles</label>
+                        <label class="my-label">  Lista de Roles</label>
                         @can('roles.create')
                             <a href="{{route('roles.create')}}"
                                class="btn btn-sm btn-primary my_button pull-right ">
-                                Crear
+                                <i class="mdi mdi-plus"></i> Crear Rol
                             </a>
                         @endcan
                     </div>

@@ -26,43 +26,62 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {{Form::label('event_category_id', 'Categoría:',['class' => ' my-label'])}}
-                        {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search cls', 'placeholder' => '-']) }}
+                        <span class="text-danger">*</span>
+                        <div class="controls">
+                            {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search cls',
+                            'placeholder' => '-',
+                            'required',
+                            'data-validation-required-message'=> 'Seleccione una Categoría.']) }}
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class='form-group'>
                         {{Form::label('color_event', 'Color:',['class' => ' my-label'])}}
-                        <select class='form-control my-border cls' name='color_event'>
-                            <option value="" disabled selected> -</option>
-                            <option class="text-danger" value="bg-danger">&#9724; ROJO</option>
-                            <option class="text-success" value="bg-success">&#9724; VERDE</option>
-                            <option class="text-primary" value="bg-primary">&#9724; MORADO</option>
-                            <option class="text-info" value="bg-info">&#9724; AZUL</option>
-                            <option class="text-warning" value="bg-warning">&#9724; AMARILLO</option>
-                            <option class="text-amaranto" value="bg-amaranto" >&#9724; AMARANTO</option>
-                            <option class="text-jade" value="bg-jade" >&#9724; JADE</option>
-                            <option class="text-fucsia" value="bg-fucsia" >&#9724; FUCSIA</option>
-                            <option class="text-turquesa" value="bg-turquesa" >&#9724; TURQUESA</option>
-                            <option class="text-naranja" value="bg-naranja" >&#9724; NARANJA</option>
-                        </select>
+                        <span class="text-danger">*</span>
+                      <div class="controls">
+                          <select class='form-control my-border cls' name='color_event' required data-validation-required-message = 'Seleccione un Color.'>
+                              <option value="" disabled selected> -</option>
+                              <option class="text-danger" value="bg-danger">&#9724; ROJO</option>
+                              <option class="text-success" value="bg-success">&#9724; VERDE</option>
+                              <option class="text-primary" value="bg-primary">&#9724; MORADO</option>
+                              <option class="text-info" value="bg-info">&#9724; AZUL</option>
+                              <option class="text-warning" value="bg-warning">&#9724; AMARILLO</option>
+                              <option class="text-amaranto" value="bg-amaranto" >&#9724; AMARANTO</option>
+                              <option class="text-jade" value="bg-jade" >&#9724; JADE</option>
+                              <option class="text-fucsia" value="bg-fucsia" >&#9724; FUCSIA</option>
+                              <option class="text-turquesa" value="bg-turquesa" >&#9724; TURQUESA</option>
+                              <option class="text-naranja" value="bg-naranja" >&#9724; NARANJA</option>
+                          </select>
+                      </div>
                     </div>
 
                 </div>
                 <div class='col-md-6'>
                     <div class='form-group'>
                         {{Form::label('name_event', 'Titulo:',['class' => ' my-label'])}}
-                        {{Form::textarea('name_event', null , ['class' => 'form-control my-border cls',
+                        <span class="text-danger">*</span>
+                        <div class="controls">
+                            {{Form::textarea('name_event', null , ['class' => 'form-control my-border cls upletter',
                                         'id'=> 'add_event',
                                         'rows' => '4',
                                         'onkeypress' => 'return validar_caracteres(event)',
-                                        'onblur' => 'aMayusculas(this.value,this.id)']) }}
+                                        'onblur' => 'aMayusculas(this.value,this.id)',
+                                        'required',
+                                        'data-validation-required-message' => 'Ingrese un Nombre.']) }}
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class='form-group'>
                         {{Form::label('location_event', 'Lugar:',['class' => ' my-label'])}}
-                        {{Form::text('location_event', null , ['class' => 'form-control my-border cls',
-                                       'onkeypress' => 'return validar_caracteres(event)']) }}
+                        <span class="text-danger">*</span>
+                        <div class="controls">
+                            {{Form::text('location_event', null , ['class' => 'form-control my-border cls',
+                                       'onkeypress' => 'return validar_caracteres(event)',
+                                       'required',
+                                        'data-validation-required-message' => 'Ingrese un Lugar.']) }}
+                        </div>
                     </div>
                 </div>
 
@@ -74,7 +93,13 @@
         <div class="col-md-12">
             <div class='form-group'>
                 {{Form::label('description_event', 'Descripción:',['class' => ' my-label'])}}
-                {{Form::textarea('description_event', null , ['class' => ' md-textarea form-control my-border cls','onkeypress' => 'return validar_caracteres(event)']) }}
+                <span class="text-danger">*</span>
+                <div class="controls">
+                    {{Form::textarea('description_event', null , ['class' => ' md-textarea form-control my-border cls',
+                    'onkeypress' => 'return validar_caracteres(event)',
+                    'required',
+                    'data-validation-required-message' => 'Ingrese un Lugar.']) }}
+                </div>
             </div>
         </div>
     </div>

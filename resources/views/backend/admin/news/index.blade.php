@@ -50,10 +50,10 @@
                                         {{ Form::date('created_at',null,  ['class' => 'form-control my-border margin-search']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('title_news', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Titulo']) }}
+                                        {{ Form::text('title_news', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Titulo','onkeypress' => 'return validar_caracteres(event)',]) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('detail_news', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle']) }}
+                                        {{ Form::text('detail_news', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle', 'onkeypress' => 'return validar_caracteres(event)',]) }}
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-search margin-search">

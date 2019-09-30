@@ -26,7 +26,20 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                       <div class="card-title">Detalle del Rol {{$role->name}}</div>
+                        <label class="my-label">Detalle del rol</label>
+                        @can('roles.edit')
+                            <a href="{{route('roles.edit',$role->id)}}"
+                               class="btn btn-sm btn-primary my_button pull-right ">
+                                <i class="mdi mdi-pencil"></i>Editar Rol
+                            </a>
+                        @endcan
+                        <span></span>
+                        @can('roles.create')
+                            <a href="{{route('roles.create')}}"
+                               class="btn btn-sm btn-default my-button-create pull-right ">
+                                <i class="mdi mdi-plus"></i>Crear Rol
+                            </a>
+                        @endcan
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -83,11 +96,12 @@
                                         @endforeach
                                         </tbody>
                                     </table>
-
-
                             </div>
                             <div class="col-lg-2"></div>
+
                         </div>
+                        <hr>
+                        <a class="float-right" href="{{route('roles.index')}}">Volver a la Lista de Roles</a>
                     </div>
                 </div>
             </div>

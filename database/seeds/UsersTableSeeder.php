@@ -48,7 +48,8 @@ UsersTableSeeder extends Seeder
         ]);
         Role::create([
             'name' => 'Administrador',
-            'slug' => 'admin',
+            'slug' => 'administrador',
+            'description' => 'Tiene acceso a todos los módulos del sistema.',
             'special' => 'all-access',
         ]);
 

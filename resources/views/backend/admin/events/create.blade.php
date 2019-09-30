@@ -66,10 +66,10 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar
-                        </button>
                         <button type="button" id="event-create"
                                 class="btn btn-success save-event waves-effect waves-light">Crear Evento
+                        </button>
+                        <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar
                         </button>
                     </div>
                 </div>
@@ -105,7 +105,6 @@
 @section('scripts')
     <script src="{{asset('vendor/fullcalendar/libs/fullcalendar.min.js')}}"></script>
     //CUSTOM
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
 
     //TOAST
@@ -153,7 +152,7 @@
                         eventObj.remove();
                     }
 
-                    var form = $('<form id="frm-event" enctype="multipart/form-data"> </form>');
+                    var form = $('<form id="frm-event" enctype="multipart/form-data" > </form>');
                     form.append($('#form-event'));
 
 
@@ -208,7 +207,8 @@
                             });
                             $this.$modal.modal('hide');
                         } else {
-                            alert('Asegurese de que todos los campos esten llenos');
+                            toastr.info('Asegurese de que todos los campos esten llenos', 'Campos incompletos!', { "closeButton": true , positionClass: 'toastr toast-bottom-left', containerId: 'toast-bottom-left' });
+
                         }
                         return false;
 

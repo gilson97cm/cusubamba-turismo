@@ -47,10 +47,10 @@
                                 <div class="page-header">
                                     {{ Form::open(['route' => 'legends.index', 'method' => 'GET', 'class' => 'form-inline pull-left']) }}
                                     <div class="form-group">
-                                        {{ Form::text('title_legend', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Titulo']) }}
+                                        {{ Form::text('title_legend', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Titulo', 'onkeypress' => 'return validar_caracteres(event)']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::text('description_legend', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle']) }}
+                                        {{ Form::text('description_legend', null, ['class' => 'form-control my-border margin-search' , 'placeholder' => 'Detalle', 'onkeypress' => 'return validar_caracteres(event)']) }}
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-search margin-search">

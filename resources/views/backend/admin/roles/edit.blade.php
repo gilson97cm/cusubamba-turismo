@@ -41,11 +41,28 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Roles</h4>
+                        <label class="my-label">Editar Rol</label>
+                        @can('roles.index')
+                            <a href="{{route('roles.index')}}"
+                               class="btn btn-sm btn-primary my_button pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Roles
+                            </a>
+                        @endcan
+                        <span></span>
+                        @can('roles.create')
+                            <a href="{{route('roles.create')}}"
+                               class="btn btn-sm btn-default my-button-create pull-right ">
+                                <i class="mdi mdi-plus"></i>Crear Rol
+                            </a>
+                        @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::model($role, ['route' => ['roles.update', $role->id], 'method' => 'PUT']) !!}
+                        {!! Form::model($role, ['route' => ['roles.update', $role->id], 'method' => 'PUT', 'novalidate']) !!}
                         @include('backend.admin.roles.partials.form')
+                        <div class="form-group">
+                            {{Form::submit('Actualizar' , ['class' => 'btn btn-sm btn-primary my_button']) }}
+                            <a href="{{route('roles.index')}}" class="btn btn-sm btn-secondary">Cancelar</a>
+                        </div>
                         {!! Form::close() !!}
 
                     </div>

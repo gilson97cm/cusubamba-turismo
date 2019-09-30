@@ -29,10 +29,15 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('title_legend', 'Titulo:',['class' => 'my-label'])}}
-                    {{Form::text('title_legend', null , ['class' => 'form-control my-border',
+                    <span class="text-danger">*</span>
+                    <div class="controls">
+                        {{Form::text('title_legend', null , ['class' => 'form-control my-border upletter',
                             'id'=> 'add_legend',
-                            'onkeypress' => 'events',
-                            'onblur' => 'aMayusculas(this.value,this.id)']) }}
+                            'onkeypress' => 'return validar_caracteres(event)',
+                            'onblur' => 'aMayusculas(this.value,this.id)',
+                            'required' => 'required',
+                            'data-validation-required-message' =>'Ingrese un Titulo.']) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,6 +45,7 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('description_legend', 'Detalle:',['class' => 'my-label'])}}
+                    <span class="text-danger">*</span>
                     {{Form::textarea('description_legend', null , ['class' => ' md-textarea form-control my-border']) }}
                 </div>
             </div>

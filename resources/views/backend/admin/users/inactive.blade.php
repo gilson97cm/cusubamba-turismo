@@ -7,7 +7,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Módulo Usuarios</h4>
+                <h4 class="page-title">Lista de Usuarios inactivos</h4>
                 <div class="d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -32,13 +32,20 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <label class="my-label"> Usuarios</label>
-                        @can('users.create')
-                            <a href="{{route('users.create')}}"
-                               class="btn btn-sm btn-primary my_button pull-right ">
-                                Crear
+                        @can('users.index')
+                            <a href="{{route('users.index')}}"
+                               class="btn btn-sm btn-primary pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Usuarios
                             </a>
                         @endcan
+                        <span></span>
+                        @can('users.create')
+                            <a href="{{route('users.create')}}"
+                               class="btn btn-sm btn-info my_button pull-right " style="margin-right: 3px">
+                                <i class="mdi mdi-plus"></i>Registrar Usuario
+                            </a>
+                        @endcan
+
                     </div>
 
                     <div class="card-body">

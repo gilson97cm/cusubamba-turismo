@@ -26,6 +26,19 @@
                 <div class="card">
                     <div class="card-header">
                         <label class="card-title my-label" >Información del Usuario</label>
+                        @can('users.edit')
+                            <a href="{{route('users.edit',$user->id)}}"
+                               class="btn btn-sm btn-primary pull-right ">
+                                <i class="mdi mdi-pencil"></i> Editar Usuario
+                            </a>
+                        @endcan
+                        <span></span>
+                        @can('users.create')
+                            <a href="{{route('users.create')}}"
+                               class="btn btn-sm btn-info my_button pull-right " style="margin-right: 3px">
+                                <i class="mdi mdi-plus"></i> Registrar Usuario
+                            </a>
+                        @endcan
                     </div>
                     <div class="card-body">
 
@@ -59,7 +72,8 @@
                         @endforeach
                             <p><strong>Estado: </strong> {{$user->state_user}}</p>
                             <p><strong>Fecha en que fué registrado: </strong> {{$user->created_at}}</p>
-
+                        <hr>
+                        <a class="float-right" href="{{route('users.index')}}">Volver a la Lista de Usuarios</a>
                     </div>
                 </div>
             </div>

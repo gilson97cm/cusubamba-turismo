@@ -17,7 +17,7 @@ class CreatePlacesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name_place')->unique();
             $table->text('description_place');
-            $table->string('avatar_place');
+            $table->string('avatar_place')->nullable();
             $table->bigInteger('place_category_id')->unsigned();
             $table->timestamps();
 

@@ -142,17 +142,27 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('name_place_category', 'Nombre:',['class' => 'my-label'])}}
-                                                    {{Form::text('name_place_category', null , [
-                                                            'id' => 'edit_category',
-                                                            'onkeypress' => 'events',
-                                                            'onblur' => 'aMayusculas(this.value,this.id)',
-                                                            'class' => 'form-control upletter']) }}
+                                                    <span class="text-danger">*</span>
+                                                   <div class="controls">
+                                                       {{Form::text('name_place_category', null , [
+                                                           'id' => 'edit_category',
+                                                           'onkeypress' => 'return validar_letras(event)',
+                                                           'onblur' => 'aMayusculas(this.value,this.id)',
+                                                           'class' => 'form-control upletter',
+                                                           'required' => 'required',
+                                                           'data-validation-required-message' =>'Ingrese un Nombree.']) }}
+                                                   </div>
                                                 </div>
                                                 <div class="form-group">
                                                     {{Form::label('description_place_category', 'Descripción:',['class' => 'my-label'])}}
-                                                    {{Form::text('description_place_category', null , [
+                                                    <span class="text-danger">*</span>
+                                                    <div class="controls">
+                                                        {{Form::text('description_place_category', null , [
                                                             'onkeypress' => 'return validar_caracteres(event)',
-                                                            'class' => 'form-control']) }}
+                                                            'class' => 'form-control',
+                                                            'required' => 'required',
+                                                            'data-validation-required-message' =>'Ingrese una Descripción.']) }}
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -185,7 +195,6 @@
 @section('scripts')
     <script src="{{asset('assets/my-libs/js/categories.js')}}"></script>
     <script src="{{asset('assets/libs/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script> //inputs.js incluye la accion del boton search_add
     <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/expand.js')}}"></script>
     <script>

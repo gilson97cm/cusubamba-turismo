@@ -28,9 +28,15 @@
         <br>
         <div class="row">
             <div class="col-sm-12 col-lg-12">
-                <div class="form-group row">
+                <div class="form-group">
                     {{Form::label('place_category_id', 'Categoría:',['class' => ' my-label'])}}
-                    {{ Form::select('place_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => '-']) }}
+                    <span class="text-danger">*</span>
+                   <div class="controls">
+                       {{ Form::select('place_category_id', $categories, null, ['class' => 'form-control my-border margin-search',
+                   'placeholder' => '-',
+                    'required' => 'required',
+                    'data-validation-required-message' =>'Seleccione una categoría']) }}
+                   </div>
                 </div>
             </div>
         </div>
@@ -38,10 +44,15 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('name_place', 'Nombre:',['class' => 'my-label'])}}
-                    {{Form::text('name_place', null , ['class' => 'form-control my-border upletter',
+                    <span class="text-danger">*</span>
+                    <div class="controls">
+                        {{Form::text('name_place', null , ['class' => 'form-control my-border upletter',
                             'id'=> 'add_place',
                             'onkeypress' => 'return validar_caracteres(event)',
-                            'onblur' => 'aMayusculas(this.value,this.id)']) }}
+                            'onblur' => 'aMayusculas(this.value,this.id)',
+                             'required' => 'required',
+                            'data-validation-required-message' =>'Ingrese un nombre.']) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,6 +60,7 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('description_place', 'Descripción:',['class' => 'my-label'])}}
+                    <span class="text-danger">*</span>
                     {{Form::textarea('description_place', null , ['class' => ' md-textarea form-control my-border']) }}
                 </div>
             </div>
@@ -60,7 +72,7 @@
 <div class="row">
     <div class="col-sm-12 col-lg-12">
         <div class="form-group">
-           <h4>Lista de Actividades:</h4>
+            <h4>Lista de Actividades:</h4>
             <br>
 
             <table class="table table-striped table-hover table-responsive">
@@ -77,7 +89,7 @@
                 <tbody>
                 @foreach($activities as $activity)
                     <tr>
-                        <td style="vertical-align: middle" >
+                        <td style="vertical-align: middle">
                             <label class="container">
                                 {{Form::checkbox('activities[]', $activity->id, null)}}
                                 <span class="checkmark my-border-checkbox"></span>
@@ -85,9 +97,10 @@
                         </td>
                         <td>{{$activity->created_at}}</td>
                         <td>{{$activity->category->name_activity_category}}</td>
-                        <td style=" vertical-align: middle;" align="center"><img src="{{asset($activity->avatar_activity)}}" alt="img" width="80px" height="50px"></td>
-                        <td class="expandDiv" > <strong>{{$activity->name_activity}}</strong> </td>
-                        <td class="expandDiv"  align="justify">{!! $activity->description_activity !!}</td>
+                        <td style=" vertical-align: middle;" align="center"><img
+                                src="{{asset($activity->avatar_activity)}}" alt="img" width="80px" height="50px"></td>
+                        <td class="expandDiv"><strong>{{$activity->name_activity}}</strong></td>
+                        <td class="expandDiv" align="justify">{!! $activity->description_activity !!}</td>
                     </tr>
                 @endforeach
                 </tbody>

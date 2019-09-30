@@ -51,9 +51,8 @@
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['legends.store'], 'files' => 'true']) !!}
+                        {!! Form::open(['route' => ['legends.store'], 'files' => 'true', 'novalidate']) !!}
                         @include('backend.admin.legends.partials.form')
-
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -63,7 +62,6 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
 
     <script>

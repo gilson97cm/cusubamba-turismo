@@ -26,7 +26,20 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Perfil de Usuario</h4>
+                        <h4 class="card-title">Editar datos de Usuario</h4>
+                        @can('users.index')
+                            <a href="{{route('users.index')}}"
+                               class="btn btn-sm btn-primary pull-right ">
+                                <i class="mdi mdi-format-list-bulleted"></i>Lista de Usuarios
+                            </a>
+                        @endcan
+                        <span></span>
+                        @can('users.create')
+                            <a href="{{route('users.create')}}"
+                               class="btn btn-sm btn-info my_button pull-right " style="margin-right: 3px">
+                                <i class="mdi mdi-plus"></i>Registrar Usuario
+                            </a>
+                        @endcan
                         <div  id="alert">
                         </div>
                         @include('flash::message')
@@ -41,7 +54,7 @@
                         @endif
                     </div>
                     {{--   @foreach($employee as $emplo) --}}
-                    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT']) !!}
+                    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'novalidate']) !!}
                     @include('backend.admin.users.partials.form')
                     <div class="card-footer">
                         <div class="form-group m-b-0 text-right">

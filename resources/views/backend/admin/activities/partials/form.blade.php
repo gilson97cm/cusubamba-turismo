@@ -28,9 +28,15 @@
         <br>
         <div class="row">
             <div class="col-sm-12 col-lg-12">
-                <div class="form-group row">
+                <div class="form-group">
                     {{Form::label('activity_category_id', 'Categoría:',['class' => ' my-label'])}}
-                    {{ Form::select('activity_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => '-']) }}
+                    <span class="text-danger">*</span>
+                  <div class="controls">
+                      {{ Form::select('activity_category_id', $categories, null, ['class' => 'form-control my-border margin-search',
+                      'placeholder' => '-',
+                      'required' => 'required',
+                      'data-validation-required-message' =>'Seleccione una categoría']) }}
+                  </div>
                 </div>
             </div>
         </div>
@@ -38,10 +44,15 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('name_activity', 'Nombre:',['class' => 'my-label'])}}
-                    {{Form::text('name_activity', null , ['class' => 'form-control my-border upletter',
+                    <span class="text-danger">*</span>
+                    <div class="controls">
+                        {{Form::text('name_activity', null , ['class' => 'form-control my-border upletter',
                             'id'=> 'add_activity',
                             'onkeypress' => 'return validar_caracteres(event)',
-                            'onblur' => 'aMayusculas(this.value,this.id)']) }}
+                            'onblur' => 'aMayusculas(this.value,this.id)',
+                            'required' => 'required',
+                            'data-validation-required-message' =>'Ingrese un nombre.']) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,6 +60,7 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('description_activity', 'Descripción:',['class' => 'my-label'])}}
+                    <span class="text-danger">*</span>
                     {{Form::textarea('description_activity', null , ['class' => ' md-textarea form-control my-border']) }}
                 </div>
             </div>

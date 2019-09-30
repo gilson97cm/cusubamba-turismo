@@ -59,7 +59,7 @@
 
                     </div>
                     <div class="card-body">
-                        {!! Form::model($place, ['route' => ['places.update', $place->id], 'method' => 'PUT', 'files' => 'true']) !!}
+                        {!! Form::model($place, ['route' => ['places.update', $place->id], 'method' => 'PUT', 'files' => 'true', 'novalidate']) !!}
                         @include('backend.admin.places.partials.form')
                         {!! Form::close() !!}
                     </div>
@@ -70,7 +70,6 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/jquery.expander.js')}}"></script>
     <script src="{{asset('vendor/jquery.expander/expander.js')}}"></script>

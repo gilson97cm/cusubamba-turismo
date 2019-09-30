@@ -38,18 +38,29 @@
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
                     {{Form::label('source_news', 'Fuente:',['class' => 'my-label'])}}
-                    {{Form::text('source_news', null , ['class' => 'form-control my-border']) }}
+                    <span class="text-danger">*</span>
+                    <div class="controls">
+                        {{Form::text('source_news', null , ['class' => 'form-control my-border',
+                        'onkeypress' => 'return validar_letras(event)',
+                        'required' => 'required',
+                        'required data-validation-required-message' =>'Ingrese una fuente confiable.']) }}
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
-                    {{Form::textarea('title_news', null , ['class' => 'form-control upletter my-border',
-                            'rows' => '5','id'=> 'add_news',
-                            'onkeypress' => 'events',
-                            'onblur' => 'aMayusculas(this.value,this.id)']) }}
+                        {{Form::label('title_news', 'Titulo:',['class' => 'my-label'])}}
+                        <span class="text-danger">*</span>
+                       <div class="controls">
+                           {{Form::textarea('title_news', null , ['class' => 'form-control upletter my-border',
+                       'rows' => '5','id'=> 'add_news',
+                        'onkeypress' => 'return validar_caracteres(event)',
+                       'onblur' => 'aMayusculas(this.value,this.id)',
+                       'required' => 'required',
+                       'required data-validation-required-message' =>'Ingrese un Titulo.']) }}
+                       </div>
                 </div>
             </div>
         </div>
@@ -60,7 +71,9 @@
     <div class="col-sm-12 col-lg-12">
         <div class="form-group">
             {{Form::label('detail_news', 'Detalle:',['class' => 'my-label'])}}
-            {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border']) }}
+            <span class="text-danger">*</span>
+                {{Form::textarea('detail_news', null , ['class' => ' md-textarea form-control my-border',
+                 'onkeypress' => 'return validar_caracteres(event)']) }}
         </div>
     </div>
 </div>

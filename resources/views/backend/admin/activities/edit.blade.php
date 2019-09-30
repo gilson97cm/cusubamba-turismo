@@ -59,7 +59,7 @@
 
                     </div>
                     <div class="card-body">
-                        {!! Form::model($activity, ['route' => ['activities.update', $activity->id], 'method' => 'PUT', 'files' => 'true']) !!}
+                        {!! Form::model($activity, ['route' => ['activities.update', $activity->id], 'method' => 'PUT', 'files' => 'true', 'novalidate']) !!}
                         @include('backend.admin.activities.partials.form')
                         {!! Form::close() !!}
                     </div>
@@ -70,7 +70,6 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);

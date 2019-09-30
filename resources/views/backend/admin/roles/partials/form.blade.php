@@ -1,19 +1,32 @@
 <div class="row">
     <div class="col-sm-12 col-lg-5">
-        <div class="form-group row">
+        <div class="form-group">
             {{Form::label('name', 'Nombre del Rol:',['class' => 'my-label'])}}
-                {{Form::text('name', null , ['class' => 'form-control my-border','onkeypress' => 'return validar_caracteres(event)']) }}
+            <span class="text-danger">*</span>
+               <div class="controls">
+                   {{Form::text('name', null , ['class' => 'form-control my-border',
+                   'onkeypress' => 'return validar_caracteres(event)',
+                   'required',
+                   'data-validation-required-message' => 'Ingrese un Nombre.']) }}
+               </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group">
             {{Form::label('slug', 'URL amigable:',['class' => 'my-label'])}}
-            {{Form::text('slug', null , ['class' => 'form-control my-border', 'readonly' => 'readonly','onkeypress' => 'return validar_caracteres(event)']) }}
+            <span class="text-danger">*</span>
+           <div class="controls">
+               {{Form::text('slug', null , ['class' => 'form-control my-border', 'readonly' => 'readonly',
+           'onkeypress' => 'return validar_caracteres(event)',
+           'required',
+           'data-validation-required-message' => 'Cree una url amigable (ej: administrador-sistema).']) }}
+           </div>
         </div>
     </div>
     <div class="col-sm-12 col-lg-1"> </div>
     <div class="col-sm-12 col-lg-5">
         <div class="form-group row">
             {{Form::label('description', 'Descripcion:',['class' => 'my-label'])}}
-            {{Form::textarea('description', null , ['class' => ' md-textarea form-control my-border', 'rows' => '5','onkeypress' => 'return validar_caracteres(event)' ]) }}
+            {{Form::textarea('description', null , ['class' => ' md-textarea form-control my-border', 'rows' => '5',
+            'onkeypress' => 'return validar_caracteres(event)']) }}
         </div>
     </div>
 
@@ -68,17 +81,6 @@
         </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-auto col-sm-12">
-        <div class="form-group">
-            {{Form::submit('Guardar' , ['class' => 'btn btn-sm btn-primary my_button']) }}
-        </div>
-    </div>
-    <div class="col-lg-auto col-sm-12">
-        <div class="form-group">
-            <a href="{{route('roles.index')}}" class="btn btn-sm btn-secondary">Cancelar</a>
-        </div>
-    </div>
-</div>
+
 
 

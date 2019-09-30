@@ -58,7 +58,7 @@
 
                     </div>
                     <div class="card-body">
-                        {!! Form::model($news_, ['route' => ['news.update', $news_->id], 'method' => 'PUT', 'files' => 'true']) !!}
+                        {!! Form::model($news_, ['route' => ['news.update', $news_->id], 'method' => 'PUT', 'files' => 'true', 'novalidate' ]) !!}
                         @include('backend.admin.news.partials.form')
                         {!! Form::close() !!}
                     </div>

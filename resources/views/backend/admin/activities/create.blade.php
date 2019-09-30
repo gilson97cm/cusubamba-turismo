@@ -51,7 +51,7 @@
                         @endcan
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route' => ['activities.store'], 'files' => 'true']) !!}
+                        {!! Form::open(['route' => ['activities.store'], 'files' => 'true', 'novalidate']) !!}
                         @include('backend.admin.activities.partials.form')
 
                         {!! Form::close() !!}
@@ -64,7 +64,6 @@
 @endsection
 @section('scripts')
     <script src="{{asset('vendor/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('assets/my-libs/js/inputs.js')}}"></script>
 
     <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(4000);
