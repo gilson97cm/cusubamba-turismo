@@ -1,0 +1,230 @@
+/*DARK SECTION*/
+.darkSection_ {
+    width: 100%;
+    padding: 30px 0;
+    background-color: #262a2e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sectionTitleDouble_ h2 {
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 2px;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+@media (min-width: 992px) {
+    .sectionTitleDouble_ h2 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sectionTitleDouble_ h2 {
+        font-size: 20px;
+    }
+}
+
+.sectionTitleDouble_ h2 {
+    font-weight: 700;
+}
+
+@media (min-width: 992px) {
+    .sectionTitleDouble_ h2 {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sectionTitleDouble_ h2 {
+        font-size: 26px;
+    }
+}
+
+.sectionTitleDouble_ h2 span {
+    color: #00cd96;
+}
+
+/*NEWS SECTION*/
+.newsSection {
+    background: whitesmoke;
+    padding-top: 0;
+    margin-top: -80px;
+}
+
+@media (min-width: 480px) {
+    .newsSection {
+        margin-top: -200px;
+    }
+}
+
+@media (min-width: 768px) {
+    .newsSection {
+        padding-top: 100px;
+        margin-top: 0px;
+    }
+}
+
+.newsSection .ourPackage {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: white solid 10px;
+}
+
+.newsSection .ourPackage:hover .ourPackageContent {
+    bottom: 15px;
+    border-radius: 5px;
+}
+
+.newsSection .ourPackage:hover .ourPackageContent .buttonCustomPrimary {
+    visibility: visible;
+    opacity: 1;
+}
+
+.newsSection .ourPackage:hover .ourPackageImg {
+    border-radius: 5px;
+}
+
+.newsSection .ourPackage:hover .ourPackageImg:after {
+    opacity: 1;
+}
+
+.newsSection .ourPackage .ourPackageImg {
+    height: auto;
+    position: relative;
+
+}
+
+.img {
+    width: 650px;
+    height: 340px;
+}
+
+.newsSection .ourPackage .ourPackageImg img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.newsSection .ourPackage .ourPackageImg:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    border-radius: 5px;
+}
+
+.newsSection .ourPackage .ourPackageContent {
+    position: absolute;
+    left: 30px;
+    bottom: -30px;
+    transition: all 0.4s ease;
+}
+
+.newsSection .ourPackage .ourPackageContent h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.newsSection .ourPackage .ourPackageContent p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.newsSection .ourPackage .ourPackageContent p span {
+    color: #ff891e;
+}
+
+.newsSection .ourPackage .buttonCustomPrimary {
+    visibility: hidden;
+    opacity: 0;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+/*PLACES BACKGROUND*/
+.places-bg {
+    background: url("../img/home/bg/place-bg.jpg");
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+
+}
+.activities-bg {
+    background: url("../img/home/bg/activities-bg.jpg");
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+
+
+}
+
+.sectionTitle h2 span.lightBg_ {
+    background-color: rgba(255,255,255,0.5);
+}
+p.lightBg_{
+    color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    font-size: 30px;
+}
+@media (max-width: 767px) {
+    .places-bg{
+        background: whitesmoke;
+        margin-bottom: 0;
+    }
+    .activities-bg{
+        background: whitesmoke;
+        margin-bottom: 0;
+    }
+    .sectionTitle h2 span.lightBg_ {
+        background-color: whitesmoke;
+    }
+    p.lightBg_{
+        color: #969696;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}
+
+.buttonTransparent_, .paginationCenter .pagination li:first-child a, .paginationCenter .pagination li:last-child a, .isotopeFilters ul.filter > li a {
+    height: 35px;
+    line-height: 35px;
+    border-radius: 4px;
+    border-color: #dedede;
+    padding: 0 20px;
+    color: #969696;
+    text-transform: uppercase;
+    outline: 0;
+    background: whitesmoke;
+}
+
+.buttonTransparent_:hover, .paginationCenter .pagination li:first-child a:hover, .paginationCenter .pagination li:last-child a:hover, .isotopeFilters ul.filter > li a:hover {
+    background-color: #14b19b;
+    border-color: #14b19b;
+    color: #ffffff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
+    filter: alpha(opacity=1);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+    outline: 0;
+}

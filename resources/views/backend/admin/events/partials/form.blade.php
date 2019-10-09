@@ -25,10 +25,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{Form::label('event_category_id', 'Categoría:',['class' => ' my-label'])}}
+                        {{Form::label('event_categories_id', 'Categoría:',['class' => ' my-label'])}}
                         <span class="text-danger">*</span>
                         <div class="controls">
-                            {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search cls',
+                            {{ Form::select('event_categories_id', $categories, null, ['class' => 'form-control my-border margin-search cls',
                             'placeholder' => '-',
                             'required',
                             'data-validation-required-message'=> 'Seleccione una Categoría.']) }}

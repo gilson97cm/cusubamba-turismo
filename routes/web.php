@@ -1,8 +1,8 @@
 <?php
 
-
+#region URL´s ADMIN
 Route::get('/', function () {
-    return view('backend.admin.auth.login');
+    return redirect()->route('home.user');
 });
 
 //Auth::routes();
@@ -10,12 +10,6 @@ Route::get('/', function () {
 Route::get('login', 'LoginController@showLoginForm')->name('login');
 Route::post('login', 'LoginController@login');
 Route::post('logout', 'LoginController@logout')->name('logout');
-
-//registro usuario
-Route::get('register/', 'RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'RegisterController@register');
-
-
 
 Route::get('/cusubamba-administrador', 'HomeController@index')->name('home');
 
@@ -300,3 +294,9 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
+
+#endregion
+
+#region RIL´s USER
+Route::get('/cusubamba', 'User\HomeController@index')->name('home.user');
+#endregion

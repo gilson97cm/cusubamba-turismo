@@ -26,7 +26,7 @@ class ActivityUpdateRequest extends FormRequest
         $rules = [
             'name_activity'          => ['required','max:1000','unique:activities,name_activity,'.$this->activity],
             'description_activity'    => [ 'required','max:250000'],
-            'activity_category_id'    => ['required'],
+            'activity_categories_id'    => ['required'],
         ];
         if($this->get('avatar_activity'))
             $rules = array_merge($rules, ['avatar_activity' => 'mimes:jpg,jpeg,png']);
@@ -42,7 +42,7 @@ class ActivityUpdateRequest extends FormRequest
             'name_activity.max'                   => 'El nombre es demasiado extenso.',
             'description_activity.required'       => 'Escriba una descripción de la actividad.',
             'description_activity.max'            => 'La descripcion de la actividad supera el tamaño permitido.',
-            'activity_category_id.required'       => 'Debe elegir una categoría',
+            'activity_categories_id.required'       => 'Debe elegir una categoría',
         ];
 
         if($this->get('avatar_activity'))

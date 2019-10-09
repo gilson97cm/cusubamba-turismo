@@ -11,21 +11,21 @@ class Activity extends Model
         'name_activity',
         'description_activity',
         'avatar_activity',
-        'activity_category_id',
+        'activity_categories_id',
         ];
     //relation
     public function category()
     {
-        return $this->belongsTo(ActivityCategories::class, 'activity_category_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
+        return $this->belongsTo(ActivityCategories::class, 'activity_categories_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
     public function places()
     {
         return $this->belongsToMany(Place::class)->withTimestamps();
     }
     //scope
-    public function scopeActivity_category_id($query, $id){
+    public function scopeActivity_categories_id($query, $id){
         if($id)
-            return $query->where('activity_category_id','LIKE', "%$id%");
+            return $query->where('activity_categories_id','LIKE', "%$id%");
     }
     public function scopeName($query, $name){
         if($name)

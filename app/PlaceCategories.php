@@ -12,6 +12,10 @@ class PlaceCategories extends Model
         'description_place_category',
     ];
 
+    public function places(){
+        return $this->hasMany(Place::class);
+    }
+
     //Scope
     public function scopeName($query, $name){
         if($name)

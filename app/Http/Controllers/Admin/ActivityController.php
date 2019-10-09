@@ -22,14 +22,14 @@ class ActivityController extends Controller
     {
         $name = $request->get('name_activity');
         $description = $request->get('description_activity');
-        $category_id = $request->get('activity_category_id');
+        $category_id = $request->get('activity_categories_id');
 
         $categories = ActivityCategories::orderBy('name_activity_category', 'ASC')->pluck('name_activity_category', 'id');
 
         $activities = Activity::orderBy('name_activity', 'ASC')
             ->name($name)
             ->description($description)
-            ->activity_category_id($category_id)
+            ->activity_categories_id($category_id)
             ->paginate(10);
         return view('backend.admin.activities.index', compact('activities', 'categories'));
     }

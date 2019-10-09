@@ -50,7 +50,7 @@
                             </a>
                         @endcan
                         <span></span>
-                        @can('places.create')
+                        @can('bg')
                             <a href="{{route('places.create')}}"
                                class="btn btn-sm btn-default my-button-create pull-right ">
                                 <i class="mdi mdi-plus"></i>Publicar Lugar

@@ -109,7 +109,7 @@ class NewsController extends Controller
         //image
         if ($request->file('avatar_news')) {
             $path = Storage::disk('public')->put('temp\avatar_news', $request->file('avatar_news'));
-            $news_->fill(['avatar_news' => asset($path)])->save();
+            $news_->fill(['avatar_news' => $path])->save();
         }
 
         Flash::success('Noticia actualizada con exito!');

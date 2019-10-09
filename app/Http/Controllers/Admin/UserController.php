@@ -137,11 +137,20 @@ class UserController extends Controller
         $user->address_user = $request->address_user;
 
         $user->email = $request->email;
+
+        if($user->genre_user == 'Masculino')
+            $user->fill(['avatar_user' => 'temp/profile/default/male.png'])->save();
+        else
+            $user->fill(['avatar_user' => 'temp/profile/default/female.png'])->save();
+
         if (!empty($request->password))
             $user->password = bcrypt($request->password);
 
         $user->state_user = $request->state_user;
         $user->save();
+
+
+
 
         $user->roles()->sync($request->get('rol'));
 

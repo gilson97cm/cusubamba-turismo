@@ -164,7 +164,7 @@
                         var name_event_ = form.find("textarea[name='name_event']").val();
                         var location_ = form.find("input[name='location_event']").val();
                         var description_ = form.find("textarea[name='description_event']").val();
-                        var category_id_ = form.find("select[name='event_category_id']").val();
+                        var category_id_ = form.find("select[name='event_categories_id']").val();
                         var start_ = form.append("<input type='hidden' value='"+start_event_+"' name ='start_event' />" );
                         var end = form.append("<input type='hidden' value='"+end_event_+"' name ='end_event' />" );
 
@@ -262,7 +262,7 @@
                     form.find("input[name='location_event']").val(calEvent.location);
                     form.find("textarea[name='description_event']").val(calEvent.description);
                     form.find("select[name='color_event']").val(calEvent.className);
-                    form.find("select[name='event_category_id']").val(calEvent.category_event);
+                    form.find("select[name='event_categories_id']").val(calEvent.category_event);
                     form.find("img[id='preview']").attr('src',calEvent.avatar);
                     form.append("<hr> <div class='pull-right'> <button type='submit' class='btn btn-success waves-effect waves-light'>Actualizar</button></div>");
 

@@ -13,7 +13,7 @@ class ActivityCategories extends Model
     ];
 
     //relation
-    public function activity()
+    public function activities()
     {
         return $this->hasMany(Activity::class);
     }

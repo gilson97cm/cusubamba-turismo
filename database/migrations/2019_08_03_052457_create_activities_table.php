@@ -18,11 +18,11 @@ class CreateActivitiesTable extends Migration
             $table->string('name_activity')->unique();
             $table->text('description_activity');
             $table->string('avatar_activity')->nullable();
-            $table->bigInteger('activity_category_id')->unsigned();
+            $table->bigInteger('activity_categories_id')->unsigned();
             $table->timestamps();
 
             //relation
-            $table->foreign('activity_category_id')->references('id')->on('activity_categories')->onUpdate('cascade');
+            $table->foreign('activity_categories_id')->references('id')->on('activity_categories')->onUpdate('cascade');
 
         });
     }

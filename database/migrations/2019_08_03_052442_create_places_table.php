@@ -18,11 +18,12 @@ class CreatePlacesTable extends Migration
             $table->string('name_place')->unique();
             $table->text('description_place');
             $table->string('avatar_place')->nullable();
-            $table->bigInteger('place_category_id')->unsigned();
+            $table->bigInteger('place_categories_id')->unsigned();
             $table->timestamps();
 
             //relation
-            $table->foreign('place_category_id')->references('id')->on('place_categories')->onUpdate('cascade');
+            $table->foreign('place_categories_id')->references('id')->on('place_categories')
+                ->onUpdate('cascade');
 
         });
     }

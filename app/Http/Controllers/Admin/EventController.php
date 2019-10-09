@@ -16,7 +16,7 @@ class EventController extends Controller
         $description = $request->get('description_event');
         $start_event = $request->get('start_event');
         $end_event = $request->get('end_event');
-        $category_id = $request->get('event_category_id');
+        $category_id = $request->get('event_categories_id');
 
         $categories = EventCategories::orderBy('name_event_category', 'ASC')->pluck('name_event_category', 'id');
 
@@ -25,7 +25,7 @@ class EventController extends Controller
             ->description($description)
             ->start_event($start_event)
             ->end_event($end_event)
-            ->event_category_id($category_id)
+            ->event_categories_id($category_id)
             ->paginate(10);
         return view('backend.admin.events.index', compact('events', 'categories'));
 
@@ -62,7 +62,7 @@ class EventController extends Controller
         $all_day_event = Event::all()->pluck('all_day_event');
         $color_event = Event::all()->pluck('color_event');
         $avatar_event = Event::all()->pluck('avatar_event');
-        $category_event = Event::all()->pluck('event_category_id');
+        $category_event = Event::all()->pluck('event_categories_id');
 
 
         $count = count($id); //contamos los ids obtenidos para saber el numero exacto de eventos

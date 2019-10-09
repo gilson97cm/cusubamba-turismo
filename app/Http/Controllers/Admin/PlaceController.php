@@ -23,14 +23,14 @@ class PlaceController extends Controller
     {
         $name = $request->get('name_place');
         $description = $request->get('description_place');
-        $category_id = $request->get('place_category_id');
+        $category_id = $request->get('place_categories_id');
 
         $categories = PlaceCategories::orderBy('name_place_category', 'ASC')->pluck('name_place_category', 'id');
 
         $places = Place::orderBy('name_place', 'ASC')
             ->name($name)
             ->description($description)
-            ->place_category_id($category_id)
+            ->place_categories_id($category_id)
             ->paginate(10);
         return view('backend.admin.places.index', compact('places', 'categories'));
     }
@@ -55,7 +55,7 @@ class PlaceController extends Controller
      */
     public function store(PlaceStoreRequest $request)
     {
-        //dd($request->name_place);
+        //dd($request);
         $place = Place::create($request->all());
         //image
         if ($request->file('avatar_place')) {

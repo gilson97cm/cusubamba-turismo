@@ -12,7 +12,7 @@ class EventCategories extends Model
         'description_event_category',
     ];
 
-    public function activity()
+    public function events()
     {
         return $this->hasMany(Event::class);
     }

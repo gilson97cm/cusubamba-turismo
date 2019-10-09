@@ -29,10 +29,10 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    {{Form::label('place_category_id', 'Categoría:',['class' => ' my-label'])}}
+                    {{Form::label('place_categories_id', 'Categoría:',['class' => ' my-label'])}}
                     <span class="text-danger">*</span>
                    <div class="controls">
-                       {{ Form::select('place_category_id', $categories, null, ['class' => 'form-control my-border margin-search',
+                       {{ Form::select('place_categories_id', $categories, null, ['class' => 'form-control my-border margin-search',
                    'placeholder' => '-',
                     'required' => 'required',
                     'data-validation-required-message' =>'Seleccione una categoría']) }}

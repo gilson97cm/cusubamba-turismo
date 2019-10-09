@@ -108,7 +108,7 @@
                                                 @endcan
                                             </td>
                                             <td width="10px" style=" vertical-align: middle;">
-                                                @can('places.destroy')
+                                                @can('bg')
                                                     {!! Form::open(['route' => ['places.destroy', $place->id], 'method' => 'DELETE']) !!}
                                                     <a href="#" disabled="true"  class="btn btn-sm btn-danger destroy-places" id="destroy_places" >Eliminar</a>
                                                     {!! Form::close() !!}

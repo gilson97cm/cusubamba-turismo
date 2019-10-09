@@ -65,7 +65,7 @@
                         @can('categoriesP.index')
                             <li class="sidebar-item"><a href="{{route('categoriesP.index')}}" class="sidebar-link"><i class="mdi mdi-label"></i> <span class="hide-menu">Categoría de Lugares</span></a></li>
                         @endcan
-                        @can('places.create')
+                        @can('bg')
                             <li class="sidebar-item"><a href="{{route('places.create')}}" class="sidebar-link"><i class="mdi mdi-plus"></i> <span class="hide-menu">Agregar Lugar</span></a></li>
                         @endcan
                         @can('places.index')

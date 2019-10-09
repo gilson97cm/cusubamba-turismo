@@ -11,21 +11,21 @@ class Place extends Model
         'name_place',
         'description_place',
         'avatar_place',
-        'place_category_id',
+        'place_categories_id',
     ];
     //relation
     public function category()
     {
-        return $this->belongsTo(PlaceCategories::class, 'place_category_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
+        return $this->belongsTo(PlaceCategories::class, 'place_categories_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
     public function activities()
     {
         return $this->belongsToMany(Activity::class)->withTimestamps();
     }
     //scope
-    public function scopePlace_category_id($query, $id){
+    public function scopePlace_categories_id($query, $id){
         if($id)
-            return $query->where('place_category_id','LIKE', "%$id%");
+            return $query->where('place_categories_id','LIKE', "%$id%");
     }
     public function scopeName($query, $name){
         if($name)

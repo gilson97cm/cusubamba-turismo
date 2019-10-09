@@ -17,12 +17,12 @@ class Event extends Model
         'all_day_event',
         'color_event',
         'avatar_event',
-        'event_category_id',
+        'event_categories_id',
     ];
 
     public function category()
     {
-        return $this->belongsTo(EventCategories::class, 'event_category_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
+        return $this->belongsTo(EventCategories::class, 'event_categories_id'); //foreing key es para no tener error al mostrar el nombre de la categoria en el index
     }
 
     //scope
@@ -42,8 +42,8 @@ class Event extends Model
         if($description)
             return $query->where('description_event','LIKE', "%$description%");
     }
-    public function scopeEvent_category_id($query, $id){
+    public function scopeEvent_categories_id($query, $id){
         if($id)
-            return $query->where('event_category_id','LIKE', "%$id%");
+            return $query->where('event_categories_id','LIKE', "%$id%");
     }
 }

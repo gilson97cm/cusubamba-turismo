@@ -54,7 +54,7 @@
                                         {{ Form::text('end_event',null,  ['class' => 'form-control my-border margin-search','placeholder'=>'F. fin', 'onfocus' => 'this.type = "date"']) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::select('event_category_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Categoria']) }}
+                                        {{ Form::select('event_categories_id', $categories, null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Categoria']) }}
                                     </div>
                                     <div class="form-group">
                                         {{ Form::text('name_event', null, ['class' => 'form-control my-border margin-search', 'placeholder' => 'Nombre','onkeypress' => 'return validar_caracteres(event)']) }}
@@ -146,7 +146,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6 my-border-right">
                                                                             <div class="form-group">
-                                                                                {{Form::label('event_category_id', 'Categoría:',['class' => ' my-label'])}}
+                                                                                {{Form::label('event_categories_id', 'Categoría:',['class' => ' my-label'])}}
                                                                                 <br>
                                                                                 {{Form::label('name_event', $event->category->name_event_category,[])}}
                                                                             </div>

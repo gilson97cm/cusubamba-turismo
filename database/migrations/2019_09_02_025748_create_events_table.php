@@ -23,11 +23,11 @@ class CreateEventsTable extends Migration
             $table->boolean('all_day_event');
             $table->string('color_event')->nullable();
             $table->string('avatar_event')->nullable();
-            $table->bigInteger('event_category_id')->unsigned()->nullable();
+            $table->bigInteger('event_categories_id')->unsigned()->nullable();
             $table->timestamps();
 
             //relations
-            $table->foreign('event_category_id')->references('id')->on('event_categories')->onUpdate('cascade');
+            $table->foreign('event_categories_id')->references('id')->on('event_categories')->onUpdate('cascade');
         });
     }
 
