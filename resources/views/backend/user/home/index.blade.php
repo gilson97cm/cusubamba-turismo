@@ -69,10 +69,14 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown singleDrop active">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Inicio </a>
+                            <a href="#" class="dropdown-toggle">Inicio </a>
+                        </li>
+                        <li class="dropdown singleDrop ">
+                            <a href="#news" class="dropdown-toggle" role="button"
+                               aria-haspopup="true" aria-expanded="false">Noticias</a>
                         </li>
                         <li class="dropdown megaDropMenu ">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                            <a href="#places" class="dropdown-toggle" data-toggle="dropdown"
                                data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">¿Dónde
                                 ir?</a>
                             <ul class="row dropdown-menu">
@@ -122,18 +126,14 @@
                             </ul>
                         </li>
                         <li class="dropdown singleDrop ">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            <a href="#events" class="dropdown-toggle" role="button"
                                aria-haspopup="true" aria-expanded="false">Eventos</a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li class=""><a href="accordion-and-toggles.html">Calendario</a></li>
                             </ul>
                         </li>
                         <li class="dropdown singleDrop ">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Noticias</a>
-                        </li>
-                        <li class="dropdown singleDrop ">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            <a href="#legends" class="dropdown-toggle" role="button"
                                aria-haspopup="true" aria-expanded="false">Leyendas</a>
                         </li>
                         <li class="dropdown searchBox">
@@ -560,13 +560,13 @@
     </section>
 
     <!-- NEWS -->
-    <section class="newsSection ptb-100">
+    <section class="newsSection ptb-100 news-bg" id="news">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="sectionTitle">
-                        <h2><span class="lightBg">Noticias</span></h2>
-                        <p>Informate con las noticias más relevantes.</p>
+                        <h2><span class="lightBg_">Noticias</span></h2>
+                        <p class="lightBg_">Informate con las noticias más relevantes.</p>
                     </div>
                 </div>
             </div>
@@ -595,7 +595,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="btnArea">
-                        <a href="" class="btn buttonTransparent">Ver más Noticias</a>
+                        <a href="" class="btn buttonTransparent_">Ver más Noticias</a>
                     </div>
                 </div>
             </div>
@@ -604,58 +604,58 @@
     </section>
 
     <!-- TOP PLACES -->
-    <section class="mainContentSection packagesSection places-bg" >
+    <section class="mainContentSection packagesSection ptb-100 places-bg" id="places">
 
-           <div class="container">
-               <div class="row">
-                   <div class="col-xs-12">
-                       <div class="sectionTitle">
-                           <h2><span class="lightBg_">¿Dónde Ir?</span></h2>
-                           <p class="lightBg_">Ven y disfruta de un ambiente agradable en nuestros lugares.</p>
-                       </div>
-                   </div>
-               </div>
-               <div class="row">
-                   <?php $count = 0;  ?>
-                   @foreach($places as $place)
-                       <div class="col-sm-4 col-xs-12">
-                           <div class="thumbnail deals">
-                               <img src="{{asset($place->avatar_place)}}" alt="deal-image">
-                               <a href="" class="pageLink"></a>
-                               <div class="caption" align="center">
-                                   <h4><a href="single-package-right-sidebar.html"
-                                          class="captionTitle">{{$place->name_place}}</a>
-                                   </h4>
-                                   <div class="expandDiv" align="justify">
-                                       <p>{!! $place->description_place !!}</p>
-                                   </div>
-                                   <div class="detailsInfo">
-                                       <ul class="list-inline detailsBtn">
-                                           <li><a href='booking-1.html' class="btn buttonTransparent">Ver más</a></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <?php $count++;  ?>
-                       @if($count == 6)
-                           @break
-                       @endif
-                   @endforeach
-               </div>
-               <div class="row">
-                   <div class="col-xs-12">
-                       <div class="btnArea">
-                           <a href="" class="btn buttonTransparent_">Ver todo</a>
-                       </div>
-                   </div>
-               </div>
-           </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="sectionTitle">
+                        <h2><span class="lightBg_">¿Dónde Ir?</span></h2>
+                        <p class="lightBg_">Ven y disfruta de un ambiente agradable en nuestros lugares.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php $count = 0;  ?>
+                @foreach($places as $place)
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="thumbnail deals">
+                            <img src="{{asset($place->avatar_place)}}" alt="deal-image">
+                            <a href="" class="pageLink"></a>
+                            <div class="caption" align="center">
+                                <h4><a href="single-package-right-sidebar.html"
+                                       class="captionTitle">{{$place->name_place}}</a>
+                                </h4>
+                                <div class="expandDiv" align="justify">
+                                    <p>{!! $place->description_place !!}</p>
+                                </div>
+                                <div class="detailsInfo">
+                                    <ul class="list-inline detailsBtn">
+                                        <li><a href='booking-1.html' class="btn buttonTransparent">Ver más</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $count++;  ?>
+                    @if($count == 6)
+                        @break
+                    @endif
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btnArea">
+                        <a href="" class="btn buttonTransparent_">Ver todo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
 
     <!-- TOP ACTIVITIES -->
-    <section class="mainContentSection packagesSection activities-bg" >
+    <section class="mainContentSection packagesSection ptb-100 activities-bg" id="activities">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -703,121 +703,104 @@
         </div>
     </section>
 
-    <!-- PROMOTION PARALLAX -->
-    <section class="promotionWrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="promotionTable">
-                        <div class="promotionTableInner">
-                            <div class="promotionInfo">
-                                <span>Winter Promotion</span>
-                                <h2>Greek Island Vacetion Tour</h2>
-                                <ul class="list-inline rating">
-                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                </ul>
-                                <p>$599 per person - 5 nights</p>
-                                <a href="single-package-right-sidebar.html" class="btn buttonCustomPrimary">View
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DESTINATIONS -->
-    <section class="whiteSection">
+    <!-- EVENTS -->
+    <section class="newsSection ptb-100 events-bg" id="events">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="sectionTitle">
-                        <h2><span>Our Destinations</span></h2>
-                        <p>Nullam vitae risus commodo arcu tincidunt ultricies</p>
+                        <h2><span class="lightBg_">Eventos</span></h2>
+                        <p class="lightBg_">Sé parte de nuestros eventos..</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="media destinations">
-                        <a class="media-left" href="destination-cities.html">
-                            <img class="media-object" src="img/home/destination.jpg" alt="Destination">
-                        </a>
-                        <div class="media-body">
-                            <h3 class="media-heading">Choose <br>Your Destination</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="clearfix">
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i>Asia</li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Aenean</a></li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Etiam</a></li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Donec</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i>Europe</li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Maecenas</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Cras
-                                            Sagittis</a></li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Vestibulum</a>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i>America</li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Morbi Sed</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Pellentesque</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Proin</a></li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i>Africa</li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Duis Eu</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Morbi Nisl</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Curabitur</a>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-minus" aria-hidden="true"></i>Australia</li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Vivamus</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Nibh Odio</a>
-                                    </li>
-                                    <li><a href="destination-single-city.html"><i class="fa fa-square"
-                                                                                  aria-hidden="true"></i>Dictum</a></li>
-                                </ul>
+                <?php $count = 0;  ?>
+                @foreach($events_ as $event)
+                    <div class="news col-sm-4 col-xs-12">
+                        <div class="ourPackage">
+                            <div class="ourPackageImg">
+                                <img class="img" src="{{asset($event->avatar_event)}}" alt="">
                             </div>
-                            <div class="media-btn">
-                                <a href="destination-cities.html" class="btn buttonTransparent">View All</a>
+                            <div class="ourPackageContent">
+                                <h4>{{$event->name_event}}</h4>
+                                <p>
+                                    <strong>Inicio: </strong><label>{{$event->start_event}}</label> <br>
+                                    <strong>Fin: </strong><label>{{$event->end_event}}</label>
+                                </p>
+                                <a href=""
+                                   class="btn buttonCustomPrimary">Leer Más</a>
                             </div>
                         </div>
+                    </div>
+                    <?php $count++;  ?>
+                    @if($count == 6)
+                        @break
+                    @endif
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btnArea">
+                        <a href="" class="btn buttonTransparent_">Ver más Eventos</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
+
+    <!-- LEGENDS -->
+    <section class="newsSection ptb-100 legends-bg" id="legends">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="sectionTitle">
+                        <h2><span class="lightBg_">Leyendas</span></h2>
+                        <p class="lightBg_">Conoce algunas de nuestras leyendas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php $count = 0;  ?>
+                @foreach($legends as $legend)
+                    <div class="col-xs-12">
+                        <div class="media packagesList">
+                            <a class="media-left fancybox-pop"
+                               href="{{asset($legend->avatar_legend)}}">
+                                <img class="media-object"
+                                     src="{{asset($legend->avatar_legend)}}" alt="Image">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="">{{$legend->title_legend}}</a>
+                                </h4>
+
+                                <div class="expandDiv_">
+                                    <p style="text-align: justify">{!! $legend->description_legend !!}</p>
+                                </div>
+                                <ul class="list-inline detailsBtn">
+                                    <li><a href="" class="btn buttonTransparent clearfix">Leer más</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $count++;  ?>
+                    @if($count == 6)
+                        @break
+                    @endif
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btnArea">
+                        <a href="" class="btn buttonTransparent_">Ver más Leyendas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 
     <!-- COUNTING PARALLAX -->
     <section class="countUpSection">
@@ -863,177 +846,7 @@
         </div>
     </section>
 
-    <!-- TOUR PACKAGES -->
-    <section class="whiteSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="sectionTitle">
-                        <h2><span>Our Packages</span></h2>
-                        <p>Ut facilisis facilisis metus quis semper</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="filter-container isotopeFilters">
-                        <ul class="list-inline filter">
-                            <li class="active"><a href="#" data-filter="*">All Places</a></li>
-                            <li><a href="#" data-filter=".asia">Asia</a></li>
-                            <li><a href="#" data-filter=".america">America</a></li>
-                            <li><a href="#" data-filter=".africa">Africa</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row isotopeContainer">
-                <div class="col-sm-4 isotopeSelector asia">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-1.jpg" alt="">
-                            <h4>Vestibulum Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$399</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>27 Jan, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-4 isotopeSelector america africa">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-2.jpg" alt="">
-                            <h4>Maecenas Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$599</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>09 Feb, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-4 isotopeSelector africa">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-3.jpg" alt="">
-                            <h4>Lobortis Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$299</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>14 Feb, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-4 isotopeSelector asia america">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-4.jpg" alt="">
-                            <h4>Leo Lacus Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$399</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>11 Jan, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-4 isotopeSelector america">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-5.jpg" alt="">
-                            <h4>Nullam Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$199</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>02 Feb, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-                <div class="col-sm-4 isotopeSelector africa asia">
-                    <article class="">
-                        <figure>
-                            <img src="img/home/packages/packages-6.jpg" alt="">
-                            <h4>Hendrerit Tour</h4>
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <a class="fancybox-pop" href="single-package-fullwidth.html">
-                                    <div class="overlayInfo">
-                                        <h5>from <span>$799</span></h5>
-                                        <p><i class="fa fa-calendar" aria-hidden="true"></i>26 Feb, 2017</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </figure>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- INQUIRY MODAL -->
-    <div class="modal fade bookingModal modalBook" id="inquiryModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Inquiry About Tour</h4>
-                </div>
-                <div class="modal-body">
-                    <form action="#">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="yourName" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="yourEmail" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn buttonCustomPrimary">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- FOOTER -->
     <!-- FOOTER -->
     <footer>
         <div class="footer clearfix">
@@ -1042,64 +855,74 @@
                     <div class="col-sm-3 col-xs-12">
                         <div class="footerContent">
                             <a href="index.html" class="footer-logo"><img src="img/logo-color-sm.png" alt="footer-logo"></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </p>
+                            <p style="text-align: justify;">Fue fundado en el año 1600 Antonio Clavijo, fue elevada a
+                                Parroquia el 29 de Mayo de
+                                1861 y el 17 de
+                                Septiembre de 1919 la Parroquia de Cusubamba pasa a pertenecer al Canton Salcedo en
+                                calidad de
+                                Parroquia Rural
+                                Cusubamba es una palabra Kichwa que traducido al español significa "Llano de
+                                gusanos".</p>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-12">
                         <div class="footerContent">
-                            <h5>contact us</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</p>
+                            <h5>contactenos</h5>
+                            <p style="text-align: justify;">Gobierno Autónomo Descentralizado Parroquial Rural de
+                                Cusubamba.</p>
                             <ul class="list-unstyled">
-                                <li><i class="fa fa-home" aria-hidden="true"></i>61 Park Street, Fifth Avenue, NY</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>[88] 657 524 332</li>
+                                <li><i class="fa fa-home" aria-hidden="true"></i>Se encuentra ubicada al oeste de San
+                                    Miguel de
+                                    Salcedo, a 19 km.
+                                </li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>03 22282-139</li>
                                 <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a
-                                        href="mailTo:info@star-travel.com">info@star-travel.com</a></li>
+                                        href="mailTo:info@star-travel.com">cusubmba@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-12">
                         <div class="footerContent imgGallery">
-                            <h5>Gallery</h5>
+                            <h5>Galeria</h5>
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-1.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-1.jpg" alt="image"></a>
+                                    <a class="fancybox-pop" href="img/footer/1.jpeg"><img src="img/footer/1.jpeg"
+                                                                                          alt="image"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-2.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-2.jpg" alt="image"></a>
+                                    <a class="fancybox-pop" href="img/footer/2.jpeg"><img src="img/footer/2.jpeg"
+                                                                                          alt="image"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-3.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-3.jpg" alt="image"></a>
+                                    <a class="fancybox-pop" href="img/footer/3.jpeg"><img src="img/footer/3.jpeg"
+                                                                                          alt="image"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-4.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-4.jpg" alt="image"></a>
+                                    <a class="fancybox-pop" href="img/footer/4.jpeg"><img src="img/footer/4.jpeg"
+                                                                                          alt="image"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-5.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-5.jpg" alt="image"></a>
+                                    <a class="fancybox-pop" href="img/footer/iglesia2.jpeg"><img
+                                            src="img/footer/iglesia2.jpeg"
+                                            alt="image"></a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a class="fancybox-pop" href="img/home/gallery/gallery-6.jpg"><img
-                                            src="img/home/gallery/thumb-gallery-6.jpg" alt="image"></a>
+                                    <a class="fancybox-pop"
+                                       href="img/footer/WhatsApp Image 2019-01-31 at 4.44.27 PM.jpeg"><img
+                                            src="img/footer/WhatsApp Image 2019-01-31 at 4.44.27 PM.jpeg"
+                                            alt="image"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-12">
                         <div class="footerContent">
-                            <h5>newsletter</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do. </p>
+                            <h5>redes sociales</h5>
+                            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do. </p>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter your email"
-                                       aria-describedby="basic-addon21">
-                                <span class="input-group-addon" id="basic-addon21"><i class="fa fa-long-arrow-right"
-                                                                                      aria-hidden="true"></i></span>
-                            </div>
+                              <input type="text" class="form-control" placeholder="Enter your email" aria-describedby="basic-addon21">
+                              <span class="input-group-addon" id="basic-addon21"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            </div>-->
                             <ul class="list-inline">
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -1116,17 +939,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-sm-push-6 col-xs-12">
-                        <ul class="list-inline">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
+                        <!-- <ul class="list-inline">
+                           <li><a href="#">Privacy Policy</a></li>
+                           <li><a href="#">About Us</a></li>
+                           <li><a href="#">Support</a></li>
+                           <li><a href="#">Blog</a></li>
+                         </ul>-->
                     </div>
                     <div class="col-sm-6 col-sm-pull-6 col-xs-12">
                         <div class="copyRightText">
-                            <p>Copyright © 2016. All Rights Reserved by <a target="_blank"
-                                                                           href="http://www.iamabdus.com/">Abdus</a>.
+                            <p>Copyright © 2018. All Rights Reserved by <a target="_blank" href="#">GADPR Cusubamba</a>.
                             </p>
                         </div>
                     </div>
@@ -1160,6 +982,12 @@
 
         $('div.expandDiv').expander({
             slicePoint: 250, //It is the number of characters at which the contents will be sliced into two parts.
+            widow: 2,
+            expandSpeed: 0, // It is the time in second to show and hide the content.
+            //userCollapseText: '' // Specify your desired word default is Less.
+        });
+        $('div.expandDiv_').expander({
+            slicePoint: 450, //It is the number of characters at which the contents will be sliced into two parts.
             widow: 2,
             expandSpeed: 0, // It is the time in second to show and hide the content.
             //userCollapseText: '' // Specify your desired word default is Less.

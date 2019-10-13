@@ -174,8 +174,30 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
-
-
+}
+.news-bg {
+    background: url("../img/home/bg/news-bg.jpg");
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+}
+.events-bg {
+    background: url("../img/home/bg/events-bg.jpg");
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+}
+.legends-bg {
+    background: url("../img/home/bg/legends-bg.jpg");
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
 }
 
 .sectionTitle h2 span.lightBg_ {
@@ -228,3 +250,4 @@ p.lightBg_{
     opacity: 1;
     outline: 0;
 }
+

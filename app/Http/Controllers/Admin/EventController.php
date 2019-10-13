@@ -161,7 +161,7 @@ class EventController extends Controller
 
         //image
         if ($request->file('avatar_event')) {
-            $path = Storage::disk('public')->put('temp\avatar_events', $request->file('avatar_event'));
+            $path = Storage::disk('public')->put('temp/avatar_events', $request->file('avatar_event'));
             $event->fill(['avatar_event' => $path])->save();
         }
         //return back();
